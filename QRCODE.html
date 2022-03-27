@@ -1,0 +1,145 @@
+<?php
+// create short variable names, also can use '$_REQUEST['name']'
+$no1 = $_POST['no1'];
+$A = $_POST['tran_num'];
+$B = $_POST['sparkqty'];
+?>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"  integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/88b5e1d983.js" crossorigin="anonymous"></script>
+    <title>QRCODE產生小工具</title>
+  </head>
+
+
+  <body>
+    <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-2 border-bottom">
+      <a href="#" title="目前沒有用" class="d-flex align-items-center mb-3 mb-md-auto me-md-auto text-dark text-decoration-none">
+        <i class="bi me-2 fa-solid fa-qrcode fa-xl"></i>
+        <span class="fs-4"> QRCODE 產出工具</span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"> <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">回首頁</button> </li>
+      </ul>
+    </header>
+  </div>
+
+    <h1 class="container "><i class="fa-solid fa-car-side"></i> 8F QRCODE快速續保使用</h1>
+    <h3 class="container ">請輸入續保單號＆交易序號</h3>
+
+<form class="container" onsubmit="post_data();return false;">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">續保單號</label>
+        <input type="text" class="form-control" id="no1" maxlength="14">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">交易序號</label>
+      <input type="tel" class="form-control" id="tran_num" maxlength="12">
+  </div>
+
+  <button id="gogo" class="btn btn-success">送出</button>
+</form>
+<br>
+<p class="container" id="c">...</p>
+
+<script>
+
+
+document.getElementById('gogo').onclick = function () {
+  if (no1.value == "" || tran_num.value == "") {
+           alert("請輸入完整資訊");
+           return false;
+       }
+  //button 使用getElementById (後面不用加點，直接套 id 名稱) 加上一個 onclick 事件，並執行 function 內容
+  var a = document.getElementById('no1').value;
+  var b = document.getElementById('tran_num').value;
+  var c="https://tb2c.518fb.com/ecpay/car-pay/payment.do?tran_num="+b+"&ispoly=A1&policy_num="+a+"unionCode=B2C_QRCODE&unionMenu=B2C_renewN&unionSource=BHK"
+  var qr="https://chart.googleapis.com/chart?cht=qr&chl="+c+"&chs=180x180"
+  //命名變數為抓取 input 裡面的數值，所以要用 value
+  //alert(a);
+  //alert(b);
+  //alert(c);
+  //使用 alert 做驗證
+  document.getElementById('c').textContent = c
+  document.getElementById('qrc').href=c
+  document.getElementById('qr').src= qr
+  return false;
+  }
+
+
+  var qr = document.getElementById('qr');
+  function changeImage(){
+    img.src = 'qr';
+    return false;
+    }
+
+
+//var c="<a href=https://b2c.518fb.com/ecpay/car-pay/payment.do?tran_num="+b+"&ispoly=A1&policy_num="+a+"unionCode=B2C_QRCODE&unionMenu=B2C_renewN&unionSource=ZZFSO"
+
+//https://b2c.518fb.com/ecpay/car-pay/payment.do?tran_num=53112740042400&ispoly=A1&policy_num=0321KMZ0001711&unionCode=B2C_QRCODE&unionMenu=B2C_renewN&unionSource=ZZFSO
+</script>
+
+
+
+
+<!--QRCODE 產出-->
+
+<div class="container">
+<a href="#" target="_blank" id=qrc>
+<img id=qr src="https://chart.googleapis.com/chart?cht=qr&chl=google.com&chs=180x180">
+</img></a>
+</div>
+
+
+<!-- 其他功能開發中彈窗提示 -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">偷偷跟你說...</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        可能有其他功能開發中（但不知道是什麼時候了)
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ByeBye~</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+    <div class="container ">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="https://www.fubon.com/insurance/home/" title="富邦產險官網" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        <i class="fa-solid fa-car-side"></i>
+      </a>
+      <span class="text-muted"> 2022 Yee Inc</span>
+    </div>
+
+  </footer>
+</div>
+
+  </body>
+</html>
