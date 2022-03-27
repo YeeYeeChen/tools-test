@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>產品外殼編號紀錄</title>
+  </head>
+  <body>
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      編號記錄表
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarNav">
+       <ul class="navbar-nav">
+         <li class="nav-item active">
+           <a class="nav-link" href="https://yee.1mb.site/defective.html">切換至--不良品記錄表 <span class="sr-only">(current)</span></a>
+         </li>
+       </div>
+  </nav>
+  <br>
+
+    <!-- 跳轉回到一開始輸入頁面 -->
+<iframe name="iframe_redirect" id="iframe_redirect" style="display:none;" onload="if(typeof sent_redirect!='undefined'){window.location='https://yee.1mb.site/';}"></iframe>
+
+    <!-- 表格內容-->
+    <!-- 傳送到google表單去～ -->
+  <form class="container" onsubmit="sent_redirect=true" target="iframe_redirect" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScbqudjAezc-S3uyHxhK3AHiQo2SJC7nGsN_tMRDxXAhJ4n3w/formResponse" method="post">
+  <div class="form-group">
+    <label for="exampleInputEmail1"><strong>請輸入編號末四碼</strong></label>
+      <!-- 輸入匡 -->
+    <input type="tel" class="form-control" name="entry.1465621866" value="" pattern="\d{4,4}" maxlength="4">
+  </div>
+
+      <!-- 送出按鈕-->
+  <button type="submit" class="btn btn-info" name="button" value="submit" id="button" >送出</button>
+</form>
+
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </body>
+  </html>
