@@ -62,7 +62,7 @@ document.getElementById('gogo').onclick = function () {
   //button 使用getElementById (後面不用加點，直接套 id 名稱) 加上一個 onclick 事件，並執行 function 內容
   var a = document.getElementById('no1').value;
   var b = document.getElementById('tran_num').value;
-  var c="https://tb2c.518fb.com/ecpay/car-pay/payment.do?tran_num="+b+"&ispoly=A1&policy_num="+a+"unionCode=B2C_QRCODE&unionMenu=B2C_renewN&unionSource=BHK"
+  var c="https://tb2c.518fb.com/ecpay/car-pay/payment.do?tran_num="+b+"&ispoly=A1&policy_num="+a+"&unionCode=B2C_QRCODE&unionMenu=B2C_renewN&unionSource=BHK"
   var qr="https://chart.googleapis.com/chart?cht=qr&chl="+c+"&chs=180x180"
   //命名變數為抓取 input 裡面的數值，所以要用 value
   //alert(a);
