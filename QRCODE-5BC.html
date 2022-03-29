@@ -33,13 +33,13 @@ $B = $_POST['sparkqty'];
     </header>
   </div>
 
-    <h1 class="container "><i class="fa-solid fa-house-chimney-user"></i> 8C 個人險QRCODE繳費使用</h1>
+    <h1 class="container "><i class="fa-solid fa-house-chimney-user"></i> 5B/C 二次行銷QRCODE繳費使用</h1>
     <h3 class="container ">請輸入交易序號＆金額</h3>
 
 <form class="container" onsubmit="post_data();return false;">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">交易序號</label>
-        <input type="text" class="form-control" id="tran_num" maxlength="12">
+        <input type="tel" class="form-control" id="tran_num" maxlength="12">
     </div>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">繳費金額</label>
@@ -62,7 +62,7 @@ document.getElementById('gogo').onclick = function () {
   //button 使用getElementById (後面不用加點，直接套 id 名稱) 加上一個 onclick 事件，並執行 function 內容
   var a = document.getElementById('price').value;
   var b = document.getElementById('tran_num').value;
-  var c="https://tb2c.518fb.com/ecpay/creditcard/authZ/login.do?account="+b+"&amt="+a+"&source=8c&prj=D"
+  var c="https://tb2c.518fb.com/ecpay/creditcard5BC/authZ/login.do?account="+b+"&amt="+a+"&source=5B&prj=B"
   var qr="https://chart.googleapis.com/chart?cht=qr&chl="+c+"&chs=180x180"
 
   //命名變數為抓取 input 裡面的數值，所以要用 value
