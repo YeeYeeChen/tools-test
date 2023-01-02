@@ -9,12 +9,15 @@ $B = $_POST['sparkqty'];
 <html lang="tw">
   <head>
     <!-- Required meta tags -->
+    <meta name="robots" content="noindex">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"  integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/88b5e1d983.js" crossorigin="anonymous"></script>
+    <!--qrcode 產出用js-->
+    <script src="./qrcode.min.js"></script>
     <title>QRCODE產生小工具</title>
   </head>
 
@@ -22,9 +25,9 @@ $B = $_POST['sparkqty'];
   <body>
     <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-2 border-bottom">
-      <a href="#" title="目前沒有用" class="d-flex align-items-center mb-3 mb-md-auto me-md-auto text-dark text-decoration-none">
+      <a href="./QRCODE.html" title="點我切換到8F!!" class="d-flex align-items-center mb-3 mb-md-auto me-md-auto text-dark text-decoration-none">
         <i class="bi me-2 fa-solid fa-qrcode fa-xl"></i>
-        <span class="fs-4"> QRCODE 產出工具</span>
+        <span class="fs-4"> 上班用小工具（QRCODE產出篇）</span>
       </a>
 
       <ul class="nav nav-pills">
@@ -47,15 +50,19 @@ $B = $_POST['sparkqty'];
   </div>
 
   <button id="gogo" class="btn btn-warning">送出</button>
+  <!--清除按鈕(直接重新整理最快><)-->
+  <button id="clean" onclick="window.location.reload()" class="btn btn-secondary">清除資料</button>
 </form>
 <br>
 <p class="container" id="c">...</p>
 <br>
-<p class="container">QRCODE 是壞的不能掃描但可以點XD</p>
+<p class="container">現在所產出的QRCODE是可以掃描，也可以點的喔XD</p>
+
+
+
 
 <script>
-
-
+  //欄位是否有輸入資料檢核
 document.getElementById('gogo').onclick = function () {
   if (price.value == "" || tran_num.value == "") {
            alert("請輸入完整資訊");
@@ -65,25 +72,18 @@ document.getElementById('gogo').onclick = function () {
   var a = document.getElementById('price').value;
   var b = document.getElementById('tran_num').value;
   var c="https://tb2c.518fb.com/ecpay/creditcard/authZ/login.do?account="+b+"&amt="+a+"&source=8c&prj=D"
-  var qr="https://chart.googleapis.com/chart?cht=qr&chl="+c+"&chs=180x180"
 
   //命名變數為抓取 input 裡面的數值，所以要用 value
   //alert(a);
   //alert(b);
   //alert(c);
   //使用 alert 做驗證
+  qrcode.innerHTML = ""; // 删除舊的qrcode
   document.getElementById('c').textContent = c
-  document.getElementById('qrc').href=c
-  document.getElementById('qr').src= qr
+  document.getElementById('qrcode').href=c
+  new QRCode(document.getElementById('qrcode'), c); //產生新的qrcode
   return false;
   }
-
-
-  var qr = document.getElementById('qr');
-  function changeImage(){
-    img.src = 'qr';
-    return false;
-    }
 
 
 //var c="<a href=https://b2c.518fb.com/ecpay/car-pay/payment.do?tran_num="+b+"&ispoly=A1&policy_num="+a+"unionCode=B2C_QRCODE&unionMenu=B2C_renewN&unionSource=ZZFSO"
@@ -95,12 +95,9 @@ document.getElementById('gogo').onclick = function () {
 
 
 <!--QRCODE 產出-->
-
 <div class="container">
-<a href="#" target="_blank" id=qrc>
-<img id=qr src="https://chart.googleapis.com/chart?cht=qr&chl=google.com&chs=180x180">
-</img></a>
-</div>
+<a href="#" target="_blank" rel="noreferrer noopener" id=qrcode>
+</a></div>
 
 
 <!-- 其他功能開發中彈窗提示 -->
@@ -108,11 +105,11 @@ document.getElementById('gogo').onclick = function () {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">偷偷跟你說...</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">不偷偷跟你說...</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        可能有其他功能開發中（但不知道是什麼時候了)
+        可能有其他功能開發中（可能沒有的機率比較高XD)
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ByeBye~</button>
@@ -138,7 +135,7 @@ document.getElementById('gogo').onclick = function () {
       <a href="https://www.fubon.com/insurance/home/" title="富邦產險官網" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
         <i class="fa-solid fa-car-side"></i>
       </a>
-      <span class="text-muted"> 2022 Yee Inc</span>
+      <span class="text-muted"> 2023 Yee Inc</span>
     </div>
 
   </footer>
