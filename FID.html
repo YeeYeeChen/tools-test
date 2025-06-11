@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>身分證 &amp; 外來人口統一證號產生 / 檢核工具</title>
+
+<!-- Bootstrap 5（CDN）-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+textarea{font-family:monospace}
+/* 檢核結果：整行底色 */
+.line-pass{background:#d1e7dd;color:#0f5132;padding:2px 6px;border-radius:4px;margin-bottom:2px}
+.line-fail{background:#f8d7da;color:#842029;padding:2px 6px;border-radius:4px;margin-bottom:2px}
+</style>
+</head>
+
+<body class="bg-light">
+<div class="container py-4">
+
+  <h1 class="h4 mb-4">身分證號 &amp; 外來人口統一證號 批次產生／檢核 <small class="text-muted">(離線版)</small></h1>
+
+  <!-- ======== Ａ. 國民身分證號產生 ======== -->
+  <section class="mb-5">
+    <h2 class="h6 mb-3">A. 國民身分證號 &nbsp;<span class="text-muted">(Letter + 1/2 + 7位流水 + 檢查碼)</span></h2>
+
+    <div class="row g-3 align-items-end">
+      <div class="col-auto">
+        <label class="form-label mb-0" for="area">縣市</label>
+        <select id="area" class="form-select"></select>
+      </div>
+
+      <div class="col-auto">
+        <label class="form-label mb-0 d-block">性別</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" value="1" id="g1" checked>
+          <label class="form-check-label" for="g1">男(1)</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" value="2" id="g2">
+          <label class="form-check-label" for="g2">女(2)</label>
+        </div>
+      </div>
+
+      <div class="col-auto">
+        <label class="form-label mb-0" for="count">筆數</label>
+        <input id="count" type="number" min="1" max="5000" value="10"
+               class="form-control" style="width:6rem">
+      </div>
+
+      <div class="col-auto">
+        <button id="genBtn" class="btn btn-primary">產生</button>
+      </div>
+      <div class="col-auto">
+        <button id="copyBtn" class="btn btn-outline-secondary">複製結果</button>
+      </div>
+    </div>
+
+    <textarea id="txt" class="form-control mt-3" rows="8" readonly
+      placeholder="產生結果會出現在這裡，方便一次複製"></textarea>
+  </section>
+
+  <!-- ======== Ｂ. 外來人口「新式統一證號」產生（預設收合） ======== -->
+  <button class="btn btn-link px-0 mb-2" data-bs-toggle="collapse" data-bs-target="#foreignBlock"
+          aria-expanded="false" aria-controls="foreignBlock">
+    B. 外來人口新式統一證號產生 ▼
+  </button>
+
+  <section id="foreignBlock" class="collapse mb-5">
+    <div class="p-4 bg-white border rounded">
+      <h2 class="h6 mb-3">外來人口統一證號 &nbsp;<span class="text-muted">(Letter + 8/9 + 身分碼 + 6位流水 + 檢查碼)</span></h2>
+
+      <div class="row g-3 align-items-end">
+        <!-- 縣市 -->
+        <div class="col-auto">
+          <label class="form-label mb-0" for="fArea">縣市</label>
+          <select id="fArea" class="form-select"></select>
+        </div>
+        <!-- 性別 8/9 -->
+        <div class="col-auto">
+          <label class="form-label mb-0 d-block">性別碼</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="fGender" value="8" id="fg1" checked>
+            <label class="form-check-label" for="fg1">男(8)</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="fGender" value="9" id="fg2">
+            <label class="form-check-label" for="fg2">女(9)</label>
+          </div>
+        </div>
+        <!-- 身分碼 0-9 -->
+        <div class="col-auto">
+          <label class="form-label mb-0" for="fIdCode">身分碼</label>
+          <select id="fIdCode" class="form-select">
+            <option value="0">0: 外國/無國籍</option>
+            <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+            <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+            <option value="7">7: 無戶籍國民</option>
+            <option value="8">8: 港澳居民</option>
+            <option value="9">9: 大陸地區人民</option>
+          </select>
+        </div>
+        <!-- 筆數 -->
+        <div class="col-auto">
+          <label class="form-label mb-0" for="fCount">筆數</label>
+          <input id="fCount" type="number" min="1" max="5000" value="10"
+                 class="form-control" style="width:6rem">
+        </div>
+        <!-- 按鈕 -->
+        <div class="col-auto">
+          <button id="fGenBtn" class="btn btn-primary">產生</button>
+        </div>
+        <div class="col-auto">
+          <button id="fCopyBtn" class="btn btn-outline-secondary">複製結果</button>
+        </div>
+      </div>
+
+      <textarea id="fTxt" class="form-control mt-3" rows="8" readonly
+        placeholder="產生結果會出現在這裡，方便一次複製"></textarea>
+    </div>
+  </section>
+
+  <!-- ======== Ｃ. 檢核工具（可收合） ======== -->
+  <button class="btn btn-link text-info px-0 mb-2" data-bs-toggle="collapse" data-bs-target="#verifyBlock"
+          aria-expanded="false" aria-controls="verifyBlock">
+    C. 檢核工具 ▼
+  </button>
+
+  <section id="verifyBlock" class="collapse">
+    <div class="p-4 bg-white border rounded">
+      <h2 class="h6 mb-3">單筆 / 多筆檢核</h2>
+      <textarea id="verInput" class="form-control mb-2" rows="4"
+        placeholder="輸入一筆或多筆（換行分隔）身分證／統一證號…"></textarea>
+      <button id="checkBtn" class="btn btn-success">檢核</button>
+      <div id="verResult" class="border rounded p-3 mt-3 bg-light" style="min-height:48px"></div>
+    </div>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ---------- 共同資料：字母 ➜ 代碼表 ---------- */
+const areaCode={A:10,B:11,C:12,D:13,E:14,F:15,G:16,H:17,I:34,J:18,K:19,L:20,M:21,N:22,O:35,
+P:23,Q:24,R:25,S:26,T:27,U:28,V:29,W:32,X:30,Y:31,Z:33};
+const areaName={A:"台北市",B:"台中市",C:"基隆市",D:"台南市",E:"高雄市",F:"新北市",G:"宜蘭縣",
+H:"桃園市",I:"嘉義市",J:"新竹縣",K:"苗栗縣",L:"台中縣",M:"南投縣",N:"彰化縣",O:"新竹市",
+P:"雲林縣",Q:"嘉義縣",R:"台南縣",S:"高雄縣",T:"屏東縣",U:"花蓮縣",V:"台東縣",W:"金門縣",
+X:"澎湖縣",Y:"陽明山",Z:"連江縣"};
+/* 動態注入下拉（國民 + 外來人口共用） */
+function fillAreaSelect(selId){
+  const sel=document.getElementById(selId);
+  Object.keys(areaCode).forEach(l=>{
+    sel.insertAdjacentHTML('beforeend',`<option value="${l}">${l} ${areaName[l]}</option>`);
+  });
+}
+fillAreaSelect('area');
+fillAreaSelect('fArea');
+
+/* ---------- 檢查碼計算 ---------- */
+function calcCheckDigit(l, bodyDigits){          // bodyDigits 長度 8
+  const two=String(areaCode[l]).padStart(2,'0').split('').map(Number); // 兩位
+  const w=[1,9,8,7,6,5,4,3,2,1];                 // 長度10
+  const sum=[...two,...bodyDigits].reduce((t,v,i)=>t+v*w[i],0);
+  return (10-sum%10)%10;
+}
+const rand=n=>Math.floor(Math.random()*n);
+
+/* ---------- A. 國民身分證號產生 ---------- */
+genBtn.onclick=()=>{
+  const l=area.value;
+  const g=document.querySelector('input[name="gender"]:checked').value;
+  const n=Math.min(parseInt(count.value)||1,5000);
+  const out=[];
+  for(let i=0;i<n;i++){
+    const body=[+g];
+    for(let j=0;j<7;j++) body.push(rand(10));   // 7位流水
+    const chk=calcCheckDigit(l,body);
+    out.push(l+body.join('')+chk);
+  }
+  txt.value=out.join('\n');
+};
+/* 複製 A */
+copyBtn.onclick=()=>copyToClipboard(txt,copyBtn);
+
+/* ---------- B. 外來人口新式統一證號產生 ---------- */
+fGenBtn.onclick=()=>{
+  const l=fArea.value;
+  const g=document.querySelector('input[name="fGender"]:checked').value; // 8/9
+  const idCode=document.getElementById('fIdCode').value;                // 0-9
+  const n=Math.min(parseInt(fCount.value)||1,5000);
+  const out=[];
+  for(let i=0;i<n;i++){
+    const body=[+g, +idCode];        // 性別碼 + 身分碼
+    for(let j=0;j<6;j++) body.push(rand(10)); // 6位流水
+    const chk=calcCheckDigit(l,body);
+    out.push(l+body.join('')+chk);
+  }
+  fTxt.value=out.join('\n');
+};
+/* 複製 B */
+fCopyBtn.onclick=()=>copyToClipboard(fTxt,fCopyBtn);
+
+/* ---------- 共同複製函式 ---------- */
+function copyToClipboard(textarea,btn){
+  if(!textarea.value.trim()){alert('尚無產生內容！');return;}
+  navigator.clipboard.writeText(textarea.value).then(()=>{
+    btn.classList.replace('btn-outline-secondary','btn-success');
+    const orig=btn.textContent;
+    btn.textContent='已複製！';
+    setTimeout(()=>{btn.classList.replace('btn-success','btn-outline-secondary');btn.textContent=orig;},1200);
+  }).catch(()=>alert('瀏覽器無法自動複製，請手動全選'));
+}
+
+/* ---------- C. 檢核工具 ---------- */
+function verify(id){
+  id=id.trim().toUpperCase();
+  if(!/^[A-Z][1289]\d{8}$/.test(id)) return false;   // 1/2/8/9 開頭
+  const l=id[0], digits=id.slice(1).split('').map(Number);
+  return calcCheckDigit(l,digits.slice(0,8))===digits[8];
+}
+checkBtn.onclick=()=>{
+  const lines=verInput.value.split(/\r?\n/).filter(s=>s.trim());
+  if(!lines.length){alert('請先輸入要驗證的字號！');return;}
+  verResult.innerHTML=lines.map(s=>{
+    const ok=verify(s);
+    return `<div class="${ok?'line-pass':'line-fail'}">${s}</div>`;
+  }).join('');
+};
+</script>
+</body>
+</html>
