@@ -8,25 +8,22 @@
   />
   <title>春日山海之旅</title>
 
-  <!-- 支援亮/暗色系 -->
   <meta name="color-scheme" content="light dark" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="生日旅行" />
   <meta name="theme-color" id="theme-color-meta" content="#3776ab" />
 
-  <!-- 避免初始載入閃白/閃黑 -->
   <script>
     (function () {
       const THEME_KEY = "theme-preference";
-      const saved = localStorage.getItem(THEME_KEY) || "system";
+      const saved = localStorage.getItem(THEME_KEY);
       const prefersDark =
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-      const resolved = saved === "system" ? (prefersDark ? "dark" : "light") : saved;
+      const resolved = saved ? saved : (prefersDark ? "dark" : "light");
       document.documentElement.setAttribute("data-theme", resolved);
-      document.documentElement.setAttribute("data-theme-preference", saved);
     })();
   </script>
 
@@ -122,14 +119,8 @@
       }
     }
 
-    .hide-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .hide-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
     .timeline-line {
       position: absolute;
@@ -156,31 +147,6 @@
         background-color 0.25s ease,
         border-color 0.25s ease,
         box-shadow 0.25s ease;
-    }
-
-    .subtle-surface {
-      background-color: var(--surface-3);
-      transition: background-color 0.25s ease;
-    }
-
-    .text-soft {
-      color: var(--text-soft);
-    }
-
-    .theme-chip {
-      background: var(--theme-btn-bg);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(8px);
-      transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .theme-chip:hover {
-      background: var(--theme-btn-hover);
-    }
-
-    .theme-chip:active {
-      transform: scale(0.98);
     }
 
     .top-nav {
@@ -217,6 +183,22 @@
 
     .primary-white-btn:active {
       transform: scale(0.995);
+    }
+
+    .theme-chip {
+      background: var(--theme-btn-bg);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .theme-chip:hover {
+      background: var(--theme-btn-hover);
+    }
+
+    .theme-chip:active {
+      transform: scale(0.98);
     }
 
     .day-tab {
@@ -256,21 +238,9 @@
       border-left: 1px solid var(--border);
     }
 
-    .theme-mode-badge {
-      font-size: 11px;
-      opacity: 0.92;
-      letter-spacing: 0.02em;
-    }
-
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -285,33 +255,15 @@
           <span>春日山海之旅</span>
         </h1>
 
-        <div class="flex flex-col items-end gap-2">
-          <div class="flex items-center gap-2">
-            <button
-              id="theme-toggle-btn"
-              type="button"
-              class="theme-chip inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold"
-              aria-label="切換亮色或暗色主題"
-            >
-              <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
-              <span id="theme-toggle-text">切換主題</span>
-            </button>
-
-            <button
-              id="theme-system-btn"
-              type="button"
-              class="theme-chip inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold"
-              aria-label="恢復為跟隨系統主題"
-            >
-              <span aria-hidden="true">🌓</span>
-              <span>跟隨系統</span>
-            </button>
-          </div>
-
-          <div id="theme-mode-badge" class="theme-mode-badge text-white/90">
-            目前：跟隨系統
-          </div>
-        </div>
+        <button
+          id="theme-toggle-btn"
+          type="button"
+          class="theme-chip inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold"
+          aria-label="切換亮色或暗色主題"
+        >
+          <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <span id="theme-toggle-text">主題</span>
+        </button>
       </div>
 
       <div class="grid grid-cols-4 gap-3 mb-4">
@@ -388,7 +340,6 @@
   </div>
 
   <script>
-    // 行程資料
     const tripData = [
       {
         dayLabel: "Day 1",
@@ -406,7 +357,11 @@
         title: "富士山自駕",
         events: [
           { time: "10:30", title: "新宿站 (搭乘富士回遊號)", location: "新宿站" },
-          { time: "12:45", title: "河口湖車站 (取車)", location: "河口湖車站" },
+          {
+            time: "12:45",
+            title: "河口湖車站 (取車)",
+            location: "Nippon Rent-A-Car - Kawaguchiko Outlet ニッポンレンタカー 河口湖駅前 営業所"
+          },
           { time: "13:15", title: "不動茶屋 東戀路店", location: "ほうとう不動 東恋路店" },
           { time: "14:30", title: "大石公園 & 西湖療癒之里根場", location: "大石公園" },
           { time: "18:00", title: "山中湖聖丹斯度假村", location: "山中湖聖丹斯度假村" }
@@ -454,83 +409,60 @@
     const tabContainer = document.getElementById("tab-container");
     const itineraryContainer = document.getElementById("itinerary-container");
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
-    const themeSystemBtn = document.getElementById("theme-system-btn");
     const themeToggleText = document.getElementById("theme-toggle-text");
     const themeToggleIcon = document.getElementById("theme-toggle-icon");
-    const themeModeBadge = document.getElementById("theme-mode-badge");
     const themeColorMeta = document.getElementById("theme-color-meta");
     const gmailBtn = document.getElementById("gmail-app-btn");
     const appHeader = document.getElementById("app-header");
 
-    function getSavedThemePreference() {
-      return localStorage.getItem(THEME_KEY) || "system";
+    function getSavedTheme() {
+      return localStorage.getItem(THEME_KEY);
     }
 
-    function resolveTheme(preference) {
-      if (preference === "system") {
-        return themeMedia.matches ? "dark" : "light";
-      }
-      return preference;
+    function getResolvedTheme() {
+      const saved = getSavedTheme();
+      if (saved === "dark" || saved === "light") return saved;
+      return themeMedia.matches ? "dark" : "light";
     }
 
-    function updateThemeColorMeta(resolvedTheme) {
-      const color = resolvedTheme === "dark" ? "#1e3a5f" : "#3776ab";
-      themeColorMeta.setAttribute("content", color);
-    }
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.classList.toggle("dark", theme === "dark");
+      document.documentElement.classList.toggle("light", theme === "light");
 
-    function updateThemeUI(preference, resolvedTheme) {
-      document.documentElement.setAttribute("data-theme", resolvedTheme);
-      document.documentElement.setAttribute("data-theme-preference", preference);
-      document.documentElement.classList.toggle("dark", resolvedTheme === "dark");
-      document.documentElement.classList.toggle("light", resolvedTheme === "light");
+      themeColorMeta.setAttribute("content", theme === "dark" ? "#1e3a5f" : "#3776ab");
 
-      if (resolvedTheme === "dark") {
+      if (theme === "dark") {
         themeToggleIcon.textContent = "☀️";
-        themeToggleText.textContent = "切到亮色";
+        themeToggleText.textContent = "亮色";
       } else {
         themeToggleIcon.textContent = "🌙";
-        themeToggleText.textContent = "切到暗色";
+        themeToggleText.textContent = "暗色";
       }
-
-      themeModeBadge.textContent =
-        preference === "system"
-          ? `目前：跟隨系統（${resolvedTheme === "dark" ? "暗色" : "亮色"}）`
-          : `目前：手動${resolvedTheme === "dark" ? "暗色" : "亮色"}`;
-
-      updateThemeColorMeta(resolvedTheme);
     }
 
-    function applyTheme(preference) {
-      const resolvedTheme = resolveTheme(preference);
-      updateThemeUI(preference, resolvedTheme);
-      renderTabs();
-      renderItinerary(currentDayIndex);
-    }
+    function initTheme() {
+      applyTheme(getResolvedTheme());
 
-    function toggleThemeManually() {
-      const currentPreference = getSavedThemePreference();
-      const currentResolved = resolveTheme(currentPreference);
-      const nextTheme = currentResolved === "dark" ? "light" : "dark";
-      localStorage.setItem(THEME_KEY, nextTheme);
-      applyTheme(nextTheme);
-    }
-
-    function resetThemeToSystem() {
-      localStorage.setItem(THEME_KEY, "system");
-      applyTheme("system");
-    }
-
-    function listenSystemThemeChange() {
-      const handler = () => {
-        if (getSavedThemePreference() === "system") {
-          applyTheme("system");
-        }
-      };
+      themeToggleBtn.addEventListener("click", () => {
+        const current = getResolvedTheme();
+        const next = current === "dark" ? "light" : "dark";
+        localStorage.setItem(THEME_KEY, next);
+        applyTheme(next);
+      });
 
       if (typeof themeMedia.addEventListener === "function") {
-        themeMedia.addEventListener("change", handler);
+        themeMedia.addEventListener("change", () => {
+          if (!getSavedTheme()) {
+            applyTheme(getResolvedTheme());
+          }
+        });
       } else if (typeof themeMedia.addListener === "function") {
-        themeMedia.addListener(handler);
+        themeMedia.addListener(() => {
+          if (!getSavedTheme()) {
+            applyTheme(getResolvedTheme());
+          }
+        });
       }
     }
 
@@ -593,8 +525,7 @@
         card.style.animation = `fadeInUp 0.4s ease forwards ${idx * 0.08}s`;
 
         const dotColor = idx === 0 ? "var(--accent)" : "var(--header-bg)";
-        const ringStyle =
-          idx === 0 ? "box-shadow: 0 0 0 4px var(--accent-soft);" : "";
+        const ringStyle = idx === 0 ? "box-shadow: 0 0 0 4px var(--accent-soft);" : "";
 
         card.innerHTML = `
           <div
@@ -665,39 +596,6 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    // Gmail App：iOS 先嘗試 app scheme，失敗再 fallback 到網頁
-    function openUrlWithFallback(appUrl, webUrl, timeout = 900) {
-      let pageHidden = false;
-
-      const onHide = () => {
-        pageHidden = true;
-        cleanup();
-      };
-
-      const cleanup = () => {
-        document.removeEventListener("visibilitychange", handleVisibility);
-        window.removeEventListener("pagehide", onHide);
-      };
-
-      const handleVisibility = () => {
-        if (document.visibilityState === "hidden") {
-          onHide();
-        }
-      };
-
-      document.addEventListener("visibilitychange", handleVisibility);
-      window.addEventListener("pagehide", onHide);
-
-      setTimeout(() => {
-        cleanup();
-        if (!pageHidden) {
-          window.location.href = webUrl;
-        }
-      }, timeout);
-
-      window.location.href = appUrl;
-    }
-
     function openGmailApp() {
       const ua = navigator.userAgent || "";
       const isIOS =
@@ -705,32 +603,18 @@
         (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
       const isAndroid = /Android/i.test(ua);
 
-      const gmailWebInbox = "https://mail.google.com/mail/u/0/#inbox";
-
       if (isIOS) {
-        // iOS Gmail App 自訂 scheme
-        openUrlWithFallback("googlegmail://", gmailWebInbox);
+        // iPhone 上只直接開 Gmail App，不做 fallback，避免回來時又跳網頁版
+        window.location.href = "googlegmail://";
         return;
       }
 
       if (isAndroid) {
-        // Android 用 intent 先嘗試 Gmail App，再退回 web
-        openUrlWithFallback(
-          "intent://mail.google.com/#Intent;scheme=https;package=com.google.android.gm;end",
-          gmailWebInbox
-        );
+        window.location.href = "intent://mail.google.com/#Intent;scheme=https;package=com.google.android.gm;end";
         return;
       }
 
-      window.open(gmailWebInbox, "_blank", "noopener,noreferrer");
-    }
-
-    function initTheme() {
-      applyTheme(getSavedThemePreference());
-      listenSystemThemeChange();
-
-      themeToggleBtn.addEventListener("click", toggleThemeManually);
-      themeSystemBtn.addEventListener("click", resetThemeToSystem);
+      window.open("https://mail.google.com/mail/u/0/#inbox", "_blank", "noopener,noreferrer");
     }
 
     function initApp() {
@@ -756,13 +640,11 @@
   </script>
 
   <script>
-    // 你原本的動態 icon 先保留
     (function generateAppIcon() {
       const canvas = document.createElement("canvas");
       canvas.width = 512;
       canvas.height = 512;
       const ctx = canvas.getContext("2d");
-
       if (!ctx) return;
 
       ctx.fillStyle = "#f8f9fa";
