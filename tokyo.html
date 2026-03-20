@@ -16,14 +16,19 @@
 
   <script>
     (function () {
-      const THEME_KEY = "theme-preference";
-      const saved = localStorage.getItem(THEME_KEY);
+      const THEME_MODE_KEY = "theme-mode";
+      const savedMode = localStorage.getItem(THEME_MODE_KEY) || "system";
       const prefersDark =
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-      const resolved = saved ? saved : (prefersDark ? "dark" : "light");
-      document.documentElement.setAttribute("data-theme", resolved);
+      const resolvedTheme =
+        savedMode === "system" ? (prefersDark ? "dark" : "light") : savedMode;
+
+      document.documentElement.setAttribute("data-theme-mode", savedMode);
+      document.documentElement.setAttribute("data-theme", resolvedTheme);
+      document.documentElement.classList.toggle("dark", resolvedTheme === "dark");
+      document.documentElement.classList.toggle("light", resolvedTheme === "light");
     })();
   </script>
 
@@ -63,6 +68,8 @@
       --nav-top: 0px;
       --theme-btn-bg: rgba(255, 255, 255, 0.12);
       --theme-btn-hover: rgba(255, 255, 255, 0.20);
+      --header-panel-bg: rgba(255, 255, 255, 0.14);
+      --header-panel-border: rgba(255, 255, 255, 0.12);
     }
 
     html[data-theme="dark"] {
@@ -83,6 +90,8 @@
       --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
       --theme-btn-bg: rgba(255, 255, 255, 0.08);
       --theme-btn-hover: rgba(255, 255, 255, 0.14);
+      --header-panel-bg: rgba(255, 255, 255, 0.08);
+      --header-panel-border: rgba(255, 255, 255, 0.10);
     }
 
     html.dark {
@@ -119,8 +128,14 @@
       }
     }
 
-    .hide-scrollbar::-webkit-scrollbar { display: none; }
-    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
     .timeline-line {
       position: absolute;
@@ -171,20 +186,6 @@
       transform: scale(0.98);
     }
 
-    .primary-white-btn {
-      background-color: #fff;
-      color: #2c5e8a;
-      transition: background-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .primary-white-btn:hover {
-      background-color: #f3f4f6;
-    }
-
-    .primary-white-btn:active {
-      transform: scale(0.995);
-    }
-
     .theme-chip {
       background: var(--theme-btn-bg);
       color: #fff;
@@ -199,6 +200,12 @@
 
     .theme-chip:active {
       transform: scale(0.98);
+    }
+
+    .header-weather {
+      background: var(--header-panel-bg);
+      border: 1px solid var(--header-panel-border);
+      backdrop-filter: blur(8px);
     }
 
     .day-tab {
@@ -231,16 +238,26 @@
 
     .event-actions {
       border-top: 1px solid var(--border);
-      background-color: color-mix(in srgb, var(--surface-3) 85%, transparent);
+      background-color: var(--surface-3);
     }
 
     .event-actions a + a {
       border-left: 1px solid var(--border);
     }
 
+    .text-soft {
+      color: var(--text-soft);
+    }
+
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -259,10 +276,10 @@
           id="theme-toggle-btn"
           type="button"
           class="theme-chip inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold"
-          aria-label="切換亮色或暗色主題"
+          aria-label="切換主題模式"
         >
-          <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
-          <span id="theme-toggle-text">主題</span>
+          <span id="theme-toggle-icon" aria-hidden="true">🌓</span>
+          <span id="theme-toggle-text">系統</span>
         </button>
       </div>
 
@@ -316,17 +333,20 @@
         </a>
       </div>
 
-      <a
-        href="https://tenki.jp/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="primary-white-btn inline-flex items-center justify-center w-full py-2.5 rounded-xl text-sm font-bold shadow-sm"
-      >
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
-        </svg>
-        查看日本天氣 (tenki.jp)
-      </a>
+      <div id="header-weather" class="header-weather rounded-2xl px-4 py-3">
+        <div class="flex items-start justify-between gap-3">
+          <div class="min-w-0 flex-1">
+            <div id="weather-source" class="text-[11px] text-white/80 mb-1">天氣讀取中...</div>
+            <div id="weather-location" class="text-sm font-bold break-words">--</div>
+            <div id="weather-summary" class="text-xs text-white/80 mt-1 break-words">--</div>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <div id="weather-icon" class="text-2xl leading-none mb-1">⛅</div>
+            <div id="weather-temp" class="text-2xl font-black leading-none">--°</div>
+            <div id="weather-range" class="text-[11px] text-white/80 mt-1">-- / --</div>
+          </div>
+        </div>
+      </div>
     </header>
 
     <nav class="top-nav">
@@ -347,8 +367,8 @@
         title: "抵達千葉",
         events: [
           { time: "14:20", title: "抵達成田機場 (星宇 JX802)", location: "成田國際機場" },
-          { time: "17:00", title: "三井花園飯店柏之葉", location: "三井花園飯店柏之葉" },
-          { time: "19:00", title: "焼肉 こう舟", location: "焼肉 こう舟" }
+          { time: "17:00", title: "三井花園飯店柏之葉", location: "三井花園飯店柏之葉", weatherQuery: "Mitsui Garden Hotel Kashiwanoha, Chiba, Japan" },
+          { time: "19:00", title: "焼肉 こう舟", location: "焼肉 こう舟", weatherQuery: "Yakiniku Koushu, Kashiwa, Japan" }
         ]
       },
       {
@@ -360,11 +380,12 @@
           {
             time: "12:45",
             title: "河口湖車站 (取車)",
-            location: "Nippon Rent-A-Car - Kawaguchiko Outlet ニッポンレンタカー 河口湖駅前 営業所"
+            location: "Nippon Rent-A-Car - Kawaguchiko Outlet ニッポンレンタカー 河口湖駅前 営業所",
+            weatherQuery: "Nippon Rent-A-Car Kawaguchiko Station, Yamanashi, Japan"
           },
-          { time: "13:15", title: "不動茶屋 東戀路店", location: "ほうとう不動 東恋路店" },
-          { time: "14:30", title: "大石公園 & 西湖療癒之里根場", location: "大石公園" },
-          { time: "18:00", title: "山中湖聖丹斯度假村", location: "山中湖聖丹斯度假村" }
+          { time: "13:15", title: "不動茶屋 東戀路店", location: "ほうとう不動 東恋路店", weatherQuery: "Hoto Fudo Higashikoiji, Fujikawaguchiko, Japan" },
+          { time: "14:30", title: "大石公園 & 西湖療癒之里根場", location: "大石公園", weatherQuery: "Oishi Park, Yamanashi, Japan" },
+          { time: "18:00", title: "山中湖聖丹斯度假村", location: "山中湖聖丹斯度假村", weatherQuery: "Yamanakako, Yamanashi, Japan" }
         ]
       },
       {
@@ -372,10 +393,10 @@
         date: "3/23",
         title: "三島還車與熱海",
         events: [
-          { time: "08:30", title: "長池親水公園", location: "長池親水公園" },
-          { time: "11:00", title: "三島車站 (還車)", location: "三島車站" },
-          { time: "12:30", title: "MOA 美術館", location: "MOA 美術館" },
-          { time: "15:30", title: "LA VISTA 熱海露台", location: "ラビスタ観音崎テラス" }
+          { time: "08:30", title: "長池親水公園", location: "長池親水公園", weatherQuery: "Nagaike Water Park, Yamanashi, Japan" },
+          { time: "11:00", title: "三島車站 (還車)", location: "三島車站", weatherQuery: "Mishima Station, Shizuoka, Japan" },
+          { time: "12:30", title: "MOA 美術館", location: "MOA 美術館", weatherQuery: "MOA Museum of Art, Atami, Japan" },
+          { time: "15:30", title: "La Vista Atami Terrace", location: "La Vista Atami Terrace ラビスタ熱海テラス", weatherQuery: "La Vista Atami Terrace, Atami, Japan" }
         ]
       },
       {
@@ -383,10 +404,10 @@
         date: "3/24",
         title: "觀光列車與東京",
         events: [
-          { time: "10:30", title: "熱海陽光沙灘", location: "熱海陽光沙灘" },
-          { time: "15:31", title: "藍寶石踊子號 (熱海站)", location: "熱海站" },
-          { time: "17:30", title: "FAV TOKYO NISHINIPPORI", location: "FAV TOKYO NISHINIPPORI" },
-          { time: "19:00", title: "千鳥之淵 或 目黑川", location: "千鳥之淵" }
+          { time: "10:30", title: "熱海陽光沙灘", location: "熱海陽光沙灘", weatherQuery: "Atami Sun Beach, Atami, Japan" },
+          { time: "15:31", title: "藍寶石踊子號 (熱海站)", location: "熱海站", weatherQuery: "Atami Station, Shizuoka, Japan" },
+          { time: "17:30", title: "fav TOKYO NISHINIPPORI", location: "fav TOKYO NISHINIPPORI", weatherQuery: "fav TOKYO NISHINIPPORI, Tokyo, Japan" },
+          { time: "19:00", title: "千鳥之淵 或 目黑川", location: "千鳥之淵 或 目黑川", weatherQuery: "Chidorigafuchi, Tokyo, Japan" }
         ]
       },
       {
@@ -394,18 +415,19 @@
         date: "3/25",
         title: "早櫻與返台",
         events: [
-          { time: "09:30", title: "新宿御苑 或 上野恩賜公園", location: "新宿御苑" },
-          { time: "12:00", title: "阿美橫丁", location: "阿美橫丁" },
-          { time: "15:00", title: "日暮里站 (搭乘 Keisei Skyliner)", location: "日暮里站" },
-          { time: "18:00", title: "成田機場 (日航 JL809)", location: "成田國際機場" }
+          { time: "09:30", title: "新宿御苑 或 上野恩賜公園", location: "新宿御苑", weatherQuery: "Shinjuku Gyoen, Tokyo, Japan" },
+          { time: "12:00", title: "阿美橫丁", location: "阿美橫丁", weatherQuery: "Ameyoko, Tokyo, Japan" },
+          { time: "15:00", title: "日暮里站 (搭乘 Keisei Skyliner)", location: "日暮里站", weatherQuery: "Nippori Station, Tokyo, Japan" },
+          { time: "18:00", title: "成田機場 (日航 JL809)", location: "成田國際機場", weatherQuery: "Narita International Airport, Chiba, Japan" }
         ]
       }
     ];
 
     let currentDayIndex = 0;
-
-    const THEME_KEY = "theme-preference";
+    const THEME_MODE_KEY = "theme-mode";
     const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+    const geocodeCache = new Map();
+
     const tabContainer = document.getElementById("tab-container");
     const itineraryContainer = document.getElementById("itinerary-container");
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
@@ -415,54 +437,74 @@
     const gmailBtn = document.getElementById("gmail-app-btn");
     const appHeader = document.getElementById("app-header");
 
-    function getSavedTheme() {
-      return localStorage.getItem(THEME_KEY);
+    const weatherEls = {
+      source: document.getElementById("weather-source"),
+      location: document.getElementById("weather-location"),
+      summary: document.getElementById("weather-summary"),
+      icon: document.getElementById("weather-icon"),
+      temp: document.getElementById("weather-temp"),
+      range: document.getElementById("weather-range")
+    };
+
+    function getSavedThemeMode() {
+      return localStorage.getItem(THEME_MODE_KEY) || "system";
     }
 
-    function getResolvedTheme() {
-      const saved = getSavedTheme();
-      if (saved === "dark" || saved === "light") return saved;
-      return themeMedia.matches ? "dark" : "light";
+    function resolveTheme(mode) {
+      return mode === "system" ? (themeMedia.matches ? "dark" : "light") : mode;
     }
 
-    function applyTheme(theme) {
-      document.documentElement.setAttribute("data-theme", theme);
-      document.documentElement.classList.toggle("dark", theme === "dark");
-      document.documentElement.classList.toggle("light", theme === "light");
+    function nextThemeMode(mode) {
+      if (mode === "system") return "dark";
+      if (mode === "dark") return "light";
+      return "system";
+    }
 
-      themeColorMeta.setAttribute("content", theme === "dark" ? "#1e3a5f" : "#3776ab");
-
-      if (theme === "dark") {
-        themeToggleIcon.textContent = "☀️";
-        themeToggleText.textContent = "亮色";
-      } else {
+    function updateThemeButton(mode) {
+      if (mode === "system") {
+        themeToggleIcon.textContent = "🌓";
+        themeToggleText.textContent = "系統";
+      } else if (mode === "dark") {
         themeToggleIcon.textContent = "🌙";
         themeToggleText.textContent = "暗色";
+      } else {
+        themeToggleIcon.textContent = "☀️";
+        themeToggleText.textContent = "亮色";
       }
     }
 
+    function applyThemeMode(mode) {
+      const resolved = resolveTheme(mode);
+
+      document.documentElement.setAttribute("data-theme-mode", mode);
+      document.documentElement.setAttribute("data-theme", resolved);
+      document.documentElement.classList.toggle("dark", resolved === "dark");
+      document.documentElement.classList.toggle("light", resolved === "light");
+
+      themeColorMeta.setAttribute("content", resolved === "dark" ? "#1e3a5f" : "#3776ab");
+      updateThemeButton(mode);
+    }
+
     function initTheme() {
-      applyTheme(getResolvedTheme());
+      applyThemeMode(getSavedThemeMode());
 
       themeToggleBtn.addEventListener("click", () => {
-        const current = getResolvedTheme();
-        const next = current === "dark" ? "light" : "dark";
-        localStorage.setItem(THEME_KEY, next);
-        applyTheme(next);
+        const currentMode = getSavedThemeMode();
+        const newMode = nextThemeMode(currentMode);
+        localStorage.setItem(THEME_MODE_KEY, newMode);
+        applyThemeMode(newMode);
       });
 
+      const systemChangeHandler = () => {
+        if (getSavedThemeMode() === "system") {
+          applyThemeMode("system");
+        }
+      };
+
       if (typeof themeMedia.addEventListener === "function") {
-        themeMedia.addEventListener("change", () => {
-          if (!getSavedTheme()) {
-            applyTheme(getResolvedTheme());
-          }
-        });
+        themeMedia.addEventListener("change", systemChangeHandler);
       } else if (typeof themeMedia.addListener === "function") {
-        themeMedia.addListener(() => {
-          if (!getSavedTheme()) {
-            applyTheme(getResolvedTheme());
-          }
-        });
+        themeMedia.addListener(systemChangeHandler);
       }
     }
 
@@ -579,6 +621,252 @@
       });
     }
 
+    function setWeatherLoading(text = "天氣讀取中...") {
+      weatherEls.source.textContent = text;
+      weatherEls.location.textContent = "--";
+      weatherEls.summary.textContent = "--";
+      weatherEls.icon.textContent = "⛅";
+      weatherEls.temp.textContent = "--°";
+      weatherEls.range.textContent = "-- / --";
+    }
+
+    function setWeatherError(text = "目前無法取得天氣") {
+      weatherEls.source.textContent = text;
+      weatherEls.location.textContent = "天氣載入失敗";
+      weatherEls.summary.textContent = "請稍後再試";
+      weatherEls.icon.textContent = "⚠️";
+      weatherEls.temp.textContent = "--°";
+      weatherEls.range.textContent = "-- / --";
+    }
+
+    function getWeatherLabel(code) {
+      if (code === 0) return "晴朗";
+      if ([1, 2, 3].includes(code)) return "多雲";
+      if ([45, 48].includes(code)) return "有霧";
+      if ([51, 53, 55, 56, 57].includes(code)) return "毛毛雨";
+      if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "下雨";
+      if ([71, 73, 75, 77].includes(code)) return "下雪";
+      if ([85, 86].includes(code)) return "陣雪";
+      if ([95, 96, 99].includes(code)) return "雷雨";
+      return "天氣變化";
+    }
+
+    function getWeatherEmoji(code, isDay = 1) {
+      if (code === 0) return isDay ? "☀️" : "🌙";
+      if ([1, 2, 3].includes(code)) return isDay ? "⛅" : "☁️";
+      if ([45, 48].includes(code)) return "🌫️";
+      if ([51, 53, 55, 56, 57].includes(code)) return "🌦️";
+      if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "🌧️";
+      if ([71, 73, 75, 77, 85, 86].includes(code)) return "❄️";
+      if ([95, 96, 99].includes(code)) return "⛈️";
+      return "🌤️";
+    }
+
+    function getTokyoMonthDay() {
+      const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "Asia/Tokyo",
+        month: "numeric",
+        day: "numeric"
+      }).formatToParts(new Date());
+
+      const month = parts.find((p) => p.type === "month")?.value;
+      const day = parts.find((p) => p.type === "day")?.value;
+      return `${month}/${day}`;
+    }
+
+    function monthDayToNumber(monthDay) {
+      const [month, day] = monthDay.split("/").map(Number);
+      return month * 100 + day;
+    }
+
+    async function geocodePlace(placeName) {
+      if (geocodeCache.has(placeName)) {
+        return geocodeCache.get(placeName);
+      }
+
+      const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(placeName)}&count=1&language=zh&format=json`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Geocoding API failed");
+
+      const data = await res.json();
+      if (!data.results || !data.results.length) {
+        throw new Error("No geocoding result");
+      }
+
+      const place = {
+        latitude: data.results[0].latitude,
+        longitude: data.results[0].longitude,
+        name: data.results[0].name,
+        admin1: data.results[0].admin1 || "",
+        country: data.results[0].country || ""
+      };
+
+      geocodeCache.set(placeName, place);
+      return place;
+    }
+
+    async function reverseGeocodeCoords(latitude, longitude) {
+      const url =
+        `https://nominatim.openstreetmap.org/reverse` +
+        `?format=jsonv2` +
+        `&lat=${latitude}` +
+        `&lon=${longitude}` +
+        `&zoom=14` +
+        `&accept-language=zh-TW,zh,en`;
+
+      const res = await fetch(url, {
+        headers: {
+          "Accept": "application/json"
+        }
+      });
+
+      if (!res.ok) {
+        throw new Error("Reverse geocoding failed");
+      }
+
+      const data = await res.json();
+      const addr = data.address || {};
+
+      return (
+        data.name ||
+        addr.attraction ||
+        addr.building ||
+        addr.neighbourhood ||
+        addr.suburb ||
+        addr.city_district ||
+        addr.town ||
+        addr.city ||
+        addr.county ||
+        (data.display_name ? data.display_name.split(",")[0] : "目前位置")
+      );
+    }
+
+    async function fetchWeatherByCoords(latitude, longitude) {
+      const url =
+        `https://api.open-meteo.com/v1/forecast` +
+        `?latitude=${latitude}` +
+        `&longitude=${longitude}` +
+        `&current=temperature_2m,weather_code,is_day` +
+        `&daily=temperature_2m_max,temperature_2m_min` +
+        `&forecast_days=1` +
+        `&timezone=auto`;
+
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Weather API failed");
+      return res.json();
+    }
+
+    function renderWeatherCard({ sourceText, locationName, weather }) {
+      const current = weather.current || {};
+      const daily = weather.daily || {};
+      const temp = Math.round(current.temperature_2m ?? 0);
+      const max = Math.round((daily.temperature_2m_max || [])[0] ?? 0);
+      const min = Math.round((daily.temperature_2m_min || [])[0] ?? 0);
+      const code = current.weather_code ?? 1;
+      const isDay = current.is_day ?? 1;
+
+      weatherEls.source.textContent = sourceText;
+      weatherEls.location.textContent = locationName;
+      weatherEls.summary.textContent = `${getWeatherLabel(code)} · 今日高 ${max}° / 低 ${min}°`;
+      weatherEls.icon.textContent = getWeatherEmoji(code, isDay);
+      weatherEls.temp.textContent = `${temp}°`;
+      weatherEls.range.textContent = `${max}° / ${min}°`;
+    }
+
+    function getCurrentPositionAsync(options = {}) {
+      return new Promise((resolve, reject) => {
+        if (!navigator.geolocation) {
+          reject(new Error("Geolocation not supported"));
+          return;
+        }
+
+        navigator.geolocation.getCurrentPosition(resolve, reject, options);
+      });
+    }
+
+    function getFallbackDayData() {
+      const todayValue = monthDayToNumber(getTokyoMonthDay());
+
+      const exactDay = tripData.find((day) => monthDayToNumber(day.date) === todayValue);
+      if (exactDay) {
+        return {
+          dayData: exactDay,
+          isExactToday: true
+        };
+      }
+
+      const pastDays = [...tripData]
+        .filter((day) => monthDayToNumber(day.date) <= todayValue)
+        .sort((a, b) => monthDayToNumber(b.date) - monthDayToNumber(a.date));
+
+      if (pastDays.length) {
+        return {
+          dayData: pastDays[0],
+          isExactToday: false
+        };
+      }
+
+      return {
+        dayData: tripData[0],
+        isExactToday: false
+      };
+    }
+
+    function getTodayFallbackDestination() {
+      const { dayData, isExactToday } = getFallbackDayData();
+      const lastEvent = dayData.events[dayData.events.length - 1];
+
+      return {
+        sourceText: isExactToday ? "今日最後目的地天氣" : "最近行程目的地天氣",
+        locationName: lastEvent.title || lastEvent.location,
+        query: lastEvent.weatherQuery || lastEvent.location
+      };
+    }
+
+    async function refreshHeaderWeather() {
+      setWeatherLoading();
+
+      try {
+        const pos = await getCurrentPositionAsync({
+          enableHighAccuracy: false,
+          timeout: 5000,
+          maximumAge: 10 * 60 * 1000
+        });
+
+        const latitude = pos.coords.latitude;
+        const longitude = pos.coords.longitude;
+
+        const [weather, placeName] = await Promise.all([
+          fetchWeatherByCoords(latitude, longitude),
+          reverseGeocodeCoords(latitude, longitude).catch(() => "目前位置")
+        ]);
+
+        renderWeatherCard({
+          sourceText: "目前位置天氣",
+          locationName: placeName,
+          weather
+        });
+        return;
+      } catch (e) {
+        // 抓不到定位時改用今天最後目的地
+      }
+
+      try {
+        const fallback = getTodayFallbackDestination();
+        const geo = await geocodePlace(fallback.query);
+        const weather = await fetchWeatherByCoords(geo.latitude, geo.longitude);
+
+        renderWeatherCard({
+          sourceText: fallback.sourceText,
+          locationName: fallback.locationName,
+          weather
+        });
+      } catch (e) {
+        console.error(e);
+        setWeatherError("目前無法取得天氣");
+      }
+    }
+
     function changeDay(index) {
       currentDayIndex = index;
       renderTabs();
@@ -604,7 +892,6 @@
       const isAndroid = /Android/i.test(ua);
 
       if (isIOS) {
-        // iPhone 上只直接開 Gmail App，不做 fallback，避免回來時又跳網頁版
         window.location.href = "googlegmail://";
         return;
       }
@@ -621,12 +908,21 @@
       initTheme();
       renderTabs();
       renderItinerary(currentDayIndex);
+      refreshHeaderWeather();
       syncStickyOffsets();
 
       gmailBtn.addEventListener("click", openGmailApp);
 
       window.addEventListener("resize", syncStickyOffsets);
       window.addEventListener("orientationchange", syncStickyOffsets);
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") {
+          refreshHeaderWeather();
+        }
+      });
+
+      setInterval(refreshHeaderWeather, 10 * 60 * 1000);
 
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(syncStickyOffsets).catch(() => {});
