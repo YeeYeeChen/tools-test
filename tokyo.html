@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>春日山海絕景・生日旅行</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            fuji: { 500: '#3776ab', 600: '#2c5e8a' },
+            sakura: { 50: '#fff5f7', 100: '#ffe4e1', 500: '#ffb7c5' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* RWD: 手機版滿版，平板/電腦版置中且有最大寬度與陰影 */
+    .app-container {
+      max-width: 100%;
+      min-height: 100vh;
+      background-color: #fafafa;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .app-container {
+        max-width: 500px;
+        box-shadow: 0 0 25px rgba(0,0,0,0.1);
+      }
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .timeline-line {
+      position: absolute;
+      left: 1.5rem; /* 24px */
+      top: 2rem;
+      bottom: 0;
+      width: 2px;
+      background-color: #e5e7eb;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <header class="bg-fuji-500 text-white px-5 py-6 sticky top-0 z-30 shadow-md">
+      <div class="flex justify-between items-center mb-4">
+        <h1 class="text-xl font-bold tracking-wide flex items-center gap-2">
+          <svg class="w-6 h-6 text-sakura-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12 10.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm4.5 5.25a.75.75 0 01-.75.75H8.25a.75.75 0 010-1.5h7.5a.75.75 0 01.75.75z"/></svg>
+          春日山海絕景・生日旅行
+        </h1>
+      </div>
+
+      <div class="grid grid-cols-4 gap-3 mb-4">
+        <a href="https://mail.google.com" target="_blank" class="flex flex-col items-center gap-1 p-2 bg-white/10 hover:bg-white/20 rounded-xl transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <span class="text-[11px] font-medium">Gmail</span>
+        </a>
+        <a href="https://www.booking.com" target="_blank" class="flex flex-col items-center gap-1 p-2 bg-white/10 hover:bg-white/20 rounded-xl transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          <span class="text-[11px] font-medium">Booking</span>
+        </a>
+        <a href="https://www.trip.com" target="_blank" class="flex flex-col items-center gap-1 p-2 bg-white/10 hover:bg-white/20 rounded-xl transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span class="text-[11px] font-medium">Trip.com</span>
+        </a>
+        <a href="https://www.kkday.com" target="_blank" class="flex flex-col items-center gap-1 p-2 bg-white/10 hover:bg-white/20 rounded-xl transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+          <span class="text-[11px] font-medium">KKday</span>
+        </a>
+      </div>
+
+      <a href="https://tenki.jp/" target="_blank" rel="noopener noreferrer" 
+         class="inline-flex items-center justify-center w-full bg-white text-fuji-600 hover:bg-gray-100 transition-colors py-2.5 rounded-xl text-sm font-bold shadow-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+        查看日本天氣 (tenki.jp)
+      </a>
+    </header>
+
+    <nav class="bg-white border-b border-gray-200 sticky top-[210px] sm:top-[226px] z-20">
+      <ul id="tab-container" class="flex overflow-x-auto hide-scrollbar py-3 px-3 gap-3">
+        </ul>
+    </nav>
+
+    <main class="flex-1 p-5 relative overflow-hidden">
+      <div class="timeline-line"></div>
+      <div id="itinerary-container" class="relative z-10 flex flex-col gap-6">
+        </div>
+    </main>
+  </div>
+
+  <script>
+    // 【行程資料 JSON】- 移除了 note 欄位
+    const tripData = [
+      {
+        dayLabel: "Day 1",
+        date: "3/21",
+        title: "抵達千葉",
+        events: [
+          { time: "14:20", title: "抵達成田機場 (星宇 JX802)", location: "成田國際機場" },
+          { time: "17:00", title: "三井花園飯店柏之葉", location: "三井花園飯店柏之葉" },
+          { time: "19:00", title: "焼肉 こう舟", location: "焼肉 こう舟" }
+        ]
+      },
+      {
+        dayLabel: "Day 2",
+        date: "3/22",
+        title: "富士山自駕",
+        events: [
+          { time: "10:30", title: "新宿站 (搭乘富士回遊號)", location: "新宿站" },
+          { time: "12:45", title: "河口湖車站 (取車)", location: "河口湖車站" },
+          { time: "13:15", title: "不動茶屋 東戀路店", location: "ほうとう不動 東恋路店" },
+          { time: "14:30", title: "大石公園 & 西湖療癒之里根場", location: "大石公園" },
+          { time: "18:00", title: "山中湖聖丹斯度假村", location: "山中湖聖丹斯度假村" }
+        ]
+      },
+      {
+        dayLabel: "Day 3",
+        date: "3/23",
+        title: "三島還車與熱海",
+        events: [
+          { time: "08:30", title: "長池親水公園", location: "長池親水公園" },
+          { time: "11:00", title: "三島車站 (還車)", location: "三島車站" },
+          { time: "12:30", title: "MOA 美術館", location: "MOA 美術館" },
+          { time: "15:30", title: "LA VISTA 熱海露台", location: "ラビスタ観音崎テラス" }
+        ]
+      },
+      {
+        dayLabel: "Day 4",
+        date: "3/24",
+        title: "觀光列車與東京",
+        events: [
+          { time: "10:30", title: "熱海陽光沙灘", location: "熱海陽光沙灘" },
+          { time: "15:31", title: "藍寶石踊子號 (熱海站)", location: "熱海站" },
+          { time: "17:30", title: "FAV TOKYO NISHINIPPORI", location: "FAV TOKYO NISHINIPPORI" },
+          { time: "19:00", title: "千鳥之淵 或 目黑川", location: "千鳥之淵" }
+        ]
+      },
+      {
+        dayLabel: "Day 5",
+        date: "3/25",
+        title: "早櫻與返台",
+        events: [
+          { time: "09:30", title: "新宿御苑 或 上野恩賜公園", location: "新宿御苑" },
+          { time: "12:00", title: "阿美橫丁", location: "阿美橫丁" },
+          { time: "15:00", title: "日暮里站 (搭乘 Keisei Skyliner)", location: "日暮里站" },
+          { time: "18:00", title: "成田機場 (日航 JL809)", location: "成田國際機場" }
+        ]
+      }
+    ];
+
+    let currentDayIndex = 0;
+    const tabContainer = document.getElementById('tab-container');
+    const itineraryContainer = document.getElementById('itinerary-container');
+
+    function initApp() {
+      renderTabs();
+      renderItinerary(currentDayIndex);
+    }
+
+    function renderTabs() {
+      tabContainer.innerHTML = '';
+      tripData.forEach((day, index) => {
+        const isActive = index === currentDayIndex;
+        const li = document.createElement('li');
+        li.className = 'flex-shrink-0';
+        li.innerHTML = `
+          <button onclick="changeDay(${index})" 
+            class="px-5 py-2.5 rounded-2xl text-sm font-bold transition-all duration-300 ${
+              isActive 
+                ? 'bg-sakura-500 text-white shadow-md transform scale-105' 
+                : 'bg-white border border-gray-200 text-gray-500 hover:bg-sakura-50 hover:border-sakura-100'
+            }">
+            ${day.dayLabel} <span class="font-normal text-xs ml-1 opacity-90">${day.date}</span>
+          </button>
+        `;
+        tabContainer.appendChild(li);
+      });
+    }
+
+    function renderItinerary(dayIndex) {
+      itineraryContainer.innerHTML = '';
+      const dayData = tripData[dayIndex];
+      
+      const titleEl = document.createElement('h2');
+      titleEl.className = 'text-lg font-black text-fuji-600 mb-2 pl-12 flex items-center gap-2';
+      titleEl.innerHTML = `<svg class="w-5 h-5 text-sakura-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> ${dayData.title}`;
+      itineraryContainer.appendChild(titleEl);
+
+      dayData.events.forEach((event, idx) => {
+        const encodedLocation = encodeURIComponent(event.location);
+        const googleMapUrl = `https://www.google.com/maps/search/?api=1&query=地點名稱?q=$${encodedLocation}`;
+        const appleMapUrl = `http://maps.apple.com/?q=${encodedLocation}`;
+
+        const card = document.createElement('div');
+        // RWD 防破版：確保 flex 佈局與文字斷行
+        card.className = 'relative pl-12 opacity-0 transform translate-y-4';
+        card.style.animation = `fadeInUp 0.4s ease forwards ${idx * 0.08}s`;
+        
+        card.innerHTML = `
+          <div class="absolute left-[17px] top-4 w-3.5 h-3.5 rounded-full border-[3px] border-white shadow-md ${
+            idx === 0 ? 'bg-sakura-500 ring-2 ring-sakura-100' : 'bg-fuji-500'
+          }"></div>
+          
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-100/80 overflow-hidden hover:shadow-md transition-shadow">
+            <div class="p-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <div class="flex-shrink-0 bg-sakura-50 px-3 py-1.5 rounded-lg border border-sakura-100 inline-block w-fit">
+                <span class="text-sakura-500 font-bold text-lg tracking-wide">${event.time}</span>
+              </div>
+              <h3 class="text-gray-800 font-bold text-base leading-snug break-words flex-1">${event.title}</h3>
+            </div>
+            
+            <div class="flex border-t border-gray-50 bg-gray-50/50">
+              <a href="${googleMapUrl}" target="_blank" rel="noopener noreferrer" 
+                 class="flex-1 py-3.5 text-center text-[13px] font-bold text-fuji-600 border-r border-gray-100 hover:bg-fuji-50 transition-colors flex items-center justify-center gap-1.5">
+                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                 Google 地圖
+              </a>
+              <a href="${appleMapUrl}" target="_blank" rel="noopener noreferrer" 
+                 class="flex-1 py-3.5 text-center text-[13px] font-bold text-gray-700 hover:bg-gray-100 transition-colors flex items-center justify-center gap-1.5">
+                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                 Apple 地圖
+              </a>
+            </div>
+          </div>
+        `;
+        itineraryContainer.appendChild(card);
+      });
+    }
+
+    window.changeDay = function(index) {
+      currentDayIndex = index;
+      renderTabs();
+      renderItinerary(index);
+      const tabEl = tabContainer.children[index];
+      tabEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    initApp();
+  </script>
+</body>
+<meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="生日旅行">
+  
+  <script>
+    (function generateAppIcon() {
+      // 建立一個隱藏的 Canvas 畫布 (Apple 建議尺寸 512x512)
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 512;
+      const ctx = canvas.getContext('2d');
+
+      // 1. 繪製背景 (微光白)
+      ctx.fillStyle = '#f8f9fa';
+      ctx.fillRect(0, 0, 512, 512);
+
+      // 2. 繪製櫻花粉日出 (太陽)
+      ctx.fillStyle = '#ffb7c5'; // sakura-500
+      ctx.beginPath();
+      ctx.arc(256, 220, 110, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 3. 繪製湛藍富士山主體
+      ctx.fillStyle = '#3776ab'; // fuji-500
+      ctx.beginPath();
+      ctx.moveTo(60, 430);
+      ctx.lineTo(256, 140);
+      ctx.lineTo(452, 430);
+      ctx.closePath();
+      ctx.fill();
+
+      // 4. 繪製富士山頂的白雪
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.moveTo(256, 140);   // 山頂點
+      ctx.lineTo(312, 220);   // 右下
+      ctx.lineTo(280, 240);   // 內縮
+      ctx.lineTo(256, 200);   // 尖角向上
+      ctx.lineTo(220, 240);   // 內縮
+      ctx.lineTo(200, 220);   // 左下
+      ctx.closePath();
+      ctx.fill();
+
+      // 將畫好的圖案輸出成圖片的 Data URL (Base64)
+      const iconDataUrl = canvas.toDataURL('image/png');
+
+      // 動態建立 Apple Touch Icon 並放入 <head>
+      const appleIcon = document.createElement('link');
+      appleIcon.rel = 'apple-touch-icon';
+      appleIcon.href = iconDataUrl;
+      document.head.appendChild(appleIcon);
+
+      // 動態建立一般網頁用的 Favicon 並放入 <head>
+      const favicon = document.createElement('link');
+      favicon.rel = 'icon';
+      favicon.type = 'image/png';
+      favicon.href = iconDataUrl;
+      document.head.appendChild(favicon);
+    })();
+  </script>
+</html>
