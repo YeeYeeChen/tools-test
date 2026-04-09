@@ -107,6 +107,7 @@
             letter-spacing: 1px;
             transition: background-color 0.3s;
             box-sizing: border-box;
+            white-space: nowrap; /* 防止按鈕文字被擠到換行 */
         }
 
         .btn:hover {
@@ -145,6 +146,26 @@
             background-color: #B5626F;
         }
 
+        /* =========================================
+           針對手機螢幕的自適應優化 (消除過多留白)
+           ========================================= */
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px; /* 縮減最外層網頁與螢幕的距離 */
+            }
+            .container {
+                padding: 25px 15px; /* 大幅縮減白色卡片內的左右留白 */
+            }
+            .info-card {
+                padding: 15px; /* 縮減灰色資訊卡片內的留白 */
+            }
+            h1 {
+                font-size: 1.5rem; /* 手機版標題稍微縮小 */
+            }
+            .btn {
+                font-size: 0.95rem; /* 手機版按鈕字體稍微調整 */
+            }
+        }
     </style>
 </head>
 <body>
