@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5/16 口試暨晚宴規劃方案</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --nthu-purple: #611566; /* 清華大學校徽紫色 */
+            --muji-bg: #f7f7f5;    /* 無印風淺米色 */
+            --muji-gray: #7f7f7f;
+            --text-dark: #333333;
+            --card-bg: #ffffff;
+            --accent-gold: #b2945e;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--muji-bg);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding-bottom: 50px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--nthu-purple);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-gold);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 0.95rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* Section Title */
+        .section-title {
+            color: var(--nthu-purple);
+            border-left: 5px solid var(--nthu-purple);
+            padding-left: 12px;
+            margin: 35px 20px 15px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        /* Schedule Card */
+        .schedule-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin: 0 20px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .schedule-item {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 10px;
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .schedule-time {
+            width: 100px;
+            color: var(--nthu-purple);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .schedule-desc {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        /* Option Card */
+        .option-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            margin: 20px;
+            padding: 25px;
+            border: 1px solid #e8e8e8;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .option-tag {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent-gold);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .option-title {
+            font-size: 1.25rem;
+            color: var(--nthu-purple);
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .option-detail {
+            font-size: 0.9rem;
+            color: var(--muji-gray);
+            margin-bottom: 20px;
+        }
+
+        .location-info {
+            background: #fafafa;
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .location-info h4 {
+            margin: 0 0 5px;
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .location-info p {
+            margin: 0 0 12px 0;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .btn-map {
+            background-color: var(--nthu-purple);
+            color: white !important;
+        }
+
+        .btn-treerful {
+            background-color: #ffffff;
+            color: var(--nthu-purple) !important;
+            border: 1.5px solid var(--nthu-purple);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #bbb;
+            font-size: 0.8rem;
+        }
+
+        /* RWD 調整 */
+        @media (max-width: 400px) {
+            .btn-group {
+                flex-direction: column;
+            }
+            .schedule-time {
+                width: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>5/16 口試暨晚宴規劃</h1>
+        <p>國立清華大學 MFB同學 呈報</p>
+    </header>
+
+    <div class="container">
+
+        <div class="section-title">⏱️ 當日預計流程</div>
+        <div class="schedule-card">
+            <div class="schedule-item">
+                <div class="schedule-time">09:30 - 12:00</div>
+                <div class="schedule-desc">上午場口試 (5人)</div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-time">12:00 - 13:00</div>
+                <div class="schedule-desc">午餐與委員休息</div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-time">13:00 - 14:30</div>
+                <div class="schedule-desc">下午場口試 (3人)</div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-time">14:30 - 14:50</div>
+                <div class="schedule-desc">中場休息 20 分鐘</div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-time">14:50 - 15:30</div>
+                <div class="schedule-desc">最後位口試與總結</div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-time">18:00 - 21:00</div>
+                <div class="schedule-desc">晚宴聚餐 (預計 24-30 人)</div>
+            </div>
+        </div>
+
+        <div class="section-title">🍴 晚宴餐廳與地點方案</div>
+
+        <div class="option-card">
+            <div class="option-tag">商務首選</div>
+            <h3 class="option-title">1. JR東日本 凱華樓</h3>
+            <p class="option-detail">五星級飯店精緻中菜，環境氣派優雅，距離捷運站極近。預算 2200/人 (含服務費) 可配豐盛菜色。</p>
+            <div class="location-info">
+                <h4>🏠 餐廳地點</h4>
+                <p>台北市中山區南京東路三段133號 B1</p>
+                <h4>📍 附近小樹屋 (口試地點)</h4>
+                <p>南京復興「蒲公英分館」 (步行 2 分鐘)</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://www.google.com/maps/search/?api=1&query=JR東日本大飯店台北+凱華樓" target="_blank" class="btn btn-map">餐廳地圖</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=小樹屋+蒲公英分館" target="_blank" class="btn btn-treerful">小樹屋位置</a>
+            </div>
+        </div>
+
+        <div class="option-card">
+            <div class="option-tag">極致鮮味</div>
+            <h3 class="option-title">2. 海九 澎湖海鮮餐廳</h3>
+            <p class="option-detail">頂級活海鮮直送，全獨立包廂設計。2000元/人的餐標可享用到非常有水準的道地海鮮桌菜。</p>
+            <div class="location-info">
+                <h4>🏠 餐廳地點</h4>
+                <p>台北市中山區長安東路二段170號</p>
+                <h4>📍 附近小樹屋 (口試地點)</h4>
+                <p>南京復興「天南星分館」 (步行約 6 分鐘)</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://www.google.com/maps/search/?api=1&query=海九澎湖海鮮餐廳" target="_blank" class="btn btn-map">餐廳地圖</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=小樹屋+天南星分館" target="_blank" class="btn btn-treerful">小樹屋位置</a>
+            </div>
+        </div>
+
+        <div class="option-card">
+            <div class="option-tag">口碑推薦</div>
+            <h3 class="option-title">3. 神旺 潮品集 (忠孝店)</h3>
+            <p class="option-detail">正宗潮州菜與港式點心，口味溫潤，深得教授與長輩喜愛。位於東區，交通極其便利。</p>
+            <div class="location-info">
+                <h4>🏠 餐廳地點</h4>
+                <p>台北市大安區忠孝東路四段166號 2樓</p>
+                <h4>📍 附近小樹屋 (口試地點)</h4>
+                <p>忠孝敦化「決明分館」 (步行約 3 分鐘)</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://www.google.com/maps/search/?api=1&query=神旺潮品集忠孝店" target="_blank" class="btn btn-map">餐廳地圖</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=小樹屋+決明分館" target="_blank" class="btn btn-treerful">小樹屋位置</a>
+            </div>
+        </div>
+
+        <div class="option-card">
+            <div class="option-tag">豐盛超值</div>
+            <h3 class="option-title">4. 一郎宴會館</h3>
+            <p class="option-detail">老字號海鮮宴會餐廳，場地寬廣，2000元預算可配到最高等級菜單。適合熱鬧大氣的聚餐。</p>
+            <div class="location-info">
+                <h4>🏠 餐廳地點</h4>
+                <p>台北市中山區民族東路410巷2弄18號 5樓</p>
+                <h4>📍 附近小樹屋 (口試地點)</h4>
+                <p>中山國小「楓香分館」 (搭車約 5 分鐘)</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://www.google.com/maps/search/?api=1&query=一郎宴會館" target="_blank" class="btn btn-map">餐廳地圖</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=小樹屋+楓香分館" target="_blank" class="btn btn-treerful">小樹屋位置</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 畢業口試委員會 籌備專案</p>
+            <p>※ 建議確認餐廳後，同步預約小樹屋大空間以確保場地。</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
