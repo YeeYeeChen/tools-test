@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#f5f5f7" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="北京 2026" />
+<link rel="manifest" id="manifestLink" />
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAI6ElEQVR42u2dW0wUVxjHz0wo1FaT9sVo04rFS9poowJe2j6oiZc0AtJKBdRabMJFbRNttRLYRYUFbwWamNo29EG5WW0auRkV8PLSpipe2tTGC9AKFIlPRu0F7UMfFhdcd5bdmTkz5zvz/2celh04e+Y7v/l/35wzOyhT3sphEBRIKkIAAQ4obEUoioIoQHAOKEznYDAOSDOtgA4IzgHBOSA4B4SrFcjWtIJ5DgjOAaEghVCQQkgrEApSCM4BUas54ByQ5tUKBOFqBQrfOUAHBOeAwobDDE2dFO17/euNmwirDrW6JwZ8f0FRu11dUuKXbTQLi6ECIiGqxT0hxN9cWNRhORwpG00nA3yEhIVrgo6/WuixDhFDBakyzF6UM5pqdsXoRmqRp9OaTqpMYfq2qZPHGfwFx266yRgEy5J+Yvrccs/IjxGkkRDSiv7p8+H/EKt6fjqR/7KJiWlx8e+c0wpEkAxODfqf27NSN+n+4ykTxwXZe6W9C0AMDmTeeE4tLy75g9/VigGyDGYdyJTzW8CrFaawKx1dOnY5cDvOzTYYY8fzxnPqttGFt9/au/3yizebYJLDWvPgEm1zFt6udHQhnciXWlSYPu/tWG40bzaO5Ubz6DnuBIN3cE4rkJR04E6wQTXk9DPGkr6KonKpybsmVVEVeDcvGQOImNu4Zc7BYeENaCgN2f2PWUh2P2LCmBKBpbHA56GCDmPhjb+W7Okm+hH4xhtjjC2tGFGf+c/QH4mV6XwGUUVq9W7JFSO8EUmuGGF64wSLUabgaiXAGHJoOaG0hx8ZCaU9gi68yTiZpKDDKEgtVWLpn4SaRUFq9VVsYllv48cvmNsg1+Fz1sLblstNQffPZ4zlBv2dXdMTjHQgqay3wSQ+ksp6eY+dgwrS4cgIGS9j3Ugq7zWBjPJeK763ojDFCduWS02m2c+lJoOdWVp+y9CsTPkti+I2d41L+mzy6cVG09vcHZtosIX6DWP1kPH5Lcvipsxd45adjAZOLe+OTTLeSP2GMSFj0Wd1aT7vA5nh2HyhgWv7e+KSzGqqToOSZMuZcAQcvMkwnQ/RJOc8x+a2eosR3BO/VL4wSrjwZiUZQ3GUL5KyOcem83W2fXRb/Wczk+Ecgm42kuFDU6Z4yrPw9ondZAjVDRSkQ4bk3BGtXbP3zuf0oWc/Oq3FR+mst2WAQ46Ko0x7MA6xO9Z/qBxRxZK9kUkiyUMn/5J9WvXzvNiQPXQSfld2V+dRWz53S8wS2SbBJJu5sYuMR1DiG2+iamdHk92m1ZQ7IUEm5wAZEnYDVytDhqS9UShMcycmShBVGabPhSLDB6sc0+e0D2GHeGR4taO9EQWpnSq50SBy93a0N+RNInwrkAoy0EnZCtKS6/WEIM6bTPI+MZIFKSEyfCjTLEipfUGpmBoZXhVfrycXamLOUXytjm4KL75WR845yHTWQ5kMrzzX6ggFPILKyrPnauB7vaLdbwjb55tFPwY6kDrXKzTuE1NJpD8tMqj6x9UjJMJOwzncr76jtauS9VHsNpV5DgbxEvHYUr1NcN2Zg94XZ8+I28n1j17sm5dOdPqc3vSMjwxSKNOLs0ruIT3rztTStLpacqGOIJQY156uIZ3C156uZYx9OX8lnbRCxOSok/EY4kRiTmP6fO0pScgY4ONUDRbezNly5CLDq5xTNVh4M7rlnKyWdRIk52S1+A9vETR22a3SYjF4jCerGWNfL1iFeY4wNieQ8fhpgHmO0Lbs1iqnzbNnt1YJOBDCOUdWi+PI8CqrpUo85xCpO1ktlU5ep8tqqURBGkCZzY7GYjAOLZWMsYpFq0XojBDT55nNBwK+z+9xXuIo4IPFMpsrKxa9b//Viu1VjxYZTreQ5gNYeGPfLM7Q2jWb3ZQegiCHL0BawZ1g9krg+At9J1jW0egn3+z8qcX3OmbOQhH2Dt0V7l6R40/84S3BO09xL5zDGkumuBfOAeegIfxHaihIWoFxwDg00wqTturYmfG63zspP5wwZa9Dqg7aBenOjDlPDOFx6z/X70NRkPLV/vVxWrveHDISY0f+F6QRu/bu/zBeq8NP7vUp44sLKEgNkSGxBDxqZblrrzi9KVk9hzE2duRDZ14drNknlnnYX5CWrJ6Ni0YxCxLbFt7AhPjFqqVXK8UAIuQTJr/yrCOuVorfm4WB130i5Vedk9M5PMDCpFPLZQciXJzDs2omBpXTaeaqPm/l1QqwIEXJqpmWIWJOWikCE3Ygwhhz86TEaFopWhmPobJR3tPSXdMmlnMAC9Oleyw8K+N5IKLHOYpWxGEgRXQRLyK1F8yDA1hIhsiKOLMQCfVOsMJ0YMFXfX89ZToiBQcNIRLSwltheiyniIx59iGwCB4KI9AUpscVHLxopOYI2nparPXhgPyiZIyPWMZYwbd6EFGDfJMWZAhuKmEgkhar46vUgZ1je+oMDIlk2p42gzG29dClsJzD/3kuIENmRFJnhPVkn0Hr2LYcWAgr09ZHt6XGMsa2HR7eQlSQ4UyFMtwDBSnIcCYfwQtSlSlsa+p0Gx5VB4WbVThswYde6Whvs+VgxzzzACMeuvr+juTXeOHhy4GBBByAYwCR737WLEghh6vg3WmAAwrGh9+zz6X1SeQUHXKnTPNVpLbVHJZVHndu3+bU8nOjR8t6FhV9/wsz/e5z0Y786fs9XLH7d+SLkl44K6g5oMByLXuNKUzptDWtcFUUT9vwqV9S84BzQI6EwxrbsPKDAAfJAZOVD6QVyElw2HIeS2keKsgAH0grUNiS6j81Rd2z+dyNut/TP0qeaQ84B+QAOGy3DaG6YVJakSKvRN3rFgrT/lEvwTkgpBXYBv0uOREOYYdBAj6QViBJ4RD87KRuHnAOSEY4SJyXpM1DBRnoKtIK5Aw4yJ2LRM1DBRnoNtIKFLaI/UfqSMrFf9S97gekFuTgHJAUcETSX62gdQgqwooD0aw58Ow2G0Qk5jScI/Jut0xsUDkcFaHEQWmnFeQVZBeizhF5t0tWNMQ/NMxzQDThkNg2SBygisDhMJFWoLD1P0z7cbsX1VBFAAAAAElFTkSuQmCC" />
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAD40lEQVR42u1ZW0gUURj+Z9h2oQv0JPZQ3gqKekhdleyhBO2CsqJEbKXREt4TwuhmjqnrtSSDblQE5a2gQF2zTM2lhwSvlYgUu1vZCm4+hVZg9dDDrNO2zs6cmXNmV2V/zsO/x3P+8/3X+c+R2ro/G5YyqSiK8ivgVwBLAdrvAb8C/hDio22bggBgzDLhNSg9zEaOjzdaEXdR2gMFfOg3cPyY5YvS0LuLQnnnE8o/iu6lKZriGa5EKzu6mVCggHd0M6Gi21U0Xwi5xhXt0ywXPd3N2k4at9ndGIWoszBYGF9nYbCwBI9JPG6zu7nCVySMQdkyasqaAwDdbY1HcCgK0JSPP2SCR1CYHqAVDXEOgSdKqp0URp9UOymWAwqE0Lm3HfNsHACcH33G/qjenijZe7R4FSI8XNDzKLZwva5uytN6Xd2U+Im7DAxB258ZMYmuuRSh451vOxnI8clXHagu2n28mBT600NtiCsva5OJfelIhQ46elZVUueSKaMFAy0sE3MtTnRxf74ZAE4Ntl6JTlksF5q6mNSaTx2IiwMDNABwNiSRSPmjErLL8KVU257KqbZhSUS6PVySh55VG/90XAWqrO049quytmMrQMsflRYTfgxUWkw4GOQncfn7Fo4PYmJlSJgw9rFMxYfWos0p3q5CzJZUjq8HB6YESn4ZxWvmcs3NAND/Ss7ePAAAuBl32GdViEWPSbnmZqwklv0Nz+ltItXP5PQ2ebWVyOxpIH6FyHrZCAB34tMVz4GMrnrEnkcq9eebM3sa7u45qmAOsOgVpYyuekmQVBRFo0u/t8/g7DrhM3HonHDKC2U063kIy9j6XgBAWOxejpE3CQBSLEmumWOl1Bh2cIwrLzCJ+GyBEkKSPXA/L5Ljd77uBIB1q/+wPzlGdPLBCS23neVZOnZjWNp94CBzHbXrOhrjBLHqt3JJbLg1QrgXqkiP9uZLKGemCw0DSAoIvF8b06J8+KbLGo5pHJTjAeMRrc/eot2a9rQoAGCahlDLaNmhSFh8xBq0+OEwrwec5bdUHy7+oKBk+roe4fixYuGfWONefPSG5ztQqo8AT/+pmh9eQP+/GvwwSvURbndiqkQfLgYe48qEkw0eRok+/F8/bbMOoVpl5S9v4nf8VAsvKHv8DgAIK/Btelp0zdqAACIKAIDxyagEBUR1QEGPqAMK+vkqJMWtXwXlagjJkdRR06RCVvN9UqHFXlLAV6QCEs/rmlm7DI/NrVm/KDwgAz3mxmUVQrSvzE/KCUvfAyhNkKdBJIg1s3YcDLTsrWoS6FlSz9plw1gOSSxHcfWMnSwO9YxdHpIl74G/CGkZjW/hTDkAAAAASUVORK5CYII=" />
+<title>北京 2026｜王府井・天壇・雙烤鴨・Chiikawa</title>
+
+<script>
+(function(){
+  try {
+    const manifest = {
+      name:"北京 2026",
+      short_name:"北京",
+      start_url:".",
+      display:"standalone",
+      background_color:"#f5f5f7",
+      theme_color:"#b8242a",
+      icons:[{src:"data:image/png;base64,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",sizes:"192x192",type:"image/png"},{src:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAATnklEQVR42u3dWZAdZRkG4O7UEUTB0hsLREACbuUGSSCoFxIluEAmUYGwG60SEKVKUSTADIRMgrIErKJY4wU7LqVkQ9kUb7BEQVHBUjYlEESvKFcCXniRxZFMZs6c092n//97npoLS/GQ83f3+/5fn56T8h0fPaUAIJ5plgBAAQCgAABQAAAoAAAUAACJ6xSlRQAIWQClBgAIyS0gAAUAgAIAQAEAkCdPAQGYAAAINQF4DBTABACAAgBAAQCQJU8BAZgAAFAAAGSvU7gHBBCzAMQ/QExuAQFEnQDcAQIwAQCgAABQAAAoAADy4eugAUwAAISaAAwAACYAABQAAAoAAAUAQD58HTRA1AIo5T9ASG4BASgAABQAAAoAAAUAQEY6hceAAGIWgPgHiMktIAAFAIACAEABAJAnfyMYgAkAgFATQGkEADABAKAAAFAAACgAALLhMVAAEwAAsSYAIwBAzAIQ/wAxuQUEoAAAiMRTQAAmAAAUAADZy+ox0He+ea9x//uHH3vKkYbBumdkny7/yUNGn7BczShnffJLuea+JoABurvrxJ/YXH2gAPpPfx0ACeW+JmikAI5ItQCmGv1qAGrM/eF9Gvt3zV2mCWIXQD/prwMg0ehXAwqggvTXAZBu9KuBuAVQVfrrAEg6+tVA/3wbqN+Ehqmm//QWFtLcZU86ND1MAKcntf3fs/LXfPix9c4DSDT6txkF1MBUCuCAI5MpgDrSXwdAl+46Z3oSf85Dl+uAbnUsAZBH9I/906qBbvguICCf9E/9j60Axlff/Z+6Xxykvz+8AgAEqLegAADR6Y0MWkK/B1Am/vqQUGjunVmZHbr8jw7rOAVQyr1N8W8doCiKorgzr/Tf3AHDe39YB2zDLSAg8/TP/q0pAAAUAGCPbAjIqQAeeXx9oi8OwtHbVACAWPRmW6ST0uMv9f1RPQMEobjkNy3D7IVfSeiP+459q//OBvd/CO6Os98U8F1/5II/OfSJ3QKqPKylP6AAANt/b1wBhBkCbP8BBRCxA6Q/BN8FGwI6iX4H2iNPrO/nA+FHHl/vy9+A4DlQzj76jKTfwFRrwMYfNu9/z9rLIhRF8ZGvPRX2vSf/IfCUAl36A2zVyWAA+t2WWN/eNLA19931AV4mciyUByV+CwjowQ/d/xnjo1HvAvk9AICgOm6LANFFjUETAITzw8Xu/1gQBQAQWMejMQAxk7Aj/gFiJqFbQABBeQoIYvnBmXtahHGWZfGeH7sw3DcFmAAAglIAAAoAgEg8BgqwSbgwNAEARJ0A7P8JaM0pG1/23wxdvaNdrv1/uAJwOhAu/U/eOG4lDF2zo8XRAKG4BYT0n/x/AgUA2aa/DkABQNz01wFE4zFQ2Fbp3TnuJgDIZvv/Qk3/MCQ8AZR2A7DtVjDf6+Kwi5++/Yw9HOJtl6X0FBAACgAABQCAAoAUzb/2lTX9w6AAgGQcdvHTFsGCFEXRKTwGRJAhYOVOqz/7727+MQ/KhxM1Bn0bKIEsWLnTqgk7YMHKnVwREfM/6ht3C4hwHdDD/5Sfwy95xslgKRQAOiBc+oMCAFAAQDzuAlkEfyMYFEXhKzId95gF4MSHqElw+IoN6768e9zt/4oNwQPQLSCAqBOA/T9EvhMwb8WGtSGHgHkrNkg/EwCAAgCiDgHesgIAIBCPgUJRFNGfhpt36Ya1p+8e583KvS0FYCVAAxTFvEufXXv6GyK8Tcd6K7eAgLHh6A1GmgBUIdj/O8omACC6oXz3yEO2/9tOAJaAljvzoXU1vOqcBv4tF+53eKJBuSa7DwOk/3YmgLLw46e1P/Wkf4PVleayD12WVVwOXfasS2ncH7eAaHGA/mqdtzDI0Mwm/dnuBKAE/bTyJ4P0H9MBSR6Cocv+nH76/9mlNMGPCYB2huZab6c1AVr4w2c8AYC49KZyi1Hp343yA4uGrQLt8dUc03+ri/afl+4ffvWXdkvizzlf9E+hAD6tAGhN+v9ybfbv8aIZKXfAF9veAfO/If0VANJfBwSrAdHfA58BIP292eSjVvqbABCI5oBwo4Do77MARqwCA03/NWHf+0UzhjJ4F6u/uOuAov85l48CQPrrgFg1IPorK4CDP6MAGIwzHlxjEYqiuHjmUE5vZ1VtTbBA7isApL8OCNUEcl8BIP11QJQ+kPgKAOmvA6Befg8A6W9xCKrjr8mkwYBbbREm7YCLZ863DpgAkP4WCuqcAEoDAPX7ygNCbWodcMkscwAmAKS/RQMFgCCzdKAAEGEWEBQAwssyQk88BkpNsbXKIlTYAZfMWmAdqKEA5D+VB9YvpH/1hXrJATqAirkFhPS3sESdAAwAVOjLQqrmDlhhDsAEgPS3yKAAEEyWGhQAIsmCQ9c8BUTfYfRzYTSYDlhx4ALrQH8FoAHoK/1v6/9FZl8+J+DS3X/avf1X74oDP+4kpGduATHg9MchYGATgP0/vTld9LSmAy41B2ACQPo7HDCFCcAS0INqt5zfLp63hjCIAnAPCAbCpceguQUEEHYCsA8BIwAmAABCTQAwYAtvep1FgAEUgCkUIOoEoAEAQvIZAEDYCQCqduGTt1uEyp05/TCLQOUF4B4Q1ab/OotQU62eOf1w60CF3AJC+lteFACIJ4tMJB4DpRpfF0wNdsBi94KopAB8BEAF6f+E9G+6bhfvowPol1tASH/LjgIAMWTxUQAggBwCsuf3AOg5etZahJZ0wOJ95lkHTABIf4cDup4ASgMAU/S1x8VNGzvgrH3NAZgAkP4ODSgARIwDBAoA4eIwgQJArDhY4DFQuguUNRYhuQ44a98h68BkBSD/mThKHpP+qdb2WW/WAUzELSCkv8NH1AnAAMD2XCA+suiAs80BmACQ/g4lKABEhgMKCgBh4bASVafwZUCMjYlHV1uEjDvg7LfMtw6YAJD+DjEKAESDA01IHgOlKIpiuVAI1gHnuBeECQDp76CjABAEOPQoAEQATgAC8Bho4Iv/D6ssAssfXX3OWxdYBxMA0h8nAwoAFzxOCRQALnWcGGTJ7wHEssxFzoQdMOzzABMA0h8nCflPAP5KyCgX9u9d2HTbAcNvMweYAJD+OGHIeQIwAuR/Md/W/4vsNfI+K5mQp0Z/2n8HDL/t41bSBED09MfJgwLABYxTiHx4DDRboy5dKuqAEfeCci0AHwHkauTtVV60NxR/saRhjz65cgsIQAEAEInHQCFLrmtMAAAoAADG6vgLwejGp763q0VIiOsaEwAACgCA/9exBGxy6k9utQhBXHnwMRaBwmOgbEn/WyxCqLK/8uBjrQMmAFkg+uMedzUQnM8ApABOAMJOAO4Ahb3473XxU5z6k1uunGMOiFoA8j+mz0l/xmwFrtIBQScARD/OintvKYpCDUTjMwDpD04PBYDLGyeJkyQSvwcQ58K+2SLQZQdcNec46xCjAOR/9tfzj0U/vWwXrvqgGsicW0DSH5w8UScAA0DGTnEB03cHXG0OMAEg/XEikdsEYAlcsdDNGWUUMAEg/XFqkc0E4O+Oy+kS/dFNFoFaO+DqDx1vHTIqAEQ/TPFMUwN5cAtI+oNTTgHgUgQnXiR+DyBtJ7sIGWgHXONeUNIFYAlEP/R5HqqBZAvACJDiVXeP9KddNXDNITogyQlAAySX/jdaBFq4KbnmkBOsQ1p8CCz9wckZdwLA1QVVnqVGARMA0h+nK+2eAHwC0H4nuZxIsAOuNQe0vwB8Btzq6L9b9JP2xuXauWqgvdwCkv7gNFYAuGzAyRyJ3wNo5wVzg0Ugsw64du6J1qGFBYDoh4bObTXQKm4BSX9wkisAXBjgVI+k42+EbIPP3uWSIFYHrDzUvaAWFIAlEP0wqDNfDQyWW0DSH1wCcQug9DOQH6c+bOkAgTCYH7eABnXSX9//i8y+fI6VZODuP+3e/i+HlYd+yko2TwEkGf2Q5XWhBhq/BWQMavBH+sMkNSAoGvzxddCN+uaHq9zgzC7WW1IyO6slUrMTAAAKAIA4fBso0CcZYgIAILEJQHkDBgATAACBJgDlDRgAghaAJUjXSbfv1fP/98mf3T3xPzD9oLmVv6zXbP9r9vyypMgtIIC4E4ABjsYme6/Z/tcsZEKkAnCskYFeU/6H5BYQgAIAQAEAkD2/B8D43FqP+ZqFjwBMAAAoAADy1ClKAx/j3ggovWbE16zvZTEBAKAAAFAAADTOY6CMz+OVMV+z8BioCQCA/CcAdY9tsNc0AkQtAEeb9iXW1xcdtPU/H3HfnRP+k+/t4c/R5Wsuvu5nGoC8CwAaMjbW8/sDH3HfHQ4xCoC4yS4EJ16iSkcKUADYv2exhroBBYC4t+D/Y6Ki3gLwtR+puO7zsyp8tfdPliy77fyfyt+C16zW9V+YVceh7+1lX2bRFQ+4ZtvP7wFETH9wxlJ4DDSRa2mmRSDFDlh0xYPWwQSA9MfZiwLA9YNzGAUAwACVRw5fbhXau3s61e6J5C260icBLeXroFvnghPHPg/+kgUh+W2mJWhtAViC9oU+gAIQ+gB1FoD5rMnQn20RiEfImADkPoACEPoALSgAw5nch1oJmdYWgEPTv+VCH7rbFZ1zw/0WpE0TAHIfGr9qNIECkPugCTTBIAvATaAuz9cDLQLU2QQ/txomALkPoa81TdBgARgAxj0XT5D7MOgmuFETmADkPsS+HjWBAhD9EPryVAPVF0DwO0DL5D6ktksb1gQmALkPwa9fTdB/AZTBTp0DHHXIqQmGb/yFpei1AGLk/7Lj5T5kvqsbvkkTTHkCEP1APhe7GlAAch9C14AmCFoAoh8wEHRVADl9BDAq+oHxamBEDWQ8AYh+YNKIUAPbFEDKI8DocXIfmPJOceRmTbB5AkiyAUaPm+XgAf3sHUdufkABiH4gZg3MCl4DneSOFoAaCFQAoh9QA+EKQPQDaqCuAijb+hnw6LGiH3KQ3HMmyzbVwC3510AbJwDRD7QkiPKugXY9Bjp67EynHdC+GnjQBCD6gZg1MDPLGui0ZGUB1EDDpkl/oD7P/fMVWdaACcAiNnHx7Prql6wDGAVqKYDmHwNdeozo1wHY/mdSA+femnANNDoBiH4dgPTPzKZYS7QGmnsMdOkxMyJfDBIc53zG/bH0mJnn3vpLE4DoF/1Q2YWTUA1sCrq0aqDTwIqIfkANtNC0uhdC+gPRrqZU0q+WvxJy6dEznLJAZJtHgW+1ehSYVhZFtT/S3/YfXFNbd8OVZ2yFP1V+BnC+6AcYLxjPa+UoMK2qLpH+tv/gypqwBlo3A3SqeGP7OzUBuonK8771q1ZNANIfoNEaaInenwI6f6HoB+h1FPj24EeBHicA6Q/QVw20IEU7Kf6hAbLpgAGOAlP7PQDpD1B5DQzqMaAp3AJaIv0BajCodO3q66BFP9AOZa5vbMnCGUVRLGn2dtC0SYcE6Q/Q3CjQ4D2gSW4BLTlK+gM02AENpm5H9AO0sAOWfKf220HTpD9AzFFgnMdApT9ASzqg0cdAz5P+AK1Rayb/39dBS3+AVnZATV8HXW76F+xnlYG2K4O+7/MW7lcUxfnfeajyCUD6AyQxClSc1eUTjz9gWau166tetAhQh+f+tYNFqHAOmGY1AWLOAQoAIGgHKACAJDug0a+DBqA9zj1qv6Is+/nxIXD1fAgMNfEh8LiWfvfXvf0fTQAAiY8CR75HAQDoAAUAoAMUAIAOUAAN8TkVuLIG2AHdPwekAACyMnJEt3OAArBVAddUlh0w+a+CKQBA+mfZAe82AThlwaWEAhjEievcBenf2iHAV0E0xPdDTOD5v/414Lt+7etf79CL/gaMfu83CoCWeuU/ngn73l/Y+Y1OABqwbDsd4BYQQOaGP/luBYDtv7dP5A7wGCjizyIQtAPeZQIA0AEKADtfS0FgCgAg2BCw5VMABYA9rwUhWAd8YvONoPJJvwdAs3YUdtux0a8F0KBl3/+tAkABKACCcgsI6W9xUAAg4CwRCgAABQD2thYKBQBCzXKhAABQAGA/a9FQAAAoALCTtXQoAEQYFhAFAIACwO4Vy4gCQGxhMVEAACgA7FixpCgARBUWFgUAgALALtXyggIAQAFgf2qRoTudorQIVBFMfxdMzXXAxl389fGYAABQANj+W3BQAAgjyw4KAAAFgH2oxQcFgAByCEABAETVKfwiAD3uPZ+2CC0ZAjbusod1wAQAgALA9t/hAAWAuHFQQAEAoACw03RoUAAgYhwgFAAACgDsLh0mFACIFQcLBQCAAsCOEocMBQCAAsBeEgcOBYAQweFDAQCgALB/xEFEASA4cChRAAAoAOwZcUBRAAgLHFYUAAAKAPtEHFwUAAIChxgFAIACwN4QBxoFAIACwK4QhxsFgDhw0B10FACAAsBOEIceBYAIwAmAAgBAAWD3h9MABYDLHicDCgCANHVKaxDPDnZ8bDMEvLjLHtbBBACAAsD2HycGCgAXOU4PFAAACgD7O5wkKABc2DhVUAAAKADs6XDCoABwMeO0QQEAoACwj8PJgwIAoEmdwrfBZbyD+5sdHP0OAS++xpfEmQCQ/jiRUAAAKADs2nA6oQBwueKkQgEAoACwU8OphQLAJYoTDAUAgALA7gynGYPRKfwqMDA1QsMEQLv2ZestAk42FIALEpxyKAAAFIC9GDjxUAAuQnD6oQAAFAD2X+AkVAC48MCpqAAAUADYc4ETUgEAoACw2wKnpQLAZYaTEwUAQNv9F9rP+9RYkoaTAAAAAElFTkSuQmCC",sizes:"512x512",type:"image/png"}]
+    };
+    const blob = new Blob([JSON.stringify(manifest)],{type:"application/manifest+json"});
+    const link=document.getElementById("manifestLink");
+    if(link) link.href=URL.createObjectURL(blob);
+  } catch(e) {}
+})();
+</script>
+
+<script>
+(function(){
+  try{
+    var saved=localStorage.getItem('beijing-theme');
+    document.documentElement.dataset.theme=(saved==='dark'?'dark':'light');
+  }catch(e){document.documentElement.dataset.theme='light';}
+})();
+</script>
+
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f5f5f7;--surface:rgba(255,255,255,.82);--surface-solid:#fff;--text:#111113;--sub:#6e6e73;
+  --line:rgba(0,0,0,.07);--line-strong:rgba(0,0,0,.12);--accent:#007aff;--accent2:#5856d6;
+  --green:#34c759;--orange:#ff9500;--red:#ff3b30;--purple:#af52de;--pink:#ff2d55;
+  --shadow:0 18px 50px rgba(0,0,0,.08);--shadow-soft:0 8px 24px rgba(0,0,0,.06);
+  --radius-xl:30px;--radius-lg:24px;--radius-md:18px;--radius-sm:14px;
+}
+html[data-theme="dark"]{color-scheme:dark;--bg:#0b0b0d;--surface:rgba(28,28,30,.78);--surface-solid:#1c1c1e;--text:#f5f5f7;--sub:#a1a1a6;--line:rgba(255,255,255,.08);--line-strong:rgba(255,255,255,.14);--shadow:0 18px 50px rgba(0,0,0,.30);--shadow-soft:0 8px 24px rgba(0,0,0,.22)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","PingFang TC","Noto Sans TC",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.45;padding-bottom:calc(44px + env(safe-area-inset-bottom))}button,a{font:inherit}button{color:inherit}.wrap{width:min(880px,calc(100% - 28px));margin:auto}.muted{color:var(--sub)}.small{font-size:13px}.tiny{font-size:12px}.nowrap{white-space:nowrap}.hidden{display:none!important}
+
+/* Top launch dock */
+.launch-wrap{position:sticky;top:0;z-index:80;padding:calc(8px + env(safe-area-inset-top)) 10px 8px;background:linear-gradient(to bottom,rgba(245,245,247,.94),rgba(245,245,247,.65),transparent);backdrop-filter:saturate(160%) blur(24px)}
+html[data-theme="dark"] .launch-wrap{background:linear-gradient(to bottom,rgba(11,11,13,.94),rgba(11,11,13,.64),transparent)}
+.launchbar{width:min(880px,100%);margin:auto;display:flex;gap:8px;align-items:center;overflow-x:auto;scrollbar-width:none;padding:4px}.launchbar::-webkit-scrollbar{display:none}
+.launch{min-height:48px;border:0;text-decoration:none;border-radius:16px;display:flex;align-items:center;justify-content:center;gap:9px;padding:0 15px;font-weight:760;font-size:14px;box-shadow:0 1px 0 rgba(255,255,255,.14) inset,0 5px 18px rgba(0,0,0,.08);white-space:nowrap;flex:0 0 auto;transition:transform .16s ease,filter .16s ease}.launch:active{transform:scale(.97);filter:brightness(.96)}.launch img{width:24px;height:24px;object-fit:contain}.launch.alipay{background:#1677ff;color:#fff}.launch.wechat{background:#07c160;color:#fff}.launch.trip{background:#287dfa;color:#fff}.launch.trip .trip-mark{width:24px;height:24px;border-radius:7px;background:#fff;display:grid;place-items:center;color:#287dfa;font-size:10px;font-weight:900;letter-spacing:-.04em;position:relative}.launch.trip .trip-mark:after{content:"";position:absolute;width:6px;height:6px;background:#ffd23f;border-radius:50%;right:3px;top:3px}.launch.utility{background:var(--surface);color:var(--text);border:1px solid var(--line);box-shadow:none;padding:0 13px}.launch.utility svg{width:20px;height:20px}
+
+
+.theme-toggle{width:48px;min-width:48px;padding:0!important;border-radius:16px!important;position:relative;overflow:hidden}
+.theme-toggle svg{width:20px;height:20px;transition:transform .22s ease,opacity .22s ease}
+.theme-toggle .sun{display:block}.theme-toggle .moon{display:none}
+html[data-theme="dark"] .theme-toggle .sun{display:none}html[data-theme="dark"] .theme-toggle .moon{display:block}
+html[data-theme="dark"] .map-action.apple{background:#f5f5f7;color:#111113}
+html[data-theme="dark"] .map-action.apple svg{fill:#111113}
+.brand-icon{width:24px;height:24px;display:block;fill:currentColor;flex:none}
+.map-brand-icon{width:18px;height:18px;display:block;fill:currentColor;flex:none}
+
+/* Header */
+.hero{padding:34px 0 24px}.eyebrow{font-size:12px;font-weight:760;letter-spacing:.13em;text-transform:uppercase;color:var(--sub)}h1{font-size:clamp(42px,11vw,72px);letter-spacing:-.065em;line-height:.98;margin:9px 0 14px;font-weight:790}.hero p{font-size:17px;color:var(--sub);margin:0;max-width:680px}.hero-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.meta-pill{min-height:34px;display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:0 11px;background:var(--surface);border:1px solid var(--line);font-size:12px;font-weight:650;backdrop-filter:blur(16px)}.meta-pill .status-dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+
+/* Day nav */
+.daynav-wrap{position:sticky;top:72px;z-index:60;padding:8px 0 10px;background:linear-gradient(to bottom,var(--bg) 55%,transparent)}.daynav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 14px}.daynav::-webkit-scrollbar{display:none}.daychip{border:1px solid var(--line);background:var(--surface);backdrop-filter:blur(18px);min-height:44px;border-radius:999px;padding:0 15px;display:flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap;font-size:13px;font-weight:710}.daychip .num{font-variant-numeric:tabular-nums}.daychip.active{background:#111113;color:white;border-color:#111113}.daychip .today-badge{font-size:10px;background:var(--accent);color:white;padding:3px 6px;border-radius:999px;display:none}.daychip.active .today-badge{display:inline-block}html[data-theme="dark"] .daychip.active{background:#fff;color:#111}
+
+/* Sections */
+.days{display:flex;flex-direction:column;gap:32px;padding:10px 0 50px}.day{scroll-margin-top:136px}.day.is-today{order:-1}.dayhead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px;padding:0 2px}.dayhead h2{font-size:30px;letter-spacing:-.045em;margin:0}.dayhead .date{font-size:13px;color:var(--sub);font-weight:650}.today-label{display:none;font-size:11px;background:var(--accent);color:#fff;padding:5px 8px;border-radius:999px;margin-left:8px;vertical-align:3px}.day.is-today .today-label{display:inline-flex}.glass{background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-soft);backdrop-filter:saturate(150%) blur(26px)}
+
+/* Event */
+.event{border-radius:var(--radius-lg);overflow:hidden;margin:12px 0;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-soft);backdrop-filter:saturate(140%) blur(24px)}.event.current{outline:2px solid color-mix(in srgb,var(--accent) 70%,transparent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 12%,transparent),var(--shadow)}.event-top{display:grid;grid-template-columns:62px 1fr auto;gap:10px;padding:17px 18px 14px;align-items:start}.time{font-size:14px;font-weight:760;color:var(--accent);font-variant-numeric:tabular-nums}.event-title{font-size:19px;font-weight:760;letter-spacing:-.025em}.event-sub{font-size:13px;color:var(--sub);margin-top:3px}.kind{font-size:11px;font-weight:700;color:var(--sub);background:color-mix(in srgb,var(--surface-solid) 70%,transparent);border:1px solid var(--line);padding:5px 8px;border-radius:999px;white-space:nowrap}
+.event-body{padding:0 18px 18px}.event-note{font-size:14px;color:var(--sub);margin:0 0 12px}.route-note{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--sub);margin-top:10px}.route-note svg{flex:none;width:17px;height:17px;margin-top:1px;color:var(--accent)}
+
+/* Place rows + clear map actions */
+.place-list{display:grid;gap:10px}.place{border:1px solid var(--line);background:color-mix(in srgb,var(--surface-solid) 72%,transparent);border-radius:18px;padding:13px}.place-main{display:flex;gap:11px;align-items:flex-start}.place-pin{width:34px;height:34px;border-radius:11px;background:color-mix(in srgb,var(--accent) 10%,transparent);color:var(--accent);display:grid;place-items:center;flex:none}.place-pin svg{width:17px;height:17px}.place-name{font-size:15px;font-weight:720}.place-desc{font-size:12px;color:var(--sub);margin-top:2px}.nav-label{font-size:11px;font-weight:690;color:var(--sub);margin:11px 0 6px}.map-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.map-action{min-height:44px;border-radius:13px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:720;transition:transform .14s ease}.map-action:active{transform:scale(.975)}.map-action.apple{background:#111113;color:#fff}.map-action.apple img{filter:brightness(0) invert(1)}.map-action.amap{background:#1677ff;color:white}.map-action img{width:18px;height:18px;object-fit:contain}.amap-glyph{width:19px;height:19px;border:2px solid white;border-radius:50% 50% 50% 16%;transform:rotate(-45deg);display:inline-block;position:relative}.amap-glyph:after{content:"";width:5px;height:5px;border-radius:50%;background:white;position:absolute;left:5px;top:5px}
+
+/* Horizontal choices */
+.choice-title{font-size:12px;font-weight:760;color:var(--sub);margin:16px 1px 8px;display:flex;align-items:center;justify-content:space-between}.choice-title span:last-child{font-weight:560}.shelf{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(78%,1fr);gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;scrollbar-width:none;padding:2px 2px 8px}.shelf::-webkit-scrollbar{display:none}.option{scroll-snap-align:start;border-radius:20px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface-solid) 82%,transparent);padding:15px;min-height:168px;display:flex;flex-direction:column}.option.primary{border-color:color-mix(in srgb,var(--accent) 35%,var(--line));box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 10%,transparent) inset}.option-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.option-badge{font-size:10px;font-weight:760;padding:4px 7px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)}.option h3{font-size:17px;letter-spacing:-.02em;margin:8px 0 4px}.option p{font-size:13px;color:var(--sub);margin:0}.option .place-list{margin-top:auto;padding-top:12px}.option .place{padding:10px}.option .map-actions{grid-template-columns:1fr 1fr}.option .map-action{min-height:40px;font-size:12px}
+.swipe-hint{display:flex;align-items:center;gap:6px;color:var(--sub);font-size:11px}.swipe-hint:after{content:"";width:22px;height:1px;background:var(--line-strong)}
+
+/* Detail disclosure */
+details.strategy{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}details.strategy summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;min-height:40px;font-size:13px;font-weight:680;color:var(--sub)}details.strategy summary::-webkit-details-marker{display:none}details.strategy summary:after{content:"＋";font-size:18px;font-weight:400}details.strategy[open] summary:after{content:"−"}.strategy-body{font-size:13px;color:var(--sub);padding:4px 0 8px}.strategy-body strong{color:var(--text)}
+
+/* Information cards */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}.info-card{padding:17px;border-radius:20px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-soft)}.info-card .label{font-size:11px;color:var(--sub);font-weight:700}.info-card .value{font-size:22px;font-weight:760;letter-spacing:-.035em;margin-top:3px}.info-card p{font-size:12px;color:var(--sub);margin:6px 0 0}.ticket-card{margin:12px 0;padding:17px;border-radius:22px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 11%,var(--surface-solid)),var(--surface));border:1px solid color-mix(in srgb,var(--accent) 18%,var(--line))}.ticket-card h3{font-size:18px;margin:0 0 8px}.ticket-row{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}.ticket-row:last-child{border-bottom:0}.ticket-row b{font-weight:720}.ticket-row span:last-child{color:var(--sub);text-align:right}
+
+/* First run + sheets */
+.sheet-overlay{position:fixed;inset:0;background:rgba(0,0,0,.30);z-index:120;opacity:0;pointer-events:none;transition:opacity .2s}.sheet-overlay.show{opacity:1;pointer-events:auto}.sheet{position:fixed;z-index:130;left:50%;bottom:0;transform:translate(-50%,105%);width:min(620px,100%);border-radius:30px 30px 0 0;background:color-mix(in srgb,var(--surface-solid) 93%,transparent);backdrop-filter:blur(30px) saturate(150%);box-shadow:0 -20px 60px rgba(0,0,0,.18);padding:10px 16px calc(20px + env(safe-area-inset-bottom));transition:transform .28s cubic-bezier(.2,.8,.2,1)}.sheet.show{transform:translate(-50%,0)}.grabber{width:38px;height:5px;border-radius:999px;background:color-mix(in srgb,var(--sub) 32%,transparent);margin:2px auto 14px}.sheet h3{font-size:25px;letter-spacing:-.035em;margin:0 0 8px}.sheet p{font-size:14px;color:var(--sub);margin:0}.guide-pages{display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:18px -2px 12px}.guide-pages::-webkit-scrollbar{display:none}.guide-page{scroll-snap-align:start;padding:2px}.guide-art{height:130px;border-radius:24px;background:linear-gradient(145deg,#fff,#eef3ff);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin-bottom:14px;overflow:hidden}.guide-art .mini-shelf{display:flex;gap:8px;width:82%;overflow:hidden}.guide-art .mini-card{min-width:72%;height:82px;background:white;border-radius:18px;box-shadow:0 7px 22px rgba(0,0,0,.08)}.guide-dots{display:flex;justify-content:center;gap:6px;margin:8px 0 14px}.guide-dot{width:6px;height:6px;border-radius:50%;background:var(--line-strong)}.guide-dot.active{background:var(--accent);width:18px;border-radius:999px}.sheet-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.sheet-btn{border:0;min-height:50px;border-radius:16px;font-weight:720;background:color-mix(in srgb,var(--surface-solid) 78%,transparent)}.sheet-btn.primary{background:var(--accent);color:white}.sheet-btn:active{transform:scale(.985)}
+
+/* install card */
+.install-card{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:90;max-width:580px;margin:auto;border:1px solid var(--line);background:rgba(255,255,255,.86);backdrop-filter:blur(30px) saturate(160%);border-radius:22px;padding:12px;box-shadow:0 18px 45px rgba(0,0,0,.14);display:none;align-items:center;gap:11px}.install-card.show{display:flex}html[data-theme="dark"] .install-card{background:rgba(28,28,30,.88)}.install-icon{width:44px;height:44px;border-radius:12px;background:#111;color:white;display:grid;place-items:center;font-weight:780;font-size:21px}.install-copy{flex:1;min-width:0}.install-copy b{display:block;font-size:13px}.install-copy span{display:block;font-size:11px;color:var(--sub);margin-top:1px}.install-btn{border:0;background:var(--accent);color:white;border-radius:12px;min-height:36px;padding:0 12px;font-weight:720}.install-close{border:0;background:transparent;color:var(--sub);font-size:18px;width:34px;height:34px}
+
+footer{padding:18px 0 30px;color:var(--sub);font-size:11px;text-align:center}
+@media(max-width:620px){.wrap{width:min(100% - 22px,880px)}.hero{padding-top:22px}.daynav-wrap{top:70px}.event-top{grid-template-columns:52px 1fr}.event-top .kind{grid-column:2;justify-self:start}.info-grid{grid-template-columns:1fr}.shelf{grid-auto-columns:88%}.launchbar{padding-left:2px}.launch{padding:0 13px}.map-action{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* v4 ambient imagery + refined motion */
+body{overflow-x:hidden}
+main,footer{position:relative;z-index:1}
+.page-ambient{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.ambient-orb{position:absolute;border-radius:999px;filter:blur(54px);opacity:.42;will-change:transform}
+.ambient-orb.one{width:44vw;height:44vw;min-width:300px;min-height:300px;left:-18vw;top:8vh;background:radial-gradient(circle,rgba(0,122,255,.10),rgba(0,122,255,0) 70%);animation:orbA 18s ease-in-out infinite alternate}
+.ambient-orb.two{width:38vw;height:38vw;min-width:260px;min-height:260px;right:-14vw;top:38vh;background:radial-gradient(circle,rgba(255,149,0,.08),rgba(255,149,0,0) 70%);animation:orbB 22s ease-in-out infinite alternate}
+.ambient-line{position:absolute;background-repeat:no-repeat;background-position:center;background-size:contain;opacity:.035;filter:none;will-change:transform}
+.ambient-line.temple{width:min(58vw,640px);height:min(34vw,380px);right:-10vw;top:11vh;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNDIwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxMTEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTc1IDM0NWgzNzAiLz48cGF0aCBkPSJNMjQ1IDM0NXYtNDJoMjMwdjQyIi8+PHBhdGggZD0iTTI3MCAzMDN2LTQyaDE4MHY0MiIvPjxwYXRoIGQ9Ik0zMDAgMjYxdi01MGgxMjB2NTAiLz48cGF0aCBkPSJNMzI1IDIxMXYtNDJoNzB2NDIiLz48cGF0aCBkPSJNMjI1IDI2MGgyNzAiLz48cGF0aCBkPSJNMjUwIDIxMGgyMjAiLz48cGF0aCBkPSJNMjgyIDE2OGgxNTYiLz48cGF0aCBkPSJNMjEwIDI2MGwzNS0yMGgyMzBsMzUgMjAiLz48cGF0aCBkPSJNMjM1IDIxMGw0MC0yNGgxNzBsNDAgMjQiLz48cGF0aCBkPSJNMjc1IDE2OGwzNS0yMmgxMDBsMzUgMjIiLz48cGF0aCBkPSJNMzI4IDE0NmMwLTI4IDEyLTQ5IDMyLTQ5czMyIDIxIDMyIDQ5Ii8+PHBhdGggZD0iTTM0MyA5NmMwLTE1IDctMjUgMTctMjVzMTcgMTAgMTcgMjUiLz48cGF0aCBkPSJNMTkwIDM0NWMyOCAxOCA2NCAyNyAxMDUgMjdoMTMwYzQxIDAgNzctOSAxMDUtMjciLz48L2c+PC9zdmc+");animation:lineFloat 20s ease-in-out infinite alternate}
+.ambient-line.gate{width:min(48vw,520px);height:min(29vw,320px);left:-12vw;bottom:8vh;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNDIwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxMTEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTIwIDM0NGg0ODAiLz48cGF0aCBkPSJNMTkwIDM0NHYtMTE1aDM0MHYxMTUiLz48cGF0aCBkPSJNMjE1IDIyOXYtNzBoMjkwdjcwIi8+PHBhdGggZD0iTTE2NSAyMzBoMzkwIi8+PHBhdGggZD0iTTE5NSAxNTloMzMwIi8+PHBhdGggZD0iTTE1MCAyMzBsNTUtMzRoMzEwbDU1IDM0Ii8+PHBhdGggZD0iTTE4NSAxNTlsNDUtMzBoMjYwbDQ1IDMwIi8+PHBhdGggZD0iTTMxMCAzNDR2LTc4aDEwMHY3OCIvPjxwYXRoIGQ9Ik0yNDUgMzQ0di00OGg0MnY0OE00MzMgMzQ0di00OGg0MnY0OCIvPjxwYXRoIGQ9Ik0yNTAgMTk2aDQwTTMxNSAxOTZoNDBNMzgwIDE5Nmg0ME00NDUgMTk2aDMwIi8+PHBhdGggZD0iTTExMCAzNDRjNzAtMTggMTE1LTE4IDE1NSAwTTQ1NSAzNDRjNTAtMTggOTUtMTggMTU1IDAiLz48L2c+PC9zdmc+");opacity:.024;animation:lineFloatB 24s ease-in-out infinite alternate}
+html[data-theme="dark"] .ambient-line{filter:invert(1);opacity:.055}html[data-theme="dark"] .ambient-orb{opacity:.55}
+@keyframes orbA{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(6vw,5vh,0) scale(1.08)}}
+@keyframes orbB{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-5vw,-4vh,0) scale(1.1)}}
+@keyframes lineFloat{from{transform:translate3d(0,0,0) rotate(-1deg)}to{transform:translate3d(-18px,14px,0) rotate(.7deg)}}
+@keyframes lineFloatB{from{transform:translate3d(0,0,0) rotate(.6deg)}to{transform:translate3d(18px,-12px,0) rotate(-.4deg)}}
+
+.hero{position:relative;isolation:isolate;padding-top:42px}
+.hero:before{content:"";position:absolute;inset:-28px -8px -16px;border-radius:36px;background:linear-gradient(135deg,rgba(255,255,255,.50),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.65);backdrop-filter:blur(2px);z-index:-1;opacity:.48;mask-image:linear-gradient(to bottom,#000 0%,#000 70%,transparent 100%)}
+html[data-theme="dark"] .hero:before{background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.01));border-color:rgba(255,255,255,.06);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.hero h1{text-wrap:balance}
+.hero .meta-pill{box-shadow:inset 0 1px 0 rgba(255,255,255,.48)}
+
+.day{position:relative;isolation:isolate;padding-top:4px}
+.day>*{position:relative;z-index:1}
+.day:before{content:"";position:absolute;z-index:0;right:-18px;top:8px;width:280px;height:162px;background-repeat:no-repeat;background-position:right top;background-size:contain;opacity:.028;pointer-events:none}
+#day1:before{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNDIwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxMTEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTIwIDM0NGg0ODAiLz48cGF0aCBkPSJNMTkwIDM0NHYtMTE1aDM0MHYxMTUiLz48cGF0aCBkPSJNMjE1IDIyOXYtNzBoMjkwdjcwIi8+PHBhdGggZD0iTTE2NSAyMzBoMzkwIi8+PHBhdGggZD0iTTE5NSAxNTloMzMwIi8+PHBhdGggZD0iTTE1MCAyMzBsNTUtMzRoMzEwbDU1IDM0Ii8+PHBhdGggZD0iTTE4NSAxNTlsNDUtMzBoMjYwbDQ1IDMwIi8+PHBhdGggZD0iTTMxMCAzNDR2LTc4aDEwMHY3OCIvPjxwYXRoIGQ9Ik0yNDUgMzQ0di00OGg0MnY0OE00MzMgMzQ0di00OGg0MnY0OCIvPjxwYXRoIGQ9Ik0yNTAgMTk2aDQwTTMxNSAxOTZoNDBNMzgwIDE5Nmg0ME00NDUgMTk2aDMwIi8+PHBhdGggZD0iTTExMCAzNDRjNzAtMTggMTE1LTE4IDE1NSAwTTQ1NSAzNDRjNTAtMTggOTUtMTggMTU1IDAiLz48L2c+PC9zdmc+")}
+#day2:before{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNDIwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxMTEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTc1IDM0NWgzNzAiLz48cGF0aCBkPSJNMjQ1IDM0NXYtNDJoMjMwdjQyIi8+PHBhdGggZD0iTTI3MCAzMDN2LTQyaDE4MHY0MiIvPjxwYXRoIGQ9Ik0zMDAgMjYxdi01MGgxMjB2NTAiLz48cGF0aCBkPSJNMzI1IDIxMXYtNDJoNzB2NDIiLz48cGF0aCBkPSJNMjI1IDI2MGgyNzAiLz48cGF0aCBkPSJNMjUwIDIxMGgyMjAiLz48cGF0aCBkPSJNMjgyIDE2OGgxNTYiLz48cGF0aCBkPSJNMjEwIDI2MGwzNS0yMGgyMzBsMzUgMjAiLz48cGF0aCBkPSJNMjM1IDIxMGw0MC0yNGgxNzBsNDAgMjQiLz48cGF0aCBkPSJNMjc1IDE2OGwzNS0yMmgxMDBsMzUgMjIiLz48cGF0aCBkPSJNMzI4IDE0NmMwLTI4IDEyLTQ5IDMyLTQ5czMyIDIxIDMyIDQ5Ii8+PHBhdGggZD0iTTM0MyA5NmMwLTE1IDctMjUgMTctMjVzMTcgMTAgMTcgMjUiLz48cGF0aCBkPSJNMTkwIDM0NWMyOCAxOCA2NCAyNyAxMDUgMjdoMTMwYzQxIDAgNzctOSAxMDUtMjciLz48L2c+PC9zdmc+")}
+#day3:before{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNDIwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxMTEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTEwIDMyN2g1MDAiLz48cGF0aCBkPSJNMTU1IDMwMGMwLTgyIDYzLTE1MiAxNDQtMTYzbDE4OC0yNWM0Ni02IDgzIDI5IDgzIDc1djExM0gxNTV6Ii8+PHBhdGggZD0iTTIxMyAyNjRoMzAwIi8+PHBhdGggZD0iTTI1NiAyMTloMTkwIi8+PHBhdGggZD0iTTI5MSAxNzZoMTIyIi8+PHBhdGggZD0iTTE5OSAzMDBsLTE4IDI3TTUyNiAzMDBsMTggMjciLz48Y2lyY2xlIGN4PSIyNTIiIGN5PSIzMTQiIHI9IjIyIi8+PGNpcmNsZSBjeD0iNDc0IiBjeT0iMzE0IiByPSIyMiIvPjxwYXRoIGQ9Ik0xMjQgMzU1aDQ3MiIvPjxwYXRoIGQ9Ik0xNjggMzU1bC0yNiAyN001NTIgMzU1bDI2IDI3Ii8+PC9nPjwvc3ZnPg==")}
+html[data-theme="dark"] .day:before{filter:invert(1);opacity:.05}
+
+.event{position:relative;transition:transform .35s cubic-bezier(.22,.8,.2,1),box-shadow .35s ease,border-color .35s ease,background-color .35s ease;box-shadow:0 10px 28px rgba(0,0,0,.055),inset 0 1px 0 rgba(255,255,255,.52)}
+.event:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.23),transparent 24%,transparent 78%,rgba(255,255,255,.08));opacity:.55}
+.event:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(0,0,0,.08),inset 0 1px 0 rgba(255,255,255,.65)}
+html[data-theme="dark"] .event{box-shadow:0 14px 40px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.06)}
+.event.current{animation:currentGlow 3.6s ease-in-out infinite}
+@keyframes currentGlow{0%,100%{box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 9%,transparent),var(--shadow)}50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--accent) 13%,transparent),var(--shadow)}}
+.place{transition:transform .22s ease,border-color .22s ease,background-color .22s ease}
+.place:hover{transform:translateY(-1px);border-color:color-mix(in srgb,var(--accent) 22%,var(--line))}
+.map-action,.launch,.daychip,.install-btn{-webkit-tap-highlight-color:transparent}
+.map-action{box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 4px 10px rgba(0,0,0,.04)}
+.daychip{transition:transform .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+.daychip:active{transform:scale(.97)}
+.daychip.active{box-shadow:0 8px 20px rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.14)}
+
+.shelf{scroll-padding-inline:2px}
+.option{transition:transform .28s cubic-bezier(.22,.8,.2,1),opacity .28s ease,box-shadow .28s ease,border-color .28s ease;transform:scale(.982);opacity:.88;box-shadow:inset 0 1px 0 rgba(255,255,255,.55)}
+.option.is-focus{transform:scale(1);opacity:1;box-shadow:0 12px 28px rgba(0,0,0,.07),inset 0 1px 0 rgba(255,255,255,.62)}
+html[data-theme="dark"] .option{box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+
+html.motion-ready .event,html.motion-ready .dayhead{opacity:0;transform:translateY(10px) scale(.995)}
+html.motion-ready .event.is-visible,html.motion-ready .dayhead.is-visible{opacity:1;transform:translateY(0) scale(1);transition:opacity .6s ease,transform .65s cubic-bezier(.22,.8,.2,1)}
+html.motion-ready .dayhead{transition-delay:.03s}
+
+@media(max-width:620px){
+  .ambient-line.temple{width:86vw;height:50vw;right:-24vw;top:13vh;opacity:.03}
+  .ambient-line.gate{width:78vw;height:46vw;left:-28vw;bottom:12vh;opacity:.02}
+  .hero{padding-top:28px}
+  .hero:before{inset:-12px -4px -8px;border-radius:28px}
+  .day:before{width:220px;height:128px;right:-36px;top:12px}
+  .event:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
+  html.motion-ready .event,html.motion-ready .dayhead{opacity:1!important;transform:none!important}
+}
+
+
+/* v5 — illustrated cards */
+.event,.option{isolation:isolate}
+.event>* , .option>*{position:relative;z-index:2}
+.event.card-art,.option.card-art{
+  --art-accent:#8a8a8f;
+  background:linear-gradient(100deg,
+    color-mix(in srgb,var(--art-accent) 10%,var(--surface-solid)) 0%,
+    color-mix(in srgb,var(--surface-solid) 92%,transparent) 52%,
+    color-mix(in srgb,var(--surface-solid) 68%,transparent) 100%);
+}
+.event.card-art:after,.option.card-art:after{
+  content:"";position:absolute;z-index:0;right:-16px;top:-10px;width:47%;height:176px;
+  background-image:var(--card-art);background-size:contain;background-repeat:no-repeat;background-position:right top;
+  opacity:.22;filter:saturate(1.05) contrast(.96);pointer-events:none;
+  transform:translate3d(0,0,0) rotate(.1deg);
+  transition:transform .65s cubic-bezier(.2,.8,.2,1),opacity .35s ease;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 34%,#000 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 34%,#000 100%);
+}
+.event.card-art:hover:after,.option.card-art.is-focus:after{transform:translate3d(-4px,3px,0) scale(1.025);opacity:.27}
+html[data-theme="dark"] .event.card-art,html[data-theme="dark"] .option.card-art{
+  background:linear-gradient(100deg,color-mix(in srgb,var(--art-accent) 13%,var(--surface-solid)),var(--surface) 58%,var(--surface));
+}
+html[data-theme="dark"] .event.card-art:after,html[data-theme="dark"] .option.card-art:after{opacity:.18;mix-blend-mode:screen}
+.art-temple{--art-accent:#b83d3d;--card-art:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MjAgMjgwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZDg0YjQ1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOGMxZTJjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUyMCIgaGVpZ2h0PSIyODAiIHJ4PSIzOCIgZmlsbD0idXJsKCNnKSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii44NCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMDUgMjIyaDMxMCIvPjxwYXRoIGQ9Ik0xNjUgMjIydi0zNGgxOTB2MzQiLz48cGF0aCBkPSJNMTkwIDE4OHYtMzhoMTQwdjM4Ii8+PHBhdGggZD0iTTIxOCAxNTB2LTQyaDg0djQyIi8+PHBhdGggZD0iTTE0OCAxNzBoMjI0Ii8+PHBhdGggZD0iTTE3NiAxMzBoMTY4Ii8+PHBhdGggZD0iTTIwMCAxMDhoMTIwIi8+PHBhdGggZD0iTTE1MCAxNzBsMzgtMjRoMTQ0bDM4IDI0Ii8+PHBhdGggZD0iTTE3OCAxMzBsMzYtMjJoOTJsMzYgMjIiLz48cGF0aCBkPSJNMjI3IDEwNmM0LTI1IDE2LTQxIDMzLTQxczI5IDE2IDMzIDQxIi8+PC9nPjwvc3ZnPg==")}
+.art-duck{--art-accent:#d57b3e;--card-art:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MjAgMjgwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZTE4YjQzIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOWYzODJmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUyMCIgaGVpZ2h0PSIyODAiIHJ4PSIzOCIgZmlsbD0idXJsKCNnKSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii44NCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxlbGxpcHNlIGN4PSIyNjgiIGN5PSIxNzUiIHJ4PSIxMTgiIHJ5PSI1MiIvPjxwYXRoIGQ9Ik0xNzkgMTcwYzI1LTU4IDcwLTg5IDEyOC03NSAzMSA4IDUxIDI3IDYwIDU4Ii8+PHBhdGggZD0iTTMwOCAxMDBjNi0zNSAyNC01MyA1NS01NSIvPjxwYXRoIGQ9Ik0zNjMgNDVsMjMgOC0yMCAxMiIvPjxwYXRoIGQ9Ik0xNjggMjEwaDIwMiIvPjxwYXRoIGQ9Ik0yMTMgMTQ2YzMzIDE3IDcyIDIwIDExMSA3Ii8+PC9nPjwvc3ZnPg==")}
+.art-hotpot{--art-accent:#c74b49;--card-art:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MjAgMjgwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZDU1NTQ4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjN2UyNzM4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUyMCIgaGVpZ2h0PSIyODAiIHJ4PSIzOCIgZmlsbD0idXJsKCNnKSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii44NCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xNTAgMTQ4aDIyMGwtMjAgNzJIMTcweiIvPjxwYXRoIGQ9Ik0xMzUgMTQ4aDI1MCIvPjxwYXRoIGQ9Ik0xODggMTExYy0yNC0yMiAxMy0zNC01LTU5TTI2MCAxMTFjLTI0LTIyIDEzLTM0LTUtNTlNMzMyIDExMWMtMjQtMjIgMTMtMzQtNS01OSIvPjxwYXRoIGQ9Ik0xOTAgMjIwdjIyTTMzMCAyMjB2MjIiLz48L2c+PC9zdmc+")}
+.art-city{--art-accent:#6674c9;--card-art:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MjAgMjgwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjNTg3NWQ4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNmIzZWE3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUyMCIgaGVpZ2h0PSIyODAiIHJ4PSIzOCIgZmlsbD0idXJsKCNnKSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii44NCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMDIgMjI4aDMxNiIvPjxwYXRoIGQ9Ik0xMzAgMjI4di05Nmg2NHY5Nk0yMTIgMjI4VjkyaDgydjEzNk0zMTIgMjI4di0xMjJoNzh2MTIyIi8+PHBhdGggZD0iTTE1MSAxNTRoMjJNMTUxIDE4MGgyMk0yMzkgMTIxaDI5TTIzOSAxNTJoMjlNMjM5IDE4M2gyOU0zMzcgMTM2aDI4TTMzNyAxNjZoMjhNMzM3IDE5NmgyOCIvPjxwYXRoIGQ9Ik0xMDggMTE2YzU4LTI0IDExMi0yNiAxNjItNyIvPjwvZz48L3N2Zz4=")}
+.art-book{--art-accent:#4f8572;--card-art:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MjAgMjgwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjNWQ4YTc3Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMzg2YjY0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUyMCIgaGVpZ2h0PSIyODAiIHJ4PSIzOCIgZmlsbD0idXJsKCNnKSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii44NCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xNDUgNzRoMTA0YzI4IDAgNDkgMTcgNDkgNDN2MTE1SDE5NGMtMjcgMC00OS0xNi00OS00MnoiLz48cGF0aCBkPSJNMzc1IDc0SDI3MWMtMjggMC00OSAxNy00OSA0M3YxMTVoMTA0YzI3IDAgNDktMTYgNDktNDJ6Ii8+PHBhdGggZD0iTTI2MCA5M3YxMzkiLz48cGF0aCBkPSJNMTcxIDExM2g1NE0xNzEgMTQyaDU0TTI5NSAxMTNoNTRNMjk1IDE0Mmg1NCIvPjwvZz48L3N2Zz4=")}
+.art-shop{--art-accent:#ea6a78;--card-art:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MjAgMjgwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZjI5YTNmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZTU0Zjc4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUyMCIgaGVpZ2h0PSIyODAiIHJ4PSIzOCIgZmlsbD0idXJsKCNnKSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii44NCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xNjAgMTA1aDIwMGwtMTggMTI4SDE3OHoiLz48cGF0aCBkPSJNMTk5IDEwNWMwLTM1IDI1LTYxIDYxLTYxczYxIDI2IDYxIDYxIi8+PHBhdGggZD0iTTIxOCAxNjBsNDItMjUgNDIgMjUtNDIgMjR6Ii8+PHBhdGggZD0iTTI2MCAxMzV2NzQiLz48Y2lyY2xlIGN4PSIzNDYiIGN5PSI4MCIgcj0iMTgiLz48cGF0aCBkPSJNMzQ2IDQ1djE3TTM0NiA5OHYxN00zMTEgODBoMTdNMzY0IDgwaDE3Ii8+PC9nPjwvc3ZnPg==")}
+.art-train{--art-accent:#526fb7;--card-art:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MjAgMjgwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjNTI3ZGM3Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMzk0Nzg1Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUyMCIgaGVpZ2h0PSIyODAiIHJ4PSIzOCIgZmlsbD0idXJsKCNnKSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii44NCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMjUgMTk1YzAtNzAgNDItMTI0IDEwOC0xMzFoODljNTIgMCA3MyAzNyA3MyA4OXY0MnoiLz48cGF0aCBkPSJNMTU2IDExMmgxODgiLz48cGF0aCBkPSJNMTczIDE0MGgxNTQiLz48cGF0aCBkPSJNMTUwIDE5NWgyMzAiLz48Y2lyY2xlIGN4PSIxOTEiIGN5PSIyMTYiIHI9IjE4Ii8+PGNpcmNsZSBjeD0iMzM2IiBjeT0iMjE2IiByPSIxOCIvPjxwYXRoIGQ9Ik0xMjkgMjMyaDI2NiIvPjwvZz48L3N2Zz4=")}
+.art-breakfast{--art-accent:#c78c45;--card-art:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MjAgMjgwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZDVhNjRjIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjYjM2NzM2Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUyMCIgaGVpZ2h0PSIyODAiIHJ4PSIzOCIgZmlsbD0idXJsKCNnKSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii44NCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxlbGxpcHNlIGN4PSIyNjAiIGN5PSIxNzYiIHJ4PSIxMTIiIHJ5PSI1MSIvPjxwYXRoIGQ9Ik0xNjggMTc2aDE4NCIvPjxwYXRoIGQ9Ik0yMTAgMTEyYzAtMjkgMjItNDkgNTAtNDlzNTAgMjAgNTAgNDkiLz48cGF0aCBkPSJNMjIwIDExMmg4MCIvPjxwYXRoIGQ9Ik0xOTYgMjEzaDEyOCIvPjxwYXRoIGQ9Ik0xNzQgNzdjMjIgMTAgNDAgMTAgNTggME0yODggNzdjMjIgMTAgNDAgMTAgNTggMCIvPjwvZz48L3N2Zz4=")}
+
+/* v5 — Add to Home Screen is the primary onboarding */
+.install-hero{
+  margin:18px 0 16px;padding:18px;border-radius:26px;
+  background:linear-gradient(145deg,rgba(184,36,42,.10),rgba(255,190,92,.10));
+  border:1px solid color-mix(in srgb,#b8242a 14%,var(--line));
+  display:flex;align-items:center;gap:15px;
+}
+.install-app-icon{width:72px;height:72px;border-radius:18px;box-shadow:0 12px 28px rgba(127,25,32,.18);flex:none}
+.install-hero-title{font-size:18px;font-weight:780;letter-spacing:-.02em}
+.install-hero-sub{font-size:12px;color:var(--sub);margin-top:3px}
+.a2hs-steps{display:grid;gap:9px;margin:4px 0 16px}
+.a2hs-step{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;padding:11px 12px;border:1px solid var(--line);border-radius:16px;background:color-mix(in srgb,var(--surface-solid) 78%,transparent)}
+.a2hs-num{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#b8242a;color:#fff;font-size:12px;font-weight:780}
+.a2hs-step b{font-size:13px}.a2hs-step span{display:block;font-size:11px;color:var(--sub);margin-top:1px}
+.install-note{font-size:11px;color:var(--sub);text-align:center;margin-top:8px}
+.install-card{display:none!important}
+.launch.install-launch{background:#b8242a;color:white;border-color:#b8242a}
+.launch.install-launch svg{width:20px;height:20px}
+html[data-theme="dark"] .launch.install-launch{background:#c73b40;border-color:#c73b40}
+@media(max-width:620px){
+  .event.card-art:after,.option.card-art:after{width:54%;height:158px;right:-24px;top:-8px;opacity:.20}
+}
+
+
+/* v6 refinements */
+.option.card-art::after{display:none!important}
+.option.card-art{background:var(--surface)!important}
+.event{overflow:hidden}
+.event.card-art::after{
+  right:-34px!important;
+  top:0!important;
+  width:48%!important;
+  height:100%!important;
+  min-height:170px;
+  opacity:.115!important;
+  background-size:cover!important;
+  background-position:center!important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 32%,#000 100%)!important;
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 32%,#000 100%)!important;
+  transform:none!important;
+}
+html[data-theme="dark"] .event.card-art::after{opacity:.09!important}
+.event.card-art:hover::after{transform:none!important;opacity:.13!important}
+
+/* compact help affordance */
+.launch.help-dot{
+  width:38px!important;height:38px!important;min-width:38px!important;padding:0!important;
+  border-radius:50%!important;display:grid!important;place-items:center!important;
+  background:var(--surface)!important;color:var(--text)!important;border:1px solid var(--line)!important;
+  box-shadow:none!important;font-size:17px!important;font-weight:720!important;
+}
+.launch.help-dot:hover{background:var(--surface-solid)!important}
+.launch.help-dot span{transform:translateY(-.5px)}
+.install-hero{margin:12px 0!important;padding:12px!important;border-radius:18px!important}
+.install-app-icon{width:48px!important;height:48px!important;border-radius:12px!important}
+.install-hero-title{font-size:15px!important}
+.install-hero-sub{font-size:11px!important}
+.a2hs-steps{gap:7px!important;margin:4px 0 10px!important}
+.a2hs-step{padding:9px 10px!important;border-radius:14px!important}
+.a2hs-num{width:24px!important;height:24px!important;border-radius:8px!important;font-size:11px!important}
+
+/* clothing card */
+.weather-wear{
+  margin:0 auto 18px;
+  max-width:var(--wrap);
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 84% 16%,rgba(246,177,74,.18),transparent 25%),
+    linear-gradient(135deg,rgba(85,122,152,.08),rgba(255,255,255,.48));
+  overflow:hidden;
+  box-shadow:0 10px 34px rgba(24,32,40,.055);
+}
+html[data-theme="dark"] .weather-wear{
+  background:
+    radial-gradient(circle at 84% 16%,rgba(246,177,74,.10),transparent 25%),
+    linear-gradient(135deg,rgba(85,122,152,.12),rgba(20,22,26,.66));
+}
+.weather-wear-inner{padding:17px 18px 16px}
+.weather-wear-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.weather-wear h3{margin:1px 0 4px;font-size:18px;letter-spacing:-.02em}
+.weather-wear p{margin:0;color:var(--sub);font-size:12px;line-height:1.6}
+.temp-row{display:flex;gap:8px;overflow:auto;padding:13px 0 2px;scrollbar-width:none}
+.temp-row::-webkit-scrollbar{display:none}
+.temp-pill{
+  min-width:92px;padding:10px 11px;border-radius:15px;background:color-mix(in srgb,var(--surface-solid) 82%,transparent);
+  border:1px solid var(--line);font-size:11px;color:var(--sub)
+}
+.temp-pill strong{display:block;color:var(--text);font-size:14px;margin-bottom:2px}
+.wear-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.wear-item{padding:11px;border-radius:15px;background:color-mix(in srgb,var(--surface-solid) 78%,transparent);border:1px solid var(--line)}
+.wear-item b{display:block;font-size:12px;margin-bottom:3px}
+.wear-item span{display:block;font-size:11px;line-height:1.45;color:var(--sub)}
+.weather-updated{font-size:10px;color:var(--sub);margin-top:10px}
+@media(max-width:620px){
+  .event.card-art::after{width:44%!important;opacity:.095!important}
+  .wear-grid{grid-template-columns:1fr}
+}
+
+</style>
+</head>
+<body>
+<div class="page-ambient" aria-hidden="true">
+  <div class="ambient-orb one"></div>
+  <div class="ambient-orb two"></div>
+  <div class="ambient-line temple"></div>
+  <div class="ambient-line gate"></div>
+</div>
+
+<header class="launch-wrap">
+  <div class="launchbar">
+    <a class="launch alipay" href="#" data-deeplink="alipays://" data-fallback="https://www.alipay.com/" aria-label="開啟支付寶"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTM3Ny43NCAzMkg3MC4yNkMzMS40MSAzMiAwIDYzLjQxIDAgMTAyLjI2djMwNy40OEMwIDQ0OC41OSAzMS40MSA0ODAgNzAuMjYgNDgwaDMwNy40OGMzOC41MiAwIDY5Ljc2LTMxLjA4IDcwLjI2LTY5LjYtNDUuOTYtMjUuNjItMTEwLjU5LTYwLjM0LTE3MS42LTg4LjQ0LTMyLjA3IDQzLjk3LTg0LjE0IDgxLTE0OC42MiA4MS03MC41OSAwLTkzLjczLTQ1LjMtOTcuMDQtNzYuMzctMy45Ny0zOS4wMSAxNC44OC04MS41IDk5LjUyLTgxLjUgMzUuMzggMCA3OS4zNSAxMC4yNSAxMjcuMTMgMjQuOTYgMTYuNTMtMzAuMDkgMjYuNDUtNjAuMzQgMjYuNDUtNjAuMzRoLTE3OC4ydi0xNi43aDkyLjA4di0zMS4yNEg4OC4yOHYtMTkuMDFoMTA5LjQ0VjkyLjM0aDUwLjkydjUwLjQyaDEwOS40NHYxOS4wMUgyNDguNjN2MzEuMjRoODguNzdzLTE1LjIxIDQ2LjYyLTM4LjM1IDkwLjkyYzQ4LjkzIDE2LjcgMTAwLjAxIDM2LjA0IDE0OC42MiA1Mi43NFYxMDIuMjZDNDQ3LjgzIDYzLjU3IDQxNi40MyAzMiAzNzcuNzQgMzJ6TTQ3LjI4IDMyMi45NWMuOTkgMjAuMTcgMTAuMjUgNTMuNzMgNjkuOTMgNTMuNzMgNTIuMDcgMCA5Mi41OC0zOS42OCAxMTcuODctNzIuOS00NC42My0xOC42OC04NC40OC0zMS40MS0xMDkuNDQtMzEuNDEtNjcuNDUgMC03OS4zNSAzMy4wNi03OC4zNiA1MC41OHoiLz48L3N2Zz4=" alt="" style="filter:brightness(0) invert(1)">支付寶</a>
+    <a class="launch wechat" href="#" data-deeplink="weixin://" data-fallback="https://weixin.qq.com/" aria-label="開啟微信"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTM4NS4yIDE2Ny42YzYuNCAwIDEyLjYuMyAxOC44IDEuMUMzODcuNCA5MC4zIDMwMy4zIDMyIDIwNy43IDMyIDEwMC41IDMyIDEzIDEwNC44IDEzIDE5Ny40YzAgNTMuNCAyOS4zIDk3LjUgNzcuOSAxMzEuNmwtMTkuMyA1OC42IDY4LTM0LjFjMjQuNCA0LjggNDMuOCA5LjcgNjguMiA5LjcgNi4yIDAgMTIuMS0uMyAxOC4zLS44LTQtMTIuOS02LjItMjYuNi02LjItNDAuOC0uMS04NC45IDcyLjktMTU0IDE2NS4zLTE1NHptLTEwNC41LTUyLjljMTQuNSAwIDI0LjIgOS43IDI0LjIgMjQuNCAwIDE0LjUtOS43IDI0LjItMjQuMiAyNC4yLTE0LjggMC0yOS4zLTkuNy0yOS4zLTI0LjIuMS0xNC43IDE0LjYtMjQuNCAyOS4zLTI0LjR6bS0xMzYuNCA0OC42Yy0xNC41IDAtMjkuMy05LjctMjkuMy0yNC4yIDAtMTQuOCAxNC44LTI0LjQgMjkuMy0yNC40IDE0LjggMCAyNC40IDkuNyAyNC40IDI0LjQgMCAxNC42LTkuNiAyNC4yLTI0LjQgMjQuMnpNNTYzIDMxOS40YzAtNzcuOS03Ny45LTE0MS4zLTE2NS40LTE0MS4zLTkyLjcgMC0xNjUuNCA2My40LTE2NS40IDE0MS4zUzMwNSA0NjAuNyAzOTcuNiA0NjAuN2MxOS4zIDAgMzguOS01LjEgNTguNi05LjlsNTMuNCAyOS4zLTE0LjgtNDguNkM1MzQgNDAyLjEgNTYzIDM2My4yIDU2MyAzMTkuNHptLTIxOS4xLTI0LjVjLTkuNyAwLTE5LjMtOS43LTE5LjMtMTkuNiAwLTkuNyA5LjctMTkuMyAxOS4zLTE5LjMgMTQuOCAwIDI0LjQgOS43IDI0LjQgMTkuMyAwIDEwLTkuNyAxOS42LTI0LjQgMTkuNnptMTA3LjEgMGMtOS43IDAtMTkuMy05LjctMTkuMy0xOS42IDAtOS43IDkuNy0xOS4zIDE5LjMtMTkuMyAxNC41IDAgMjQuNCA5LjcgMjQuNCAxOS4zLjEgMTAtOS45IDE5LjYtMjQuNCAxOS42eiIvPjwvc3ZnPg==" alt="" style="filter:brightness(0) invert(1)">微信</a>
+    <a class="launch trip" href="https://www.trip.com/?locale=zh-TW" target="_blank" rel="noopener" aria-label="開啟 Trip.com"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzJGODBFRCIvPgogIDx0ZXh0IHg9IjU2IiB5PSIzMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4NSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0id2hpdGUiIGxldHRlci1zcGFjaW5nPSItMTIiPlRyaXA8L3RleHQ+CiAgPGNpcmNsZSBjeD0iNDUyIiBjeT0iMjk1IiByPSIyMCIgZmlsbD0iI0ZGQjgwMCIvPgo8L3N2Zz4K" alt="">Trip.com</a>
+    <button class="launch utility theme-toggle" id="themeToggle" type="button" aria-label="切換深淺色" title="切換深淺色"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5 8.7 8.7 0 1 0 20.5 14.6Z"/></svg></button>
+    <button class="launch utility help-dot" id="helpBtn" type="button" aria-label="加入主畫面說明" title="加入主畫面說明"><span>?</span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="eyebrow">BEIJING · 01–03 OCT 2026</div>
+    <h1>北京，慢慢走。</h1>
+    <p>王府井為基地；天壇、兩種烤鴨、城市散步與 Chiikawa。行程保留彈性，但不把時間浪費在無謂轉乘。</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><span class="status-dot" id="tripDot"></span><span id="tripStatus">行程尚未開始</span></span>
+      <span class="meta-pill">住宿 · 北京飯店諾金</span>
+      <span class="meta-pill">10/3 · G505 15:20</span>
+    </div>
+  </section>
+
+  
+<section class="weather-wear wrap" aria-label="穿衣建議">
+  <div class="weather-wear-inner">
+    <div class="weather-wear-top">
+      <div>
+        <div class="eyebrow">WEATHER · WHAT TO WEAR</div>
+        <h3>白天舒服，早晚明顯偏涼。</h3>
+        <p>採洋蔥式穿法最穩：白天可薄上衣，早晚與天壇晨間加一件薄外套。</p>
+      </div>
+    </div>
+    <div class="temp-row">
+      <div class="temp-pill"><strong>10/1 · 24° / 8°</strong>晴朗</div>
+      <div class="temp-pill"><strong>10/2 · 23° / 12°</strong>晴時多雲</div>
+      <div class="temp-pill"><strong>10/3 · 24° / 10°</strong>多雲時晴</div>
+    </div>
+    <div class="wear-grid">
+      <div class="wear-item"><b>白天</b><span>長袖薄上衣或短袖＋薄襯衫即可，室內可能偏暖。</span></div>
+      <div class="wear-item"><b>早晚</b><span>帶輕薄風衣／薄外套；10/1 清晨與夜間低溫可到約 8°C。</span></div>
+      <div class="wear-item"><b>走路</b><span>舒適運動鞋優先；天壇、胡同日走量高，另可帶防曬與護唇。</span></div>
+    </div>
+    <div class="weather-updated">天氣建議依 9/28 預報整理；出發前一晚再看一次最新預報。</div>
+  </div>
+</section>
+
+<nav class="daynav-wrap" aria-label="日期導覽">
+    <div class="daynav wrap" id="dayNav">
+      <a class="daychip" href="#day1" data-nav-date="2026-10-01"><span class="num">10/1</span><span>抵達・王府井</span><span class="today-badge">今天</span></a>
+      <a class="daychip" href="#day2" data-nav-date="2026-10-02"><span class="num">10/2</span><span>天壇・雙烤鴨</span><span class="today-badge">今天</span></a>
+      <a class="daychip" href="#day3" data-nav-date="2026-10-03"><span class="num">10/3</span><span>慢上午・高鐵</span><span class="today-badge">今天</span></a>
+    </div>
+  </nav>
+
+  <div class="days wrap" id="days">
+    <!-- DAY 1 -->
+    <section class="day" id="day1" data-day-date="2026-10-01">
+      <div class="dayhead"><div><div class="eyebrow">DAY 1</div><h2>抵達後，只玩附近。<span class="today-label">今天</span></h2></div><div class="date">10/1 Thu</div></div>
+
+      <article class="event" data-start="12:35" data-end="15:30">
+        <div class="event-top"><div class="time">12:35</div><div><div class="event-title">抵達北京・前往飯店</div><div class="event-sub">已安排機場接送；抵達飯店時間保留彈性。</div></div><span class="kind">移動</span></div>
+        <div class="event-body">
+          <div class="place-list">
+            <div class="place" data-place="北京首都國際機場 T3"><div class="place-main"><div class="place-pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg></div><div><div class="place-name">北京首都國際機場 T3</div><div class="place-desc">下機、入境、行李後直接找接送。</div></div></div></div>
+            <div class="place" data-place="北京飯店諾金"><div class="place-main"><div class="place-pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V7l8-4 8 4v13"/><path d="M8 20v-7h8v7M8 9h.01M12 9h.01M16 9h.01"/></svg></div><div><div class="place-name">北京飯店諾金</div><div class="place-desc">Check-in、放行李、休息後再出門。</div></div></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="event" data-start="16:00" data-end="17:45">
+        <div class="event-top"><div class="time">16:00</div><div><div class="event-title">第一個下午</div><div class="event-sub">以飯店周邊為主；依現場人潮左右滑選一套。</div></div><span class="kind">散步</span></div>
+        <div class="event-body">
+          <div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div>
+          <div class="shelf">
+            <div class="option primary"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">最少移動</span></div><h3>王府井慢逛</h3><p>從飯店向北，逛商場、街景與王府井東堂；人潮可接受就沿步行街慢慢走。</p><div class="place-list"><div class="place" data-place="王府井步行街"><div class="place-main"><div><div class="place-name">王府井步行街</div><div class="place-desc">距飯店近，第一天最好用。</div></div></div></div><div class="place" data-place="王府井天主堂"><div class="place-main"><div><div class="place-name">王府井天主堂</div><div class="place-desc">順路拍照，不需久留。</div></div></div></div></div></div>
+            <div class="option"><div class="option-head"><span class="option-badge">人多時</span><span class="tiny muted">室內為主</span></div><h3>東方新天地・東單</h3><p>若王府井主街太擠，往東單方向轉入商場與室內動線，舒服很多。</p><div class="place-list"><div class="place" data-place="東方新天地 北京"><div class="place-main"><div><div class="place-name">東方新天地</div><div class="place-desc">餐飲、商場、休息都方便。</div></div></div></div></div></div>
+            <div class="option"><div class="option-head"><span class="option-badge">最放鬆</span><span class="tiny muted">不勉強</span></div><h3>飯店休息・作家酒吧</h3><p>如果抵達較晚，直接把第一天下午留給飯店；晚上再出去吃飯。</p><div class="place-list"><div class="place" data-place="北京飯店諾金 作家酒吧"><div class="place-main"><div><div class="place-name">作家酒吧</div><div class="place-desc">留在飯店內，完全不用移動。</div></div></div></div></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="event" data-start="18:00" data-end="20:30">
+        <div class="event-top"><div class="time">18:00</div><div><div class="event-title">晚餐：第一隻烤鴨優先</div><div class="event-sub">目標是四季民福；若國慶排隊過長，當晚不硬耗。</div></div><span class="kind">晚餐</span></div>
+        <div class="event-body">
+          <div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div>
+          <div class="shelf">
+            <div class="option primary"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">掛爐烤鴨</span></div><h3>四季民福・燈市口店</h3><p>距住宿近；落地後再看實際排隊，不讓行程綁在固定搶號時間。</p><div class="place-list"><div class="place" data-place="四季民福烤鴨店 燈市口店"><div class="place-main"><div><div class="place-name">四季民福・燈市口店</div><div class="place-desc">若等待合理就吃；太久則改備案。</div></div></div></div></div><details class="strategy"><summary>排隊策略</summary><div class="strategy-body"><strong>不必把 10:30 搶號當前提。</strong> 抵達飯店後再看當日排隊頁面或請飯店協助確認。等待 ≤90 分鐘可留；約 90–120 分鐘視體力；超過 2 小時就先換餐廳，10/3 上午仍保留一次補吃機會。</div></details></div>
+            <div class="option"><div class="option-head"><span class="option-badge">北京味</span><span class="tiny muted">銅鍋涮肉</span></div><h3>南門涮肉・東單一帶</h3><p>如果四季排隊過久，改吃老北京涮羊肉，仍然有地方感且不用大幅跨區。</p><div class="place-list"><div class="place" data-place="南門涮肉 東單 北京"><div class="place-main"><div><div class="place-name">南門涮肉</div><div class="place-desc">清湯銅鍋、羊肉、麻醬。</div></div></div></div></div></div>
+            <div class="option"><div class="option-head"><span class="option-badge">最省力</span><span class="tiny muted">王府井</span></div><h3>海底撈・王府井</h3><p>下飛機真的累就用這個；吃完直接散步回飯店。</p><div class="place-list"><div class="place" data-place="海底撈 王府井 北京"><div class="place-main"><div><div class="place-name">海底撈・王府井</div><div class="place-desc">省交通、晚餐時間彈性高。</div></div></div></div></div></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- DAY 2 -->
+    <section class="day" id="day2" data-day-date="2026-10-02">
+      <div class="dayhead"><div><div class="eyebrow">DAY 2</div><h2>天壇・便宜坊・Chiikawa。<span class="today-label">今天</span></h2></div><div class="date">10/2 Fri</div></div>
+
+      <article class="event" data-start="06:45" data-end="07:20">
+        <div class="event-top"><div class="time">06:45</div><div><div class="event-title">早餐</div><div class="event-sub">不需要特別繞路；以「快」為優先。</div></div><span class="kind">早餐</span></div>
+        <div class="event-body">
+          <div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div>
+          <div class="shelf">
+            <div class="option primary"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">美團</span></div><h3>外賣送到飯店</h3><p>搜尋「豆腐腦／油條／包子／燒餅／粥」。起床後下單，梳洗完下樓取。</p></div>
+            <div class="option"><div class="option-head"><span class="option-badge">出門吃</span></div><h3>附近早餐店</h3><p>看到順路的慶豐、紫光園或本地早餐店就吃，不為早餐多走一段。</p></div>
+            <div class="option"><div class="option-head"><span class="option-badge">最省時</span></div><h3>前一晚先買</h3><p>麵包、酸奶、水果或飯糰；適合想準時出發看天壇。</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="event" data-start="07:20" data-end="10:45">
+        <div class="event-top"><div class="time">07:20</div><div><div class="event-title">天壇公園</div><div class="event-sub">08:00 前後進核心區；抓 2.5–3 小時。</div></div><span class="kind">必去</span></div>
+        <div class="event-body">
+          <p class="event-note">建議路線：東門 → 長廊 → 祈年殿 → 丹陛橋 → 皇穹宇／回音壁 → 圜丘 → 南門。</p>
+          <div class="place-list"><div class="place" data-place="天壇公園 東門"><div class="place-main"><div class="place-pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg></div><div><div class="place-name">天壇公園・東門</div><div class="place-desc">進場起點。</div></div></div></div><div class="place" data-place="祈年殿"><div class="place-main"><div><div class="place-name">祈年殿</div><div class="place-desc">天壇最具代表性的核心建築。</div></div></div></div><div class="place" data-place="圜丘 天壇"><div class="place-main"><div><div class="place-name">圜丘</div><div class="place-desc">走完中軸線後由南側離開。</div></div></div></div></div>
+          <div class="ticket-card"><h3>票怎麼買最簡單</h3><div class="ticket-row"><b>大門票</b><span>只進公園，不含核心收費院落</span></div><div class="ticket-row"><b>聯票</b><span>大門票＋祈年殿、回音壁、圜丘等核心區域</span></div><div class="ticket-row"><b>這趟</b><span>第一次到天壇，直接選聯票較省事</span></div></div>
+          <div class="route-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 17h5l3-10 3 10h5"/><path d="M6 21h12"/></svg><span>交通：早上若高德顯示道路順暢可打車；要最穩定則從東單搭 5 號線到天壇東門。</span></div>
+        </div>
+      </article>
+
+      <article class="event" data-start="11:15" data-end="13:00">
+        <div class="event-top"><div class="time">11:15</div><div><div class="event-title">第二隻烤鴨：便宜坊</div><div class="event-sub">這餐就是為了吃燜爐派；不要再換成四季。</div></div><span class="kind">午餐</span></div>
+        <div class="event-body">
+          <div class="place-list"><div class="place" data-place="便宜坊烤鴨店 鮮魚口店"><div class="place-main"><div class="place-pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></div><div><div class="place-name">便宜坊・鮮魚口店</div><div class="place-desc">燜爐烤鴨；與前門一帶的下午動線銜接最好。</div></div></div></div></div>
+          <details class="strategy"><summary>如果排隊太久</summary><div class="strategy-body">先看現場／平台等位。若等待超過約 45–60 分鐘，可以先去附近散步或咖啡，再回來；這餐不建議直接換成另一家烤鴨，因為行程本來就是要把兩種流派都吃到。</div></details>
+        </div>
+      </article>
+
+      <article class="event" data-start="13:15" data-end="15:45">
+        <div class="event-top"><div class="time">13:15</div><div><div class="event-title">下午留白：文青或直接購物</div><div class="event-sub">同時段有三套；依人潮與體力左右滑。</div></div><span class="kind">彈性</span></div>
+        <div class="event-body">
+          <div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div>
+          <div class="shelf">
+            <div class="option primary"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">文青慢逛</span></div><h3>北京坊＋PAGE ONE</h3><p>前門舊城與現代設計混在一起；書店、咖啡、街區都能慢慢看。</p><div class="place-list"><div class="place" data-place="北京坊"><div class="place-main"><div><div class="place-name">北京坊</div></div></div></div><div class="place" data-place="PAGE ONE 北京坊"><div class="place-main"><div><div class="place-name">PAGE ONE 北京坊</div></div></div></div><div class="place" data-place="楊梅竹斜街"><div class="place-main"><div><div class="place-name">楊梅竹斜街</div><div class="place-desc">人潮太擠就只走一小段，不硬逛完整。</div></div></div></div></div></div>
+            <div class="option"><div class="option-head"><span class="option-badge">更放鬆</span></div><h3>找間咖啡坐久一點</h3><p>便宜坊吃完後不要趕景點；前門／北京坊找咖啡坐到 15:30 再離開。</p><div class="place-list"><div class="place" data-place="北京坊"><div class="place-main"><div><div class="place-name">北京坊</div><div class="place-desc">直接以這區為活動半徑。</div></div></div></div></div></div>
+            <div class="option"><div class="option-head"><span class="option-badge">人太多</span></div><h3>提前去合生匯</h3><p>前門太擠就放棄文青街區，直接搭 7 號線去九龍山，把時間留給 Chiikawa。</p><div class="place-list"><div class="place" data-place="北京朝陽合生匯"><div class="place-main"><div><div class="place-name">北京朝陽合生匯</div></div></div></div></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="event" data-start="16:00" data-end="18:30">
+        <div class="event-top"><div class="time">16:00</div><div><div class="event-title">Chiikawa 北京快閃</div><div class="event-sub">從珠市口搭 7 號線到九龍山，零轉乘。</div></div><span class="kind">私心</span></div>
+        <div class="event-body">
+          <div class="place-list"><div class="place" data-place="北京朝陽合生匯"><div class="place-main"><div class="place-pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v12H4z"/><path d="M8 7a4 4 0 0 1 8 0"/></svg></div><div><div class="place-name">北京朝陽合生匯</div><div class="place-desc">L1 中庭；把排隊時間留足，後面不再塞景點。</div></div></div></div></div>
+          <div class="route-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h10"/></svg><span>交通：珠市口 → 7 號線 → 九龍山。這段不建議為了少走幾步改打車，國慶地面時間較不穩。</span></div>
+        </div>
+      </article>
+
+      <article class="event" data-start="18:30" data-end="21:00">
+        <div class="event-top"><div class="time">18:30</div><div><div class="event-title">晚餐</div><div class="event-sub">不再跨區，逛完再決定。</div></div><span class="kind">晚餐</span></div>
+        <div class="event-body">
+          <div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div>
+          <div class="shelf">
+            <div class="option primary"><div class="option-head"><span class="option-badge">首選</span></div><h3>合生匯直接吃</h3><p>選擇最多，也完全不增加交通成本。</p><div class="place-list"><div class="place" data-place="北京朝陽合生匯"><div class="place-main"><div><div class="place-name">合生匯餐飲</div></div></div></div></div></div>
+            <div class="option"><div class="option-head"><span class="option-badge">想吃火鍋</span></div><h3>海底撈</h3><p>如果 Day 1 沒吃火鍋，這晚補最輕鬆。</p><div class="place-list"><div class="place" data-place="海底撈 九龍山 北京"><div class="place-main"><div><div class="place-name">海底撈・九龍山附近</div></div></div></div></div></div>
+            <div class="option"><div class="option-head"><span class="option-badge">想早回飯店</span></div><h3>王府井再吃</h3><p>直接回市中心，晚餐改在住宿附近處理。</p><div class="place-list"><div class="place" data-place="王府井步行街"><div class="place-main"><div><div class="place-name">王府井</div></div></div></div></div></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- DAY 3 -->
+    <section class="day" id="day3" data-day-date="2026-10-03">
+      <div class="dayhead"><div><div class="eyebrow">DAY 3</div><h2>最後半天，不趕。<span class="today-label">今天</span></h2></div><div class="date">10/3 Sat</div></div>
+
+      <article class="event" data-start="08:30" data-end="09:15">
+        <div class="event-top"><div class="time">08:30</div><div><div class="event-title">早餐</div><div class="event-sub">睡飽再出門；這天不需要早起。</div></div><span class="kind">早餐</span></div>
+        <div class="event-body"><div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div><div class="shelf"><div class="option primary"><div class="option-head"><span class="option-badge">首選</span></div><h3>附近找早餐</h3><p>包子、豆腐腦、油條、粥；看到順路就吃。</p></div><div class="option"><div class="option-head"><span class="option-badge">懶人</span></div><h3>美團送到飯店</h3><p>下單後整理行李，時間最好掌握。</p></div><div class="option"><div class="option-head"><span class="option-badge">早午餐</span></div><h3>留肚子給四季</h3><p>如果 Day 1 沒吃到四季民福，這天直接把早午餐留給它。</p></div></div></div>
+      </article>
+
+      <article class="event" data-start="09:30" data-end="11:45">
+        <div class="event-top"><div class="time">09:30</div><div><div class="event-title">最後一段城市散步</div><div class="event-sub">三套都離飯店不遠，照前兩天狀態選。</div></div><span class="kind">彈性</span></div>
+        <div class="event-body"><div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div><div class="shelf">
+          <div class="option primary"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">城市感</span></div><h3>隆福寺＋三聯書店</h3><p>最後半天用書店、街區、咖啡收尾，不再碰大型景點。</p><div class="place-list"><div class="place" data-place="隆福寺 北京"><div class="place-main"><div><div class="place-name">隆福寺</div></div></div></div><div class="place" data-place="三聯韜奮書店 北京"><div class="place-main"><div><div class="place-name">三聯韜奮書店</div></div></div></div></div></div>
+          <div class="option"><div class="option-head"><span class="option-badge">補吃四季</span><span class="tiny muted">若 Day 1 錯過</span></div><h3>四季民福・第二次機會</h3><p>把「吃到四季」放在這個時段，不跟列車時間互相干擾。</p><div class="place-list"><div class="place" data-place="四季民福烤鴨店 燈市口店"><div class="place-main"><div><div class="place-name">四季民福・燈市口店</div><div class="place-desc">控制離店時間，12:00 前後回飯店即可。</div></div></div></div></div></div>
+          <div class="option"><div class="option-head"><span class="option-badge">最輕鬆</span></div><h3>王府井再走一次</h3><p>不搭任何交通；咖啡、商場、最後採買後直接回飯店。</p><div class="place-list"><div class="place" data-place="王府井步行街"><div class="place-main"><div><div class="place-name">王府井</div></div></div></div></div></div>
+        </div></div>
+      </article>
+
+      <article class="event" data-start="13:15" data-end="15:20">
+        <div class="event-top"><div class="time">13:15</div><div><div class="event-title">前往北京西站</div><div class="event-sub">目標 14:10–14:20 抵達；出發前看即時交通決定。</div></div><span class="kind">高鐵</span></div>
+        <div class="event-body"><div class="choice-title"><span>交通二選一</span><span class="swipe-hint">左右滑</span></div><div class="shelf">
+          <div class="option primary"><div class="option-head"><span class="option-badge">車程順時</span></div><h3>滴滴</h3><p>高德／滴滴若顯示約 35 分鐘內，直接叫車最省力。</p><div class="place-list"><div class="place" data-place="北京西站"><div class="place-main"><div><div class="place-name">北京西站</div><div class="place-desc">建議 14:10–14:20 抵達。</div></div></div></div></div></div>
+          <div class="option"><div class="option-head"><span class="option-badge">塞車時</span></div><h3>地鐵</h3><p>王府井搭 8 號線 → 珠市口轉 7 號線 → 北京西站；若路面顯示 45 分鐘以上，改這條。</p><div class="place-list"><div class="place" data-place="王府井地鐵站"><div class="place-main"><div><div class="place-name">王府井站</div></div></div></div><div class="place" data-place="北京西站"><div class="place-main"><div><div class="place-name">北京西站</div></div></div></div></div></div>
+        </div><div class="ticket-card" style="margin-top:12px"><h3>G505</h3><div class="ticket-row"><b>北京西</b><span>15:20</span></div><div class="ticket-row"><b>高碑店東</b><span>15:50</span></div></div></div>
+      </article>
+    </section>
+  </div>
+</main>
+
+<footer><div class="wrap">北京 2026 · 路況、排隊與臨時管制以當日官方與高德資訊為準。</div></footer>
+
+<div class="install-card" id="installCard"><div class="install-icon">京</div><div class="install-copy"><b>加入主畫面</b><span>以 App 形式快速打開行程。</span></div><button class="install-btn" id="installOpen">設定</button><button class="install-close" id="installDismiss" aria-label="關閉">×</button></div>
+
+<div class="sheet-overlay" id="overlay"></div>
+<div class="sheet" id="guideSheet" role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+  <div class="grabber"></div>
+  <h3 id="guideTitle">加入主畫面</h3>
+  <p>建議先把行程加到手機主畫面，之後可直接像 App 一樣開啟。</p>
+  <div class="install-hero">
+    <img class="install-app-icon" src="data:image/png;base64,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" alt="北京 2026 App icon">
+    <div><div class="install-hero-title">北京 2026</div><div class="install-hero-sub">行程、導航與備案都在這裡</div></div>
+  </div>
+  <div class="a2hs-steps" id="guideInstallSteps"></div>
+  <div class="sheet-actions">
+    <button class="sheet-btn" id="guideClose">稍後</button>
+    <button class="sheet-btn primary" id="guideDone">查看加入方式</button>
+  </div>
+</div>
+<div class="sheet" id="installSheet">
+  <div class="grabber"></div>
+  <h3>加入主畫面</h3>
+  <div class="install-hero" style="margin-top:14px">
+    <img class="install-app-icon" src="data:image/png;base64,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" alt="北京 2026 App icon">
+    <div><div class="install-hero-title">北京 2026</div><div class="install-hero-sub">加入後可像 App 一樣直接開啟</div></div>
+  </div>
+  <div id="installCopy" class="a2hs-steps"></div>
+  <div class="sheet-actions"><button class="sheet-btn primary" id="installClose" style="grid-column:1/-1">知道了</button></div>
+</div>
+
+<div class="sheet" id="lineSheet"><div class="grabber"></div><h3>改用手機瀏覽器</h3><p id="lineCopy">LINE 內建瀏覽器可能限制外部 App 與加入主畫面功能。</p><div class="sheet-actions"><button class="sheet-btn" id="copyUrl">複製網址</button><button class="sheet-btn primary" id="lineStay">仍在 LINE 開啟</button></div></div>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const fmtBJ=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const timeBJ=()=>new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Shanghai',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date());
+
+// Deep links / fallback
+$$('[data-deeplink]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const dl=a.dataset.deeplink,fb=a.dataset.fallback;const before=Date.now();location.href=dl;setTimeout(()=>{if(Date.now()-before<1800)window.open(fb,'_blank')},850)}));
+
+// Build clear Apple / Amap buttons for every listed destination.
+function addMapActions(){
+  $$('.place[data-place]').forEach(place=>{
+    if(place.querySelector('.map-actions')) return;
+    const q=encodeURIComponent(place.dataset.place+' 北京');
+    const wrap=document.createElement('div');wrap.innerHTML=`<div class="nav-label">開啟導航</div><div class="map-actions"><a class="map-action apple" href="https://maps.apple.com/?q=${q}" target="_blank" rel="noopener"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTMxOC43IDI2OC43Yy0uMi0zNi43IDE2LjQtNjQuNCA1MC04NC44LTE4LjgtMjYuOS00Ny4yLTQxLjctODQuNy00NC42LTM1LjUtMi44LTc0LjMgMjAuNy04OC41IDIwLjctMTUgMC00OS40LTE5LjctNzYuNC0xOS43QzYzLjMgMTQxLjIgNCAxODQuOCA0IDI3My41cTAgMzkuMyAxNC40IDgxLjJjMTIuOCAzNi43IDU5IDEyNi43IDEwNy4yIDEyNS4yIDI1LjItLjYgNDMtMTcuOSA3NS44LTE3LjkgMzEuOCAwIDQ4LjMgMTcuOSA3Ni40IDE3LjkgNDguNi0uNyA5MC40LTgyLjUgMTAyLjYtMTE5LjMtNjUuMi0zMC43LTYxLjctOTAtNjEuNy05MS45em0tNTYuNi0xNjQuMmMyNy4zLTMyLjQgMjQuOC02MS45IDI0LTcyLjUtMjQuMSAxLjQtNTIgMTYuNC02Ny45IDM0LjktMTcuNSAxOS44LTI3LjggNDQuMy0yNS42IDcxLjkgMjYuMSAyIDQ5LjktMTEuNCA2OS41LTM0LjN6Ii8+PC9zdmc+" alt="">Apple 地圖</a><a class="map-action amap" href="https://uri.amap.com/search?keyword=${q}&city=%E5%8C%97%E4%BA%AC&src=beijing2026&callnative=1" target="_blank" rel="noopener"><span class="amap-glyph" aria-hidden="true"></span>高德地圖</a></div>`;place.append(...wrap.childNodes);
+  });
+}
+addMapActions();
+
+// Date-aware priority. Before / after the trip, retain chronological layout.
+const today=fmtBJ();const travelDates=['2026-10-01','2026-10-02','2026-10-03'];
+const start=new Date('2026-10-01T00:00:00+08:00'),end=new Date('2026-10-04T00:00:00+08:00'),now=new Date();
+if(now<start){const d=Math.ceil((start-now)/86400000);$('#tripStatus').textContent=`${d} 天後出發`;$('#tripDot').style.background='var(--orange)'}
+else if(now<end){$('#tripStatus').textContent='旅行中';$('#tripDot').style.background='var(--green)'}else{$('#tripStatus').textContent='旅程已完成';$('#tripDot').style.background='var(--sub)'}
+if(travelDates.includes(today)){
+  const current=$(`[data-day-date="${today}"]`); if(current){current.classList.add('is-today');$('#days').prepend(current)}
+  const nav=$(`[data-nav-date="${today}"]`);nav?.classList.add('active');
+  // Highlight current event by Beijing time.
+  const hm=timeBJ(); current?.querySelectorAll('.event[data-start][data-end]').forEach(e=>{if(hm>=e.dataset.start&&hm<e.dataset.end)e.classList.add('current')});
+}
+
+// Day nav active on scroll
+const navs=$$('.daychip');const dayObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!travelDates.includes(today)){navs.forEach(n=>n.classList.toggle('active',n.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-32% 0px -60% 0px'});$$('.day').forEach(d=>dayObs.observe(d));
+
+// Guide sheet / bottom sheet helpers
+const overlay=$('#overlay');const sheets=$$('.sheet');function showSheet(s){sheets.forEach(x=>x.classList.remove('show'));overlay.classList.add('show');s.classList.add('show')}function closeSheets(){sheets.forEach(x=>x.classList.remove('show'));overlay.classList.remove('show')}overlay.onclick=closeSheets;
+const guide=$('#guideSheet');
+const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+function installStepsHTML(){
+  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  if(ios) return `
+    <div class="a2hs-step"><div class="a2hs-num">1</div><div><b>用 Safari 開啟</b><span>若目前在 LINE，先從右上角選單改用 Safari。</span></div></div>
+    <div class="a2hs-step"><div class="a2hs-num">2</div><div><b>點「分享」</b><span>Safari 工具列的方框上箭頭。</span></div></div>
+    <div class="a2hs-step"><div class="a2hs-num">3</div><div><b>選「加入主畫面」</b><span>保留名稱「北京 2026」後按加入。</span></div></div>`;
+  return `
+    <div class="a2hs-step"><div class="a2hs-num">1</div><div><b>用 Chrome / 系統瀏覽器開啟</b><span>不要停留在 LINE 內建瀏覽器。</span></div></div>
+    <div class="a2hs-step"><div class="a2hs-num">2</div><div><b>開啟瀏覽器選單</b><span>通常是右上角 ⋮ 或安裝提示。</span></div></div>
+    <div class="a2hs-step"><div class="a2hs-num">3</div><div><b>選「安裝」或「加入主畫面」</b><span>完成後即可從桌面直接打開。</span></div></div>`;
+}
+$('#guideInstallSteps').innerHTML=installStepsHTML();
+if(!standalone&&!localStorage.getItem('bjGuideV4'))setTimeout(()=>showSheet(guide),450);
+$('#helpBtn').onclick=()=>{if(!standalone)showSheet(guide)};
+if(standalone)$('#helpBtn')?.classList.add('hidden');
+$('#guideClose').onclick=()=>{localStorage.setItem('bjGuideV4','1');closeSheets()};
+
+// Install prompt
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e});
+async function openInstallFlow(){
+  localStorage.setItem('bjGuideV4','1');
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    try{await deferredPrompt.userChoice}catch(e){}
+    deferredPrompt=null;closeSheets();return;
+  }
+  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  $('#installCopy').innerHTML=ios?`
+    <div class="a2hs-step"><div class="a2hs-num">1</div><div><b>Safari 點「分享」</b><span>工具列上的方框上箭頭。</span></div></div>
+    <div class="a2hs-step"><div class="a2hs-num">2</div><div><b>往下選「加入主畫面」</b><span>若沒看到，往下捲動分享選單。</span></div></div>
+    <div class="a2hs-step"><div class="a2hs-num">3</div><div><b>按右上角「加入」</b><span>主畫面會出現紅色「京」圖示。</span></div></div>`:`
+    <div class="a2hs-step"><div class="a2hs-num">1</div><div><b>打開瀏覽器選單</b><span>Chrome 通常位於右上角 ⋮。</span></div></div>
+    <div class="a2hs-step"><div class="a2hs-num">2</div><div><b>選「安裝應用程式」</b><span>若沒有就選「加入主畫面」。</span></div></div>
+    <div class="a2hs-step"><div class="a2hs-num">3</div><div><b>確認安裝</b><span>之後直接從桌面開啟行程。</span></div></div>`;
+  showSheet($('#installSheet'));
+}
+$('#guideDone').onclick=openInstallFlow;
+$('#installOpen') && ($('#installOpen').onclick=openInstallFlow);
+$('#installClose').onclick=closeSheets;
+
+// LINE in-app browser. Android: best-effort intent to system browser. iOS: web pages cannot reliably force Safari; show immediate handoff instructions.
+(function(){const ua=navigator.userAgent||'';if(!/Line\//i.test(ua))return;const isAndroid=/Android/i.test(ua),isiOS=/iPhone|iPad|iPod/i.test(ua),url=location.href;if(isAndroid&&/^https?:/i.test(url)&&!sessionStorage.getItem('bjLineTriedV3')){sessionStorage.setItem('bjLineTriedV3','1');const u=new URL(url);const intent='intent://'+u.host+u.pathname+u.search+u.hash+'#Intent;scheme='+u.protocol.replace(':','')+';action=android.intent.action.VIEW;end';setTimeout(()=>location.href=intent,180)}setTimeout(()=>{if(document.visibilityState==='visible'){if(isiOS)$('#lineCopy').textContent='iPhone 的 LINE 內建瀏覽器無法由網頁可靠地強制跳到 Safari。請點右上角選單 →「以 Safari 開啟」。';showSheet($('#lineSheet'))}},700)})();$('#lineStay').onclick=closeSheets;$('#copyUrl').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);$('#copyUrl').textContent='已複製'}catch{prompt('複製網址',location.href)}};
+
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+
+<script>
+(function(){
+  const btn=document.getElementById('themeToggle');
+  const meta=document.querySelector('meta[name="theme-color"]');
+  function sync(){
+    const dark=document.documentElement.dataset.theme==='dark';
+    if(meta) meta.setAttribute('content',dark?'#0b0b0d':'#f5f5f7');
+    if(btn){btn.setAttribute('aria-pressed',dark?'true':'false');btn.title=dark?'切換成淺色':'切換成深色';}
+  }
+  btn?.addEventListener('click',()=>{
+    const next=document.documentElement.dataset.theme==='dark'?'light':'dark';
+    document.documentElement.dataset.theme=next;
+    try{localStorage.setItem('beijing-theme',next)}catch(e){}
+    sync();
+  });
+  sync();
+})();
+</script>
+
+<script>
+(function(){
+  const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce && 'IntersectionObserver' in window){
+    document.documentElement.classList.add('motion-ready');
+    const reveal=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add('is-visible');reveal.unobserve(entry.target)}
+      });
+    },{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.dayhead,.event').forEach(el=>reveal.observe(el));
+  }
+  document.querySelectorAll('.shelf').forEach(shelf=>{
+    const cards=[...shelf.querySelectorAll('.option')];
+    if(!cards.length)return;
+    let raf=0;
+    const update=()=>{
+      raf=0;const box=shelf.getBoundingClientRect(),center=box.left+box.width/2;
+      let best=null,bestD=Infinity;
+      cards.forEach(card=>{const r=card.getBoundingClientRect(),d=Math.abs((r.left+r.width/2)-center);if(d<bestD){bestD=d;best=card}});
+      cards.forEach(card=>card.classList.toggle('is-focus',card===best));
+    };
+    shelf.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(update)},{passive:true});
+    window.addEventListener('resize',update,{passive:true});
+    update();
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  const rules=[
+    [/天壇|祈年殿|圜丘|回音壁/,'art-temple'],
+    [/四季民福|便宜坊|烤鴨/,'art-duck'],
+    [/涮肉|火鍋|海底撈/,'art-hotpot'],
+    [/王府井|東方新天地|東單|長安街|機場|飯店/,'art-city'],
+    [/胡同|PAGE ONE|書店|隆福寺|文青|咖啡/,'art-book'],
+    [/Chiikawa|合生匯|快閃/,'art-shop'],
+    [/北京西站|高鐵|G505|高碑店/,'art-train'],
+    [/早餐|豆腐腦|油條|包子|燒餅|粥/,'art-breakfast']
+  ];
+  document.querySelectorAll('.event').forEach(card=>{
+    const txt=(card.textContent||'').replace(/\s+/g,' ');
+    for(const [rx,cls] of rules){if(rx.test(txt)){card.classList.add('card-art',cls);break}}
+  });
+})();
+</script>
+
+</body>
+</html>
