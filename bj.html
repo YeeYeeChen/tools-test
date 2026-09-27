@@ -496,6 +496,10 @@ body{
   :root{--launch-dock-h:72px}
 }
 
+
+/* v9 external-app buttons */
+.launch.alipay,.launch.wechat{-webkit-touch-callout:none}
+
 </style>
 </head>
 <body>
@@ -507,8 +511,9 @@ body{
 </div>
 <header class="launch-wrap">
 <div class="launchbar">
-<a aria-label="開啟支付寶" class="launch alipay" data-deeplink="alipays://" data-fallback="https://www.alipay.com/" href="#"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTM3Ny43NCAzMkg3MC4yNkMzMS40MSAzMiAwIDYzLjQxIDAgMTAyLjI2djMwNy40OEMwIDQ0OC41OSAzMS40MSA0ODAgNzAuMjYgNDgwaDMwNy40OGMzOC41MiAwIDY5Ljc2LTMxLjA4IDcwLjI2LTY5LjYtNDUuOTYtMjUuNjItMTEwLjU5LTYwLjM0LTE3MS42LTg4LjQ0LTMyLjA3IDQzLjk3LTg0LjE0IDgxLTE0OC42MiA4MS03MC41OSAwLTkzLjczLTQ1LjMtOTcuMDQtNzYuMzctMy45Ny0zOS4wMSAxNC44OC04MS41IDk5LjUyLTgxLjUgMzUuMzggMCA3OS4zNSAxMC4yNSAxMjcuMTMgMjQuOTYgMTYuNTMtMzAuMDkgMjYuNDUtNjAuMzQgMjYuNDUtNjAuMzRoLTE3OC4ydi0xNi43aDkyLjA4di0zMS4yNEg4OC4yOHYtMTkuMDFoMTA5LjQ0VjkyLjM0aDUwLjkydjUwLjQyaDEwOS40NHYxOS4wMUgyNDguNjN2MzEuMjRoODguNzdzLTE1LjIxIDQ2LjYyLTM4LjM1IDkwLjkyYzQ4LjkzIDE2LjcgMTAwLjAxIDM2LjA0IDE0OC42MiA1Mi43NFYxMDIuMjZDNDQ3LjgzIDYzLjU3IDQxNi40MyAzMiAzNzcuNzQgMzJ6TTQ3LjI4IDMyMi45NWMuOTkgMjAuMTcgMTAuMjUgNTMuNzMgNjkuOTMgNTMuNzMgNTIuMDcgMCA5Mi41OC0zOS42OCAxMTcuODctNzIuOS00NC42My0xOC42OC04NC40OC0zMS40MS0xMDkuNDQtMzEuNDEtNjcuNDUgMC03OS4zNSAzMy4wNi03OC4zNiA1MC41OHoiLz48L3N2Zz4=" style="filter:brightness(0) invert(1)"/>支付寶</a>
-<a aria-label="開啟微信" class="launch wechat" data-deeplink="weixin://" data-fallback="https://weixin.qq.com/" href="#"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTM4NS4yIDE2Ny42YzYuNCAwIDEyLjYuMyAxOC44IDEuMUMzODcuNCA5MC4zIDMwMy4zIDMyIDIwNy43IDMyIDEwMC41IDMyIDEzIDEwNC44IDEzIDE5Ny40YzAgNTMuNCAyOS4zIDk3LjUgNzcuOSAxMzEuNmwtMTkuMyA1OC42IDY4LTM0LjFjMjQuNCA0LjggNDMuOCA5LjcgNjguMiA5LjcgNi4yIDAgMTIuMS0uMyAxOC4zLS44LTQtMTIuOS02LjItMjYuNi02LjItNDAuOC0uMS04NC45IDcyLjktMTU0IDE2NS4zLTE1NHptLTEwNC41LTUyLjljMTQuNSAwIDI0LjIgOS43IDI0LjIgMjQuNCAwIDE0LjUtOS43IDI0LjItMjQuMiAyNC4yLTE0LjggMC0yOS4zLTkuNy0yOS4zLTI0LjIuMS0xNC43IDE0LjYtMjQuNCAyOS4zLTI0LjR6bS0xMzYuNCA0OC42Yy0xNC41IDAtMjkuMy05LjctMjkuMy0yNC4yIDAtMTQuOCAxNC44LTI0LjQgMjkuMy0yNC40IDE0LjggMCAyNC40IDkuNyAyNC40IDI0LjQgMCAxNC42LTkuNiAyNC4yLTI0LjQgMjQuMnpNNTYzIDMxOS40YzAtNzcuOS03Ny45LTE0MS4zLTE2NS40LTE0MS4zLTkyLjcgMC0xNjUuNCA2My40LTE2NS40IDE0MS4zUzMwNSA0NjAuNyAzOTcuNiA0NjAuN2MxOS4zIDAgMzguOS01LjEgNTguNi05LjlsNTMuNCAyOS4zLTE0LjgtNDguNkM1MzQgNDAyLjEgNTYzIDM2My4yIDU2MyAzMTkuNHptLTIxOS4xLTI0LjVjLTkuNyAwLTE5LjMtOS43LTE5LjMtMTkuNiAwLTkuNyA5LjctMTkuMyAxOS4zLTE5LjMgMTQuOCAwIDI0LjQgOS43IDI0LjQgMTkuMyAwIDEwLTkuNyAxOS42LTI0LjQgMTkuNnptMTA3LjEgMGMtOS43IDAtMTkuMy05LjctMTkuMy0xOS42IDAtOS43IDkuNy0xOS4zIDE5LjMtMTkuMyAxNC41IDAgMjQuNCA5LjcgMjQuNCAxOS4zLjEgMTAtOS45IDE5LjYtMjQuNCAxOS42eiIvPjwvc3ZnPg==" style="filter:brightness(0) invert(1)"/>微信</a>
+<!-- Alipay / WeChat use direct native schemes; no fallback navigation so this PWA remains open. -->
+<a aria-label="開啟支付寶" class="launch alipay" data-deeplink="alipays://" href="alipays://"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTM3Ny43NCAzMkg3MC4yNkMzMS40MSAzMiAwIDYzLjQxIDAgMTAyLjI2djMwNy40OEMwIDQ0OC41OSAzMS40MSA0ODAgNzAuMjYgNDgwaDMwNy40OGMzOC41MiAwIDY5Ljc2LTMxLjA4IDcwLjI2LTY5LjYtNDUuOTYtMjUuNjItMTEwLjU5LTYwLjM0LTE3MS42LTg4LjQ0LTMyLjA3IDQzLjk3LTg0LjE0IDgxLTE0OC42MiA4MS03MC41OSAwLTkzLjczLTQ1LjMtOTcuMDQtNzYuMzctMy45Ny0zOS4wMSAxNC44OC04MS41IDk5LjUyLTgxLjUgMzUuMzggMCA3OS4zNSAxMC4yNSAxMjcuMTMgMjQuOTYgMTYuNTMtMzAuMDkgMjYuNDUtNjAuMzQgMjYuNDUtNjAuMzRoLTE3OC4ydi0xNi43aDkyLjA4di0zMS4yNEg4OC4yOHYtMTkuMDFoMTA5LjQ0VjkyLjM0aDUwLjkydjUwLjQyaDEwOS40NHYxOS4wMUgyNDguNjN2MzEuMjRoODguNzdzLTE1LjIxIDQ2LjYyLTM4LjM1IDkwLjkyYzQ4LjkzIDE2LjcgMTAwLjAxIDM2LjA0IDE0OC42MiA1Mi43NFYxMDIuMjZDNDQ3LjgzIDYzLjU3IDQxNi40MyAzMiAzNzcuNzQgMzJ6TTQ3LjI4IDMyMi45NWMuOTkgMjAuMTcgMTAuMjUgNTMuNzMgNjkuOTMgNTMuNzMgNTIuMDcgMCA5Mi41OC0zOS42OCAxMTcuODctNzIuOS00NC42My0xOC42OC04NC40OC0zMS40MS0xMDkuNDQtMzEuNDEtNjcuNDUgMC03OS4zNSAzMy4wNi03OC4zNiA1MC41OHoiLz48L3N2Zz4=" style="filter:brightness(0) invert(1)"/>支付寶</a>
+<a aria-label="開啟微信" class="launch wechat" data-deeplink="weixin://" href="weixin://"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTM4NS4yIDE2Ny42YzYuNCAwIDEyLjYuMyAxOC44IDEuMUMzODcuNCA5MC4zIDMwMy4zIDMyIDIwNy43IDMyIDEwMC41IDMyIDEzIDEwNC44IDEzIDE5Ny40YzAgNTMuNCAyOS4zIDk3LjUgNzcuOSAxMzEuNmwtMTkuMyA1OC42IDY4LTM0LjFjMjQuNCA0LjggNDMuOCA5LjcgNjguMiA5LjcgNi4yIDAgMTIuMS0uMyAxOC4zLS44LTQtMTIuOS02LjItMjYuNi02LjItNDAuOC0uMS04NC45IDcyLjktMTU0IDE2NS4zLTE1NHptLTEwNC41LTUyLjljMTQuNSAwIDI0LjIgOS43IDI0LjIgMjQuNCAwIDE0LjUtOS43IDI0LjItMjQuMiAyNC4yLTE0LjggMC0yOS4zLTkuNy0yOS4zLTI0LjIuMS0xNC43IDE0LjYtMjQuNCAyOS4zLTI0LjR6bS0xMzYuNCA0OC42Yy0xNC41IDAtMjkuMy05LjctMjkuMy0yNC4yIDAtMTQuOCAxNC44LTI0LjQgMjkuMy0yNC40IDE0LjggMCAyNC40IDkuNyAyNC40IDI0LjQgMCAxNC42LTkuNiAyNC4yLTI0LjQgMjQuMnpNNTYzIDMxOS40YzAtNzcuOS03Ny45LTE0MS4zLTE2NS40LTE0MS4zLTkyLjcgMC0xNjUuNCA2My40LTE2NS40IDE0MS4zUzMwNSA0NjAuNyAzOTcuNiA0NjAuN2MxOS4zIDAgMzguOS01LjEgNTguNi05LjlsNTMuNCAyOS4zLTE0LjgtNDguNkM1MzQgNDAyLjEgNTYzIDM2My4yIDU2MyAzMTkuNHptLTIxOS4xLTI0LjVjLTkuNyAwLTE5LjMtOS43LTE5LjMtMTkuNiAwLTkuNyA5LjctMTkuMyAxOS4zLTE5LjMgMTQuOCAwIDI0LjQgOS43IDI0LjQgMTkuMyAwIDEwLTkuNyAxOS42LTI0LjQgMTkuNnptMTA3LjEgMGMtOS43IDAtMTkuMy05LjctMTkuMy0xOS42IDAtOS43IDkuNy0xOS4zIDE5LjMtMTkuMyAxNC41IDAgMjQuNCA5LjcgMjQuNCAxOS4zLjEgMTAtOS45IDE5LjYtMjQuNCAxOS42eiIvPjwvc3ZnPg==" style="filter:brightness(0) invert(1)"/>微信</a>
 <a aria-label="開啟 Trip.com" class="launch trip" href="https://www.trip.com/?locale=zh-TW" rel="noopener" target="_blank"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzJGODBFRCIvPgogIDx0ZXh0IHg9IjU2IiB5PSIzMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4NSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0id2hpdGUiIGxldHRlci1zcGFjaW5nPSItMTIiPlRyaXA8L3RleHQ+CiAgPGNpcmNsZSBjeD0iNDUyIiBjeT0iMjk1IiByPSIyMCIgZmlsbD0iI0ZGQjgwMCIvPgo8L3N2Zz4K"/>Trip.com</a>
 <button aria-label="切換深淺色" class="launch utility theme-toggle" id="themeToggle" title="切換深淺色" type="button"><svg class="sun" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg><svg class="moon" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5 8.7 8.7 0 1 0 20.5 14.6Z"></path></svg></button>
 <button aria-label="加入主畫面說明" class="launch utility help-dot" id="helpBtn" title="加入主畫面說明" type="button"><span>?</span></button>
@@ -716,8 +721,33 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const fmtBJ=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const timeBJ=()=>new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Shanghai',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date());
 
-// Deep links / fallback
-$$('[data-deeplink]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const dl=a.dataset.deeplink,fb=a.dataset.fallback;const before=Date.now();location.href=dl;setTimeout(()=>{if(Date.now()-before<1800)window.open(fb,'_blank')},850)}));
+// Direct app launch.
+// In installed / standalone mode, use a hidden iframe so the itinerary stays open in place.
+// No website fallback is used, so returning from Alipay / WeChat resumes this page.
+const isStandaloneApp=()=>(
+  window.matchMedia?.('(display-mode: standalone)').matches ||
+  window.navigator.standalone === true
+);
+function launchSchemeWithoutLeavingPage(scheme){
+  const frame=document.createElement('iframe');
+  frame.setAttribute('aria-hidden','true');
+  frame.style.cssText='position:fixed;width:1px;height:1px;left:-9999px;top:-9999px;opacity:0;border:0;pointer-events:none';
+  frame.src=scheme;
+  document.body.appendChild(frame);
+  setTimeout(()=>frame.remove(),1600);
+}
+$$('[data-deeplink]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const scheme=a.dataset.deeplink||a.getAttribute('href');
+    if(!scheme)return;
+    // When launched from the Home Screen, preserve the itinerary window exactly as-is.
+    if(isStandaloneApp()){
+      e.preventDefault();
+      launchSchemeWithoutLeavingPage(scheme);
+    }
+    // In Safari/other normal browsers, let the native href handle the app switch directly.
+  });
+});
 
 // Build Apple / Gaode actions for every listed destination.
 function openGaode(placeName){
