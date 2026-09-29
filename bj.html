@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8"/>
@@ -500,6 +501,244 @@ body{
 /* v9 external-app buttons */
 .launch.alipay,.launch.wechat{-webkit-touch-callout:none}
 
+
+/* ===== v10 · card-dashboard / Fubon+ inspired direction ===== */
+:root{
+  --accent:#128ca8;
+  --accent2:#48b9ad;
+  --fubon-navy:#18354a;
+  --fubon-blue:#4ba9d5;
+  --fubon-mint:#62d5c3;
+  --fubon-ice:#e9f5f8;
+  --fubon-soft:#f3faf9;
+}
+body{
+  background:
+    radial-gradient(circle at 88% 7%,rgba(91,201,190,.14),transparent 22rem),
+    radial-gradient(circle at 2% 21%,rgba(73,165,214,.10),transparent 24rem),
+    #f3f7f8;
+}
+html[data-theme="dark"] body{
+  background:
+    radial-gradient(circle at 88% 7%,rgba(91,201,190,.08),transparent 22rem),
+    radial-gradient(circle at 2% 21%,rgba(73,165,214,.07),transparent 24rem),
+    #0a1117;
+}
+
+/* clean, visualized cards */
+.event,.weather-wear,.info-card,.ticket-card,.food-catalog .catalog-details{
+  box-shadow:0 10px 28px rgba(29,67,82,.075);
+  border-color:rgba(21,72,92,.075);
+}
+html[data-theme="dark"] .event,
+html[data-theme="dark"] .weather-wear,
+html[data-theme="dark"] .info-card,
+html[data-theme="dark"] .ticket-card,
+html[data-theme="dark"] .food-catalog .catalog-details{
+  border-color:rgba(255,255,255,.075);
+}
+
+/* overview stack inspired by visual card hierarchy, not a direct copy */
+.trip-dashboard{
+  position:relative;
+  margin:24px 0 8px;
+  height:208px;
+}
+.dash-layer,.dash-main{
+  position:absolute;
+  left:0;right:0;
+  border-radius:27px;
+}
+.dash-layer-a{
+  top:0;height:150px;
+  background:linear-gradient(135deg,#1e4059,#234d69);
+  transform:scale(.92);
+  opacity:.96;
+}
+.dash-layer-b{
+  top:17px;height:158px;
+  background:linear-gradient(135deg,#178daf,#31a7ba);
+  transform:scale(.96);
+  box-shadow:0 16px 34px rgba(25,99,122,.14);
+}
+.dash-main{
+  top:35px;min-height:173px;
+  padding:20px;
+  color:#173247;
+  background:linear-gradient(135deg,#d9edf3 0%,#e8f7f4 60%,#f4fbf9 100%);
+  box-shadow:0 20px 50px rgba(32,103,123,.16);
+  overflow:hidden;
+}
+.dash-main:after{
+  content:"";position:absolute;right:-38px;top:-36px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(74,184,173,.22),rgba(74,184,173,0) 66%);
+}
+.dash-kicker{font-size:10px;font-weight:780;letter-spacing:.15em;opacity:.62}
+.dash-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-top:5px}
+.dash-title{font-size:25px;font-weight:820;letter-spacing:-.045em}
+.dash-sub{font-size:12px;opacity:.65;margin-top:2px}
+.dash-orbit{display:flex;gap:5px;padding-top:4px}
+.dash-orbit span{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.26)}
+.dash-orbit span:nth-child(2){opacity:.66}.dash-orbit span:nth-child(3){opacity:.34}
+.dash-grid{
+  display:grid;grid-template-columns:1fr 1.18fr 1fr;gap:8px;margin-top:16px;position:relative;z-index:2
+}
+.dash-metric{
+  min-width:0;padding:10px 11px;border-radius:15px;background:rgba(255,255,255,.58);
+  border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(10px)
+}
+.dash-metric span{display:block;font-size:10px;opacity:.58;font-weight:700}
+.dash-metric strong{display:block;font-size:12px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.food-dash-action{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.food-dash-action:active{transform:scale(.98)}
+
+/* Meal event card */
+.meal-event{
+  border-color:rgba(18,140,168,.14)!important;
+  background:
+    radial-gradient(circle at 90% 6%,rgba(83,208,185,.10),transparent 16rem),
+    rgba(255,255,255,.88)!important;
+}
+html[data-theme="dark"] .meal-event{background:rgba(23,31,38,.91)!important}
+.meal-event .kind{
+  color:#0b839b;
+  background:rgba(18,140,168,.08);
+  border-color:rgba(18,140,168,.13);
+}
+.meal-picker{padding-top:2px}
+.meal-decision{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  padding:17px;
+  background:linear-gradient(135deg,#e0f1f6,#e9f8f4);
+  border:1px solid rgba(34,140,160,.12);
+  color:#163247;
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.meal-decision.spinning{animation:mealPulse .34s ease}
+@keyframes mealPulse{0%{transform:scale(1)}45%{transform:scale(.985)}100%{transform:scale(1)}}
+.meal-decision:after{
+  content:"";position:absolute;width:140px;height:140px;border-radius:50%;right:-38px;top:-45px;
+  background:radial-gradient(circle,rgba(73,186,173,.22),rgba(73,186,173,0) 68%);
+}
+.meal-decision-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;position:relative;z-index:2}
+.meal-choice-label{font-size:10px;font-weight:780;letter-spacing:.11em;color:#47717e}
+.meal-choice-name{font-size:24px;line-height:1.08;font-weight:820;letter-spacing:-.045em;margin-top:4px}
+.meal-choice-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.food-tag{
+  display:inline-flex;align-items:center;min-height:25px;padding:0 8px;border-radius:999px;
+  background:rgba(255,255,255,.7);border:1px solid rgba(19,77,92,.08);
+  font-size:10px;font-weight:680;color:#466675
+}
+.meal-random{
+  position:relative;z-index:2;border:0;min-width:84px;height:46px;padding:0 13px;border-radius:15px;
+  background:#173c53;color:white;font-weight:760;font-size:13px;display:flex;align-items:center;justify-content:center;gap:7px;
+  box-shadow:0 8px 18px rgba(23,60,83,.16);cursor:pointer
+}
+.meal-random:active{transform:scale(.97)}
+.meal-random svg{width:17px;height:17px}
+.meal-choice-note{font-size:12px;line-height:1.55;color:#58717d;margin-top:10px;max-width:72%;position:relative;z-index:2}
+.meal-choice-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px;position:relative;z-index:2}
+.food-map{
+  min-height:41px;border:0;border-radius:13px;text-decoration:none;display:flex;align-items:center;justify-content:center;
+  gap:7px;font-size:12px;font-weight:730;cursor:pointer
+}
+.food-map.apple{background:#17202a;color:#fff}
+.food-map.amap{background:#1677ff;color:#fff}
+
+/* Full candidate list under each meal */
+.meal-all{
+  margin-top:12px;border-top:1px solid rgba(19,77,92,.09);padding-top:4px
+}
+.meal-all summary{
+  min-height:44px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;
+  list-style:none;font-size:12px;font-weight:750;color:var(--sub)
+}
+.meal-all summary::-webkit-details-marker{display:none}
+.meal-all summary:after{content:"＋";font-size:18px;font-weight:450}
+.meal-all[open] summary:after{content:"−"}
+.meal-list{display:grid;gap:8px;padding:3px 0 3px}
+.meal-list-item{
+  border:1px solid var(--line);border-radius:16px;background:color-mix(in srgb,var(--surface-solid) 82%,transparent);
+  padding:11px 12px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center
+}
+.meal-list-name{font-size:13px;font-weight:760}
+.meal-list-meta{font-size:10px;color:var(--sub);margin-top:2px}
+.meal-list-note{font-size:11px;color:var(--sub);margin-top:4px;line-height:1.42}
+.meal-list-actions{display:flex;gap:5px}
+.mini-pick,.mini-map{
+  width:34px;height:34px;border:0;border-radius:11px;display:grid;place-items:center;cursor:pointer;
+  background:color-mix(in srgb,var(--accent) 8%,var(--surface-solid));color:var(--accent);text-decoration:none;font-size:13px
+}
+.mini-pick{background:#173c53;color:#fff}
+.mini-map.amap{background:#1677ff;color:#fff}
+.mini-map.apple{background:#111;color:#fff}
+.meal-list-item.is-picked{outline:2px solid rgba(18,140,168,.28);background:rgba(226,246,246,.64)}
+
+/* master food catalog */
+.food-catalog{margin-top:4px;margin-bottom:36px}
+.catalog-details{
+  border-radius:24px;background:rgba(255,255,255,.82);overflow:hidden
+}
+html[data-theme="dark"] .catalog-details{background:rgba(27,34,40,.86)}
+.catalog-details>summary{
+  min-height:78px;padding:15px 17px;display:flex;align-items:center;justify-content:space-between;
+  list-style:none;cursor:pointer
+}
+.catalog-details>summary::-webkit-details-marker{display:none}
+.catalog-kicker{display:block;font-size:10px;font-weight:780;letter-spacing:.13em;color:var(--sub);margin-bottom:2px}
+.catalog-details>summary strong{font-size:19px;letter-spacing:-.025em}
+.catalog-count{
+  min-width:44px;height:30px;border-radius:999px;background:rgba(18,140,168,.08);color:#0d839b;
+  display:grid;place-items:center;font-size:11px;font-weight:760
+}
+.catalog-body{padding:0 14px 16px}
+.catalog-toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:10px}
+.catalog-note{font-size:11px;color:var(--sub);line-height:1.5;max-width:58%}
+.catalog-snack-btn{
+  border:0;border-radius:13px;min-height:40px;padding:0 12px;background:#173c53;color:#fff;font-size:11px;font-weight:730;cursor:pointer
+}
+.snack-result{
+  margin:8px 0 12px;padding:12px 13px;border-radius:16px;background:linear-gradient(135deg,#e6f5f5,#eef8fb);
+  border:1px solid rgba(18,140,168,.12);font-size:12px;color:#365869
+}
+.catalog-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.catalog-item{
+  min-width:0;padding:12px;border:1px solid var(--line);border-radius:16px;background:color-mix(in srgb,var(--surface-solid) 82%,transparent)
+}
+.catalog-item-name{font-size:13px;font-weight:760}
+.catalog-item-meta{font-size:10px;color:var(--sub);margin-top:2px;line-height:1.4}
+.catalog-item-note{font-size:10px;color:var(--sub);margin-top:5px;line-height:1.45}
+.catalog-item-actions{display:flex;gap:5px;margin-top:9px}
+
+/* refine overall dashboard feel */
+.daychip.active{background:#173c53;border-color:#173c53}
+.launch.utility{backdrop-filter:blur(18px)}
+.event{border-radius:25px}
+.place{border-radius:16px}
+.ticket-card{border-radius:20px}
+
+/* existing meal-card art is suppressed on the new decision events */
+.meal-event.card-art::after{display:none!important}
+
+@media(max-width:620px){
+  .trip-dashboard{height:202px}
+  .dash-main{padding:17px}
+  .dash-grid{grid-template-columns:1fr 1.12fr 1fr}
+  .dash-metric{padding:9px}
+  .dash-metric strong{font-size:11px}
+  .meal-choice-name{font-size:22px}
+  .meal-choice-note{max-width:100%}
+  .meal-decision-top{align-items:center}
+  .meal-random{min-width:78px;height:44px;padding:0 11px}
+  .catalog-grid{grid-template-columns:1fr}
+  .catalog-note{max-width:56%}
+}
+@media(prefers-reduced-motion:reduce){
+  .meal-decision.spinning{animation:none}
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +762,7 @@ body{
 <section class="hero wrap">
 <div class="eyebrow">BEIJING · 01–03 OCT 2026</div>
 <h1>北京行程規劃</h1>
-<p>王府井為基地；天壇、烤鴨、城市散步。</p>
+<p>王府井為基地；行程先排好，吃飯交給今天的手氣。</p>
 <div class="hero-meta">
 <span class="meta-pill"><span class="status-dot" id="tripDot"></span><span id="tripStatus">行程尚未開始</span></span>
 <span class="meta-pill">住宿 · 北京飯店諾金</span>
@@ -533,6 +772,28 @@ body{
 <circle cx="8" cy="15" r="1"></circle><circle cx="16" cy="15" r="1"></circle>
 </svg>10/3 · G505 15:20</span>
 </div>
+
+<section aria-label="旅程總覽" class="trip-dashboard">
+<div class="dash-layer dash-layer-a"></div>
+<div class="dash-layer dash-layer-b"></div>
+<div class="dash-main">
+<div class="dash-kicker">TRIP OVERVIEW</div>
+<div class="dash-head">
+<div>
+<div class="dash-title">北京 2026</div>
+<div class="dash-sub">10/1–10/3 · 行程與餐廳都放在同一頁</div>
+</div>
+<div aria-hidden="true" class="dash-orbit">
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class="dash-grid">
+<div class="dash-metric"><span>住宿</span><strong>王府井</strong></div>
+<div class="dash-metric"><span>高鐵</span><strong>G505 · 15:20</strong></div>
+<div class="dash-metric food-dash-action" id="foodDashAction" role="button" tabindex="0"><span>吃什麼</span><strong>交給手氣 ↗</strong></div>
+</div>
+</div>
+</section>
 </section>
 <section aria-label="穿衣建議" class="weather-wear wrap">
 <div class="weather-wear-inner">
@@ -587,31 +848,17 @@ body{
 </div>
 </div>
 </article>
-<article class="event" data-end="20:30" data-start="18:00">
-<div class="event-top"><div class="time">18:00</div><div><div class="event-title">晚餐：第一隻烤鴨優先</div><div class="event-sub">目標是四季民福；若國慶排隊過長，當晚不硬耗。</div></div><span class="kind">晚餐</span></div>
-<div class="event-body">
-<div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div>
-<div class="shelf">
-<div class="option primary mini-watermark mini-duck"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">掛爐烤鴨</span></div><h3>四季民福・燈市口店</h3><p>距住宿近；落地後再看實際排隊，不讓行程綁在固定搶號時間。</p><div class="place-list"><div class="place" data-place="四季民福烤鴨店 燈市口店"><div class="place-main"><div><div class="place-name">四季民福・燈市口店</div><div class="place-desc">若等待合理就吃；太久則改備案。</div></div></div></div></div><details class="strategy"><summary>排隊策略</summary><div class="strategy-body"><strong>不必把 10:30 搶號當前提。</strong> 抵達飯店後再看當日排隊頁面或請飯店協助確認。等待 ≤90 分鐘可留；約 90–120 分鐘視體力；超過 2 小時就先換餐廳，10/3 上午仍保留一次補吃機會。</div></details></div>
-<div class="option mini-watermark mini-duck"><div class="option-head"><span class="option-badge">北京味</span><span class="tiny muted">銅鍋涮肉</span></div><h3>南門涮肉・東單一帶</h3><p>如果四季排隊過久，改吃老北京涮羊肉，仍然有地方感且不用大幅跨區。</p><div class="place-list"><div class="place" data-place="南門涮肉 東單 北京"><div class="place-main"><div><div class="place-name">南門涮肉</div><div class="place-desc">清湯銅鍋、羊肉、麻醬。</div></div></div></div></div></div>
-<div class="option mini-watermark mini-hotpot"><div class="option-head"><span class="option-badge">最省力</span><span class="tiny muted">王府井</span></div><h3>海底撈・王府井</h3><p>下飛機真的累就用這個；吃完直接散步回飯店。</p><div class="place-list"><div class="place" data-place="海底撈 王府井 北京"><div class="place-main"><div><div class="place-name">海底撈・王府井</div><div class="place-desc">省交通、晚餐時間彈性高。</div></div></div></div></div></div>
-</div>
-</div>
+<article class="event meal-event" data-end="20:30" data-meal-slot="d1Dinner" data-start="18:00">
+<div class="event-top"><div class="time">18:00</div><div><div class="event-title">晚餐</div><div class="event-sub">落地後不想選？按一下直接決定；四季民福先作為起始選擇。</div></div><span class="kind">吃飯</span></div>
+<div class="event-body"><div class="meal-picker" data-meal-slot="d1Dinner"></div></div>
 </article>
 </div></div></section>
 <!-- DAY 2 -->
 <section class="day" data-day-date="2026-10-02" id="day2">
 <button aria-controls="day2-content" aria-expanded="false" class="dayhead day-toggle" type="button"><div class="dayhead-main"><h2>第二天<span class="today-label">今天</span></h2></div><div class="dayhead-right"><span class="date">10/2 週五</span><svg aria-hidden="true" class="day-chevron" fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></div></button><div class="day-content" id="day2-content"><div class="day-content-inner">
-<article class="event" data-end="07:20" data-start="06:45">
-<div class="event-top"><div class="time">06:45</div><div><div class="event-title">早餐</div><div class="event-sub">不需要特別繞路；以「快」為優先。</div></div><span class="kind">早餐</span></div>
-<div class="event-body">
-<div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div>
-<div class="shelf">
-<div class="option primary mini-watermark mini-dot"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">美團</span></div><h3>外賣送到飯店</h3><p>搜尋「豆腐腦／油條／包子／燒餅／粥」。起床後下單，梳洗完下樓取。</p></div>
-<div class="option mini-watermark mini-dot"><div class="option-head"><span class="option-badge">出門吃</span></div><h3>附近早餐店</h3><p>看到順路的慶豐、紫光園或本地早餐店就吃，不為早餐多走一段。</p></div>
-<div class="option mini-watermark mini-dot"><div class="option-head"><span class="option-badge">最省時</span></div><h3>前一晚先買</h3><p>麵包、酸奶、水果或飯糰；適合想準時出發看天壇。</p></div>
-</div>
-</div>
+<article class="event meal-event" data-end="07:20" data-meal-slot="d2Breakfast" data-start="06:45">
+<div class="event-top"><div class="time">06:45</div><div><div class="event-title">早餐</div><div class="event-sub">以順路、快速為主；抽到哪個就看最近分店。</div></div><span class="kind">吃飯</span></div>
+<div class="event-body"><div class="meal-picker" data-meal-slot="d2Breakfast"></div></div>
 </article>
 <article class="event" data-end="10:45" data-start="07:20">
 <div class="event-top"><div class="time">07:20</div><div><div class="event-title">天壇公園</div><div class="event-sub">08:00 前後進核心區；抓 2.5–3 小時。</div></div><span class="kind">必去</span></div>
@@ -622,12 +869,9 @@ body{
 <div class="route-note"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 17h5l3-10 3 10h5"></path><path d="M6 21h12"></path></svg><span>交通：早上若高德顯示道路順暢可打車；要最穩定則從東單搭 5 號線到天壇東門。</span></div>
 </div>
 </article>
-<article class="event" data-end="13:00" data-start="11:15">
-<div class="event-top"><div class="time">11:15</div><div><div class="event-title">第二隻烤鴨：便宜坊</div><div class="event-sub">這餐就是為了吃燜爐派；不要再換成四季。</div></div><span class="kind">午餐</span></div>
-<div class="event-body">
-<div class="place-list"><div class="place" data-place="便宜坊烤鴨店 鮮魚口店"><div class="place-main"><div class="place-pin"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8Z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg></div><div><div class="place-name">便宜坊・鮮魚口店</div><div class="place-desc">燜爐烤鴨；與前門一帶的下午動線銜接最好。</div></div></div></div></div>
-<details class="strategy"><summary>如果排隊太久</summary><div class="strategy-body">先看現場／平台等位。若等待超過約 45–60 分鐘，可以先去附近散步或咖啡，再回來；這餐不建議直接換成另一家烤鴨，因為行程本來就是要把兩種流派都吃到。</div></details>
-</div>
+<article class="event meal-event" data-end="13:00" data-meal-slot="d2Lunch" data-start="11:15">
+<div class="event-top"><div class="time">11:15</div><div><div class="event-title">午餐</div><div class="event-sub">天壇後往前門方向；便宜坊先作為起始選擇。</div></div><span class="kind">吃飯</span></div>
+<div class="event-body"><div class="meal-picker" data-meal-slot="d2Lunch"></div></div>
 </article>
 <article class="event" data-end="15:45" data-start="13:15">
 <div class="event-top"><div class="time">13:15</div><div><div class="event-title">下午留白：文青或直接購物</div><div class="event-sub">同時段有三套；依人潮與體力左右滑。</div></div><span class="kind">彈性</span></div>
@@ -647,24 +891,17 @@ body{
 <div class="route-note"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><path d="M7 12h10"></path></svg><span>交通：珠市口 → 7 號線 → 九龍山。這段不建議為了少走幾步改打車，國慶地面時間較不穩。</span></div>
 </div>
 </article>
-<article class="event" data-end="21:00" data-start="18:30">
-<div class="event-top"><div class="time">18:30</div><div><div class="event-title">晚餐</div><div class="event-sub">不再跨區，逛完再決定。</div></div><span class="kind">晚餐</span></div>
-<div class="event-body">
-<div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div>
-<div class="shelf">
-<div class="option primary mini-watermark mini-shop"><div class="option-head"><span class="option-badge">首選</span></div><h3>合生匯直接吃</h3><p>選擇最多，也完全不增加交通成本。</p><div class="place-list"><div class="place" data-place="北京朝陽合生匯"><div class="place-main"><div><div class="place-name">合生匯餐飲</div></div></div></div></div></div>
-<div class="option mini-watermark mini-hotpot"><div class="option-head"><span class="option-badge">想吃火鍋</span></div><h3>海底撈</h3><p>如果 Day 1 沒吃火鍋，這晚補最輕鬆。</p><div class="place-list"><div class="place" data-place="海底撈 九龍山 北京"><div class="place-main"><div><div class="place-name">海底撈・九龍山附近</div></div></div></div></div></div>
-<div class="option mini-watermark mini-walk"><div class="option-head"><span class="option-badge">想早回飯店</span></div><h3>王府井再吃</h3><p>直接回市中心，晚餐改在住宿附近處理。</p><div class="place-list"><div class="place" data-place="王府井步行街"><div class="place-main"><div><div class="place-name">王府井</div></div></div></div></div></div>
-</div>
-</div>
+<article class="event meal-event" data-end="21:00" data-meal-slot="d2Dinner" data-start="18:30">
+<div class="event-top"><div class="time">18:30</div><div><div class="event-title">晚餐</div><div class="event-sub">逛完合生匯再決定；想吃北京味或換口味都可以。</div></div><span class="kind">吃飯</span></div>
+<div class="event-body"><div class="meal-picker" data-meal-slot="d2Dinner"></div></div>
 </article>
 </div></div></section>
 <!-- DAY 3 -->
 <section class="day" data-day-date="2026-10-03" id="day3">
 <button aria-controls="day3-content" aria-expanded="false" class="dayhead day-toggle" type="button"><div class="dayhead-main"><h2>第三天<span class="today-label">今天</span></h2></div><div class="dayhead-right"><span class="date">10/3 週六</span><svg aria-hidden="true" class="day-chevron" fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></div></button><div class="day-content" id="day3-content"><div class="day-content-inner">
-<article class="event" data-end="09:15" data-start="08:30">
-<div class="event-top"><div class="time">08:30</div><div><div class="event-title">早餐</div><div class="event-sub">睡飽再出門；這天不需要早起。</div></div><span class="kind">早餐</span></div>
-<div class="event-body"><div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div><div class="shelf"><div class="option primary mini-watermark mini-dot"><div class="option-head"><span class="option-badge">首選</span></div><h3>附近找早餐</h3><p>包子、豆腐腦、油條、粥；看到順路就吃。</p></div><div class="option mini-watermark mini-dot"><div class="option-head"><span class="option-badge">懶人</span></div><h3>美團送到飯店</h3><p>下單後整理行李，時間最好掌握。</p></div><div class="option mini-watermark mini-duck"><div class="option-head"><span class="option-badge">早午餐</span></div><h3>留肚子給四季</h3><p>如果 Day 1 沒吃到四季民福，這天直接把早午餐留給它。</p></div></div></div>
+<article class="event meal-event" data-end="09:15" data-meal-slot="d3Breakfast" data-start="08:30">
+<div class="event-top"><div class="time">08:30</div><div><div class="event-title">早餐／早午餐</div><div class="event-sub">不趕時間；如果前兩天還有沒吃到的，也可以在這餐補。</div></div><span class="kind">吃飯</span></div>
+<div class="event-body"><div class="meal-picker" data-meal-slot="d3Breakfast"></div></div>
 </article>
 <article class="event" data-end="11:45" data-start="09:30">
 <div class="event-top"><div class="time">09:30</div><div><div class="event-title">最後一段城市散步</div><div class="event-sub">三套都離飯店不遠，照前兩天狀態選。</div></div><span class="kind">彈性</span></div>
@@ -687,9 +924,29 @@ body{
 </article>
 </div></div></section>
 </div>
+
+<section class="food-catalog wrap" id="foodCatalog">
+<details class="catalog-details">
+<summary>
+<div>
+<span class="catalog-kicker">FOOD COLLECTION</span>
+<strong>全部想吃清單</strong>
+</div>
+<span class="catalog-count" id="catalogCount">—</span>
+</summary>
+<div class="catalog-body">
+<div class="catalog-toolbar">
+<div class="catalog-note">烤鴨、炙子烤肉、涮羊肉、串串、雲南菜、酸奶、茶飲都收在這裡。</div>
+<button class="catalog-snack-btn" id="snackRandomBtn" type="button">嘴饞時幫我抽一個</button>
+</div>
+<div class="snack-result hidden" id="snackResult"></div>
+<div class="catalog-grid" id="foodCatalogGrid"></div>
+</div>
+</details>
+</section>
 </main>
 <footer><div class="wrap">北京 2026 · 路況、排隊與臨時管制以當日官方與高德資訊為準；高德按鈕會優先開啟 App，未安裝時改開網頁版。</div></footer>
-<div class="install-card" id="installCard"><div class="install-icon">京</div><div class="install-copy"><b>加入主畫面</b><span>以 App 形式快速打開行程。</span></div><button class="install-btn" id="installOpen">設定</button><button aria-label="關閉" class="install-close" id="installDismiss">×</button></div>
+<div class="install-card" id="installCard"><div class="install-icon">✈︎</div><div class="install-copy"><b>加入主畫面</b><span>以 App 形式快速打開行程。</span></div><button class="install-btn" id="installOpen">設定</button><button aria-label="關閉" class="install-close" id="installDismiss">×</button></div>
 <div class="sheet-overlay" id="overlay"></div>
 <div aria-labelledby="guideTitle" aria-modal="true" class="sheet" id="guideSheet" role="dialog">
 <div class="grabber"></div>
@@ -956,5 +1213,175 @@ if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.
   });
 })();
 </script>
+
+<script>
+/* v10 meal chooser */
+const FOOD_DB={"siji": {"name": "四季民福", "type": "掛爐烤鴨・京味菜", "area": "東城／燈市口", "query": "四季民福烤鴨店 燈市口店 北京", "note": "住宿圈內最好利用；國慶是否排隊以當日現場／平台為準。", "kind": "meal"}, "bianyifang": {"name": "便宜坊", "type": "燜爐烤鴨", "area": "前門／鮮魚口", "query": "便宜坊烤鴨店 鮮魚口店 北京", "note": "天壇後往前門時最順，剛好可以吃不同流派的烤鴨。", "kind": "meal"}, "xiaodiao": {"name": "小吊梨湯", "type": "京味菜・烤鴨・梨湯", "area": "多分店", "query": "小吊梨湯 北京", "note": "如果想吃京味菜但不想把整餐都押在排隊名店上，彈性很好。", "kind": "meal"}, "dahuashu": {"name": "大槐樹烤肉", "type": "炙子烤肉", "area": "東城／美術館一帶", "query": "大槐樹烤肉館 北京", "note": "老北京炙子烤肉路線；想吃牛羊肉、炭火香可以抽它。", "kind": "meal"}, "liuzhizi": {"name": "劉炙子烤肉", "type": "炙子烤肉", "area": "虎坊橋一帶", "query": "劉記炙子烤肉 北京", "note": "更偏老北京炙子烤肉體驗；若當天在前門／虎坊橋一帶較適合。", "kind": "meal"}, "longtimeago": {"name": "很久以前羊肉串", "type": "羊肉串・燒烤", "area": "王府井等多分店", "query": "很久以前羊肉串 王府井 北京", "note": "晚上想吃串、不想研究太多時很適合；王府井有分店較方便。", "kind": "meal"}, "donglaishun": {"name": "東來順", "type": "老北京涮羊肉", "area": "王府井等多分店", "query": "東來順 王府井 北京", "note": "想把北京味換成清湯銅鍋涮羊肉時很好用。", "kind": "meal"}, "manhengji": {"name": "滿恒記", "type": "清真涮羊肉", "area": "西城", "query": "滿恒記 北京", "note": "也是涮羊肉候選；位置不一定最順，抽到後先看高德再決定。", "kind": "meal"}, "nanmen": {"name": "南門涮肉", "type": "銅鍋涮羊肉", "area": "多分店", "query": "南門涮肉 北京", "note": "原行程備案之一；適合想吃傳統涮肉又不想吃烤鴨的晚上。", "kind": "meal"}, "luzhu": {"name": "鹵煮火燒", "type": "北京小吃", "area": "前門／南城較常見", "query": "鹵煮火燒 北京", "note": "這是品項而不是單一店家；按地圖後看附近高評價老店。", "kind": "meal"}, "meizhou": {"name": "湄洲酒家", "type": "中餐・福建風味", "area": "多分店", "query": "湄洲酒家 北京", "note": "想暫時離開京味、換一餐多人中式菜時可以抽。", "kind": "meal"}, "jindingxuan": {"name": "金鼎軒", "type": "中式點心・家常菜", "area": "多分店", "query": "金鼎軒 北京", "note": "早餐、早午餐或一般正餐都相對好用，適合作為不想冒險的選項。", "kind": "meal"}, "zhanzhan": {"name": "詹詹", "type": "收藏候選", "area": "先看高德最近店", "query": "詹詹 北京 餐廳", "note": "保留你收藏的名稱；分店與品類以高德當下搜尋結果為準。", "kind": "meal"}, "slowboat": {"name": "悠航 SLOWBOAT", "type": "漢堡・精釀", "area": "燈市口／三里屯等", "query": "悠航 SLOWBOAT 燈市口 北京", "note": "想換西式口味很適合；燈市口店對住宿動線尤其友好。", "kind": "meal"}, "lichuanchuan": {"name": "李串串", "type": "川味串串香", "area": "北京", "query": "李串串老店 北京", "note": "重口味、多人一起吃很有氣氛；抽到後先看最近分店。", "kind": "meal"}, "huoshaoyun": {"name": "火燒雲", "type": "雲南・傣家菜", "area": "朝陽等", "query": "火燒雲傣家菜 北京", "note": "酸辣、下飯、重香料；如果想完全換口味，這個最有反差。", "kind": "meal"}, "xiaoxiangge": {"name": "瀟湘閣", "type": "湘菜", "area": "多分店", "query": "瀟湘閣 北京", "note": "想吃辣、吃飯配菜的那一餐可以抽；先看最近店。", "kind": "meal"}, "jinguyuan": {"name": "金谷園餃子", "type": "餃子・燒烤", "area": "海淀等", "query": "金谷園餃子 北京", "note": "比較適合單純想吃餃子的一餐；位置未必順路，抽到先看距離。", "kind": "meal"}, "sanqingtan": {"name": "三清潭燒鵝", "type": "粵菜・燒鵝", "area": "三里屯等", "query": "三清潭燒鵝 太古里 北京", "note": "如果願意去三里屯，適合當一餐完全不同的粵菜。", "kind": "meal"}, "haidilao": {"name": "海底撈", "type": "火鍋", "area": "多分店", "query": "海底撈 北京", "note": "最省腦、營業時間彈性高；適合累到不想做功課的晚上。", "kind": "meal"}, "ziguangyuan": {"name": "紫光園", "type": "清真京味・酸奶", "area": "多分店", "query": "紫光園 北京", "note": "早餐、小吃、酸奶都能用；很適合順路吃。", "kind": "snack"}, "qingyu": {"name": "青玉酸奶", "type": "酸奶・甜品", "area": "多分店", "query": "青玉酸奶 北京", "note": "比較適合加餐或早餐後甜點，不用為它特別跨區。", "kind": "snack"}, "longyan": {"name": "隆延茶鋪", "type": "北京茶飲", "area": "東城／朝陽多分店", "query": "隆延茶鋪 北京", "note": "米釀、烏龍、果茶類；看到順路分店再買最合理。", "kind": "snack"}, "chabingzhai": {"name": "茶餅齋乳酪餅", "type": "乳酪餅・點心", "area": "北京", "query": "茶餅齋 乳酪餅 北京", "note": "適合下午嘴饞或早餐加一樣；以高德搜尋最近門店。", "kind": "snack"}, "wuyutai": {"name": "吳裕泰冰淇淋", "type": "茶香冰淇淋", "area": "王府井／前門等", "query": "吳裕泰 冰淇淋 北京", "note": "非常適合當散步時的順手甜點，不需要獨立排時段。", "kind": "snack"}, "localbreakfast": {"name": "附近京味早餐", "type": "豆腐腦・油條・包子", "area": "王府井／東單周邊", "query": "北京早餐 豆腐腦 油條 王府井", "note": "不指定店，直接用高德找當下最近、營業中的高評價早餐。", "kind": "meal"}};
+const MEAL_CFG={"d1Dinner": {"pool": ["siji", "donglaishun", "dahuashu", "slowboat", "xiaodiao", "nanmen", "jindingxuan", "longtimeago"], "default": "siji"}, "d2Breakfast": {"pool": ["localbreakfast", "ziguangyuan", "jindingxuan", "qingyu"], "default": "localbreakfast"}, "d2Lunch": {"pool": ["bianyifang", "luzhu", "xiaodiao", "jindingxuan", "liuzhizi"], "default": "bianyifang"}, "d2Dinner": {"pool": ["lichuanchuan", "huoshaoyun", "slowboat", "sanqingtan", "meizhou", "xiaoxiangge", "zhanzhan", "longtimeago", "haidilao"], "default": null}, "d3Breakfast": {"pool": ["localbreakfast", "ziguangyuan", "jindingxuan", "qingyu", "chabingzhai", "wuyutai", "longyan"], "default": null}};
+const SNACK_POOL=["longyan", "ziguangyuan", "qingyu", "chabingzhai", "wuyutai"];
+const MEAL_STORE_KEY='bjMealChoicesV10';
+
+function readMealChoices(){
+  try{return JSON.parse(localStorage.getItem(MEAL_STORE_KEY)||'{}')}catch(e){return {}}
+}
+function saveMealChoices(obj){
+  try{localStorage.setItem(MEAL_STORE_KEY,JSON.stringify(obj))}catch(e){}
+}
+let mealChoices=readMealChoices();
+
+function randIndex(max){
+  if(max<=1)return 0;
+  if(window.crypto?.getRandomValues){
+    const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]%max;
+  }
+  return Math.floor(Math.random()*max);
+}
+function appleFoodUrl(item){
+  return 'https://maps.apple.com/?q='+encodeURIComponent(item.query+' 北京');
+}
+function foodTags(item){
+  return `<span class="food-tag">${item.type}</span><span class="food-tag">${item.area}</span>`;
+}
+function getPool(slot){
+  let pool=[...(MEAL_CFG[slot]?.pool||[])];
+  // If Four Seasons has not been selected earlier, keep a Day 3 brunch rescue route available.
+  if(slot==='d3Breakfast'&&!Object.values(mealChoices).includes('siji'))pool.unshift('siji');
+  return [...new Set(pool)];
+}
+function chooseFood(slot,forcedId=null){
+  const pool=getPool(slot);
+  let id=forcedId;
+  if(!id){
+    const used=new Set(Object.entries(mealChoices).filter(([k])=>k!==slot).map(([,v])=>v));
+    let available=pool.filter(x=>!used.has(x));
+    if(!available.length)available=pool;
+    id=available[randIndex(available.length)];
+  }
+  mealChoices[slot]=id;
+  saveMealChoices(mealChoices);
+  renderMealPicker(slot,true);
+  try{navigator.vibrate?.(12)}catch(e){}
+}
+function pickedOrDefault(slot){
+  if(mealChoices[slot]&&FOOD_DB[mealChoices[slot]])return mealChoices[slot];
+  const def=MEAL_CFG[slot]?.default;
+  return def&&FOOD_DB[def]?def:null;
+}
+function mapButtons(item,small=false){
+  if(small){
+    return `<a class="mini-map apple" href="${appleFoodUrl(item)}" target="_blank" rel="noopener" aria-label="Apple 地圖"></a>
+      <button class="mini-map amap food-amap" type="button" data-query="${item.query.replace(/"/g,'&quot;')}" aria-label="高德地圖">高</button>`;
+  }
+  return `<a class="food-map apple" href="${appleFoodUrl(item)}" target="_blank" rel="noopener">Apple 地圖</a>
+    <button class="food-map amap food-amap" type="button" data-query="${item.query.replace(/"/g,'&quot;')}">高德地圖</button>`;
+}
+function renderMealPicker(slot,animate=false){
+  const root=document.querySelector(`.meal-picker[data-meal-slot="${slot}"]`);
+  if(!root)return;
+  const pool=getPool(slot);
+  const id=pickedOrDefault(slot);
+  const item=id?FOOD_DB[id]:null;
+
+  const decision=item?`
+    <div class="meal-decision ${animate?'spinning':''}">
+      <div class="meal-decision-top">
+        <div>
+          <div class="meal-choice-label">${mealChoices[slot]?'這次就吃':'目前起始選擇'}</div>
+          <div class="meal-choice-name">${item.name}</div>
+          <div class="meal-choice-meta">${foodTags(item)}</div>
+        </div>
+        <button class="meal-random" type="button" data-random-slot="${slot}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h3c4.5 0 5 10 10 10h3"/><path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"/><path d="m17 1 3 3-3 3"/></svg>
+          ${mealChoices[slot]?'重選':'幫我選'}
+        </button>
+      </div>
+      <div class="meal-choice-note">${item.note}</div>
+      <div class="meal-choice-actions">${mapButtons(item)}</div>
+    </div>`:
+    `<div class="meal-decision">
+      <div class="meal-decision-top">
+        <div>
+          <div class="meal-choice-label">還沒決定</div>
+          <div class="meal-choice-name">不知道吃什麼？</div>
+          <div class="meal-choice-meta"><span class="food-tag">${pool.length} 個候選</span><span class="food-tag">盡量不重複</span></div>
+        </div>
+        <button class="meal-random" type="button" data-random-slot="${slot}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h3c4.5 0 5 10 10 10h3"/><path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"/><path d="m17 1 3 3-3 3"/></svg>
+          幫我選
+        </button>
+      </div>
+      <div class="meal-choice-note">按一下就從這個時段的候選餐廳裡抽一家；其他餐次已抽到的店會盡量避開。</div>
+    </div>`;
+
+  const rows=pool.map(fid=>{
+    const r=FOOD_DB[fid], selected=id===fid;
+    return `<div class="meal-list-item ${selected?'is-picked':''}">
+      <div>
+        <div class="meal-list-name">${r.name}</div>
+        <div class="meal-list-meta">${r.type} · ${r.area}</div>
+        <div class="meal-list-note">${r.note}</div>
+      </div>
+      <div class="meal-list-actions">
+        <button class="mini-pick" type="button" data-pick-slot="${slot}" data-food-id="${fid}" aria-label="選 ${r.name}">✓</button>
+        ${mapButtons(r,true)}
+      </div>
+    </div>`;
+  }).join('');
+
+  root.innerHTML=decision+`
+    <details class="meal-all">
+      <summary><span>展開全部候選</span><span>${pool.length} 家</span></summary>
+      <div class="meal-list">${rows}</div>
+    </details>`;
+
+  root.querySelectorAll('[data-random-slot]').forEach(btn=>btn.onclick=()=>chooseFood(btn.dataset.randomSlot));
+  root.querySelectorAll('[data-pick-slot]').forEach(btn=>btn.onclick=()=>chooseFood(btn.dataset.pickSlot,btn.dataset.foodId));
+  root.querySelectorAll('.food-amap').forEach(btn=>btn.onclick=()=>openGaode(btn.dataset.query));
+  if(animate)setTimeout(()=>root.querySelector('.meal-decision')?.classList.remove('spinning'),380);
+}
+
+function renderAllMeals(){
+  Object.keys(MEAL_CFG).forEach(slot=>renderMealPicker(slot,false));
+}
+renderAllMeals();
+
+/* Master collection */
+function renderFoodCatalog(){
+  const grid=document.getElementById('foodCatalogGrid');
+  if(!grid)return;
+  const entries=Object.entries(FOOD_DB).filter(([id])=>id!=='localbreakfast');
+  document.getElementById('catalogCount').textContent=entries.length+' 家';
+  grid.innerHTML=entries.map(([id,r])=>`
+    <div class="catalog-item">
+      <div class="catalog-item-name">${r.name}</div>
+      <div class="catalog-item-meta">${r.type} · ${r.area}</div>
+      <div class="catalog-item-note">${r.note}</div>
+      <div class="catalog-item-actions">
+        <a class="mini-map apple" href="${appleFoodUrl(r)}" target="_blank" rel="noopener" aria-label="Apple 地圖"></a>
+        <button class="mini-map amap food-amap" type="button" data-query="${r.query.replace(/"/g,'&quot;')}" aria-label="高德地圖">高</button>
+      </div>
+    </div>`).join('');
+  grid.querySelectorAll('.food-amap').forEach(btn=>btn.onclick=()=>openGaode(btn.dataset.query));
+}
+renderFoodCatalog();
+
+document.getElementById('snackRandomBtn')?.addEventListener('click',()=>{
+  const id=SNACK_POOL[randIndex(SNACK_POOL.length)],r=FOOD_DB[id];
+  const box=document.getElementById('snackResult');
+  box.classList.remove('hidden');
+  box.innerHTML=`<strong>${r.name}</strong> · ${r.type}<br><span style="color:var(--sub)">${r.note}</span>
+    <div class="catalog-item-actions" style="margin-top:8px">${mapButtons(r,true)}</div>`;
+  box.querySelectorAll('.food-amap').forEach(btn=>btn.onclick=()=>openGaode(btn.dataset.query));
+});
+
+document.getElementById('foodDashAction')?.addEventListener('click',()=>{
+  document.getElementById('foodCatalog')?.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(()=>{const d=document.querySelector('#foodCatalog details'); if(d)d.open=true;},360);
+});
+document.getElementById('foodDashAction')?.addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();e.currentTarget.click();}
+});
+</script>
+
 </body>
 </html>
