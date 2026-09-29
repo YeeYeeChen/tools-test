@@ -71,7 +71,7 @@ html[data-theme="dark"] .map-action.apple svg{fill:#111113}
 .hero{padding:34px 0 24px}.eyebrow{font-size:12px;font-weight:760;letter-spacing:.13em;text-transform:uppercase;color:var(--sub)}h1{font-size:clamp(42px,11vw,72px);letter-spacing:-.065em;line-height:.98;margin:9px 0 14px;font-weight:790}.hero p{font-size:17px;color:var(--sub);margin:0;max-width:680px}.hero-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.meta-pill{min-height:34px;display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:0 11px;background:var(--surface);border:1px solid var(--line);font-size:12px;font-weight:650;backdrop-filter:blur(16px)}.meta-pill .status-dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
 
 /* Day nav */
-.daynav-wrap{position:sticky;top:72px;z-index:60;padding:8px 0 10px;background:linear-gradient(to bottom,var(--bg) 55%,transparent)}.daynav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 14px}.daynav::-webkit-scrollbar{display:none}.daychip{border:1px solid var(--line);background:var(--surface);backdrop-filter:blur(18px);min-height:44px;border-radius:999px;padding:0 15px;display:flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap;font-size:13px;font-weight:710}.daychip .num{font-variant-numeric:tabular-nums}.daychip.active{background:#111113;color:white;border-color:#111113}.daychip .today-badge{font-size:10px;background:var(--accent);color:white;padding:3px 6px;border-radius:999px;display:none}.daychip.active .today-badge{display:inline-block}html[data-theme="dark"] .daychip.active{background:#fff;color:#111}
+.daynav-wrap{position:sticky;top:72px;z-index:60;padding:8px 0 10px;background:linear-gradient(to bottom,var(--bg) 55%,transparent)}.daynav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 14px}.daynav::-webkit-scrollbar{display:none}.daychip{border:1px solid var(--line);background:var(--surface);backdrop-filter:blur(18px);min-height:44px;border-radius:999px;padding:0 15px;display:flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap;font-size:13px;font-weight:710}.daychip .num{font-variant-numeric:tabular-nums}.daychip.active{background:#111113;color:white;border-color:#111113}.daychip .today-badge{font-size:10px;background:var(--accent);color:white;padding:3px 6px;border-radius:999px;display:none}.daychip.is-today .today-badge{display:inline-block}html[data-theme="dark"] .daychip.active{background:#fff;color:#111}
 
 /* Sections */
 .days{display:flex;flex-direction:column;gap:32px;padding:10px 0 50px}.day{scroll-margin-top:136px}.day.is-today{order:-1}.dayhead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px;padding:0 2px}.dayhead h2{font-size:30px;letter-spacing:-.045em;margin:0}.dayhead .date{font-size:13px;color:var(--sub);font-weight:650}.today-label{display:none;font-size:11px;background:var(--accent);color:#fff;padding:5px 8px;border-radius:999px;margin-left:8px;vertical-align:3px}.day.is-today .today-label{display:inline-flex}.glass{background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-soft);backdrop-filter:saturate(150%) blur(26px)}
@@ -739,6 +739,471 @@ html[data-theme="dark"] .catalog-details{background:rgba(27,34,40,.86)}
   .meal-decision.spinning{animation:none}
 }
 
+/* ===== v16 stable single-file design system ===== */
+:root{--ui-bg:#f3f7f8;--ui-card:#fff;--ui-soft:#f7fafb;--ui-text:#17262e;--ui-sub:#74858c;--ui-line:rgba(29,69,84,.11);--ui-accent:#168fa3;--ui-navy:#244b60;--ui-blue:#1677ff;--ui-green:#07a85a;--ui-shadow:0 9px 28px rgba(35,76,89,.06);--ui-radius:22px;--dock-h:72px}
+html[data-theme="dark"]{--ui-bg:#1d2d34;--ui-card:#29414a;--ui-soft:#304a54;--ui-text:#f2f7f8;--ui-sub:#b9c7cc;--ui-line:rgba(255,255,255,.10);--ui-accent:#62c7d2;--ui-navy:#4e97a5;--ui-blue:#84b9ff;--ui-green:#7bdcab;--ui-shadow:0 8px 24px rgba(0,0,0,.14);--bg:var(--ui-bg);--surface:var(--ui-card);--surface-solid:var(--ui-card);--text:var(--ui-text);--sub:var(--ui-sub);--line:var(--ui-line)}
+*{box-sizing:border-box}html,body{max-width:100%;overflow-x:clip}@supports not (overflow:clip){html,body{overflow-x:hidden}}
+body{background:var(--ui-bg)!important;color:var(--ui-text)!important;padding-top:calc(var(--dock-h) + env(safe-area-inset-top))!important}
+html[data-theme="dark"] body{background:radial-gradient(circle at 84% 4%,rgba(84,190,196,.06),transparent 22rem),var(--ui-bg)!important}
+
+/* top bar */
+.launch-wrap{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:1000!important;padding:calc(8px + env(safe-area-inset-top)) 12px 8px!important;background:color-mix(in srgb,var(--ui-bg) 90%,transparent)!important;-webkit-backdrop-filter:blur(24px) saturate(145%)!important;backdrop-filter:blur(24px) saturate(145%)!important;border-bottom:1px solid var(--ui-line)!important}
+.launchbar{width:min(880px,100%)!important;margin:auto!important;display:flex!important;align-items:center!important;gap:8px!important;overflow-x:auto!important;scrollbar-width:none!important}.launchbar::-webkit-scrollbar{display:none}
+.launch{height:46px!important;min-height:46px!important;padding:0 13px!important;border-radius:14px!important;flex:0 0 auto!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;font-size:13px!important;font-weight:760!important;line-height:1!important;border:1px solid var(--ui-line)!important;box-shadow:none!important;text-decoration:none!important;white-space:nowrap!important}
+.launch-brand-icon{width:22px!important;height:22px!important;display:block!important}.launch.alipay{color:#1677ff!important;background:color-mix(in srgb,#1677ff 8%,var(--ui-card))!important;border-color:color-mix(in srgb,#1677ff 18%,var(--ui-line))!important}.launch.wechat{color:#07a85a!important;background:color-mix(in srgb,#07a85a 8%,var(--ui-card))!important;border-color:color-mix(in srgb,#07a85a 18%,var(--ui-line))!important}.launch.trip{color:#287dfa!important;background:color-mix(in srgb,#287dfa 8%,var(--ui-card))!important;border-color:color-mix(in srgb,#287dfa 18%,var(--ui-line))!important}
+.launch.utility{width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;padding:0!important;background:var(--ui-card)!important;color:var(--ui-text)!important;border-radius:14px!important}.launch.help-dot{width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;border-radius:14px!important}.launch.utility svg{width:20px!important;height:20px!important}
+html[data-theme="dark"] .launch.alipay,html[data-theme="dark"] .launch.trip{color:#8abaff!important;background:#29465f!important}html[data-theme="dark"] .launch.wechat{color:#7bdcab!important;background:#294c40!important}html[data-theme="dark"] .launch.utility{background:#304953!important}
+
+/* day nav / separators */
+.daynav-wrap{top:calc(var(--dock-h) + env(safe-area-inset-top))!important;background:linear-gradient(to bottom,var(--ui-bg) 70%,transparent)!important;padding:8px 0 10px!important}.daynav{gap:7px!important;padding:0 12px!important}.daychip{min-height:40px!important;padding:0 13px!important;border-radius:999px!important;background:var(--ui-card)!important;border:1px solid var(--ui-line)!important;color:var(--ui-text)!important;font-size:12px!important;font-weight:730!important}.daychip.active{background:var(--ui-navy)!important;color:#fff!important;border-color:var(--ui-navy)!important}.daychip .today-badge{display:none!important}.daychip.is-today .today-badge{display:inline-flex!important}
+.day{padding-top:8px!important;scroll-margin-top:126px}.day+.day{margin-top:28px!important;padding-top:28px!important;border-top:1px solid var(--ui-line)!important}
+.dayhead.day-toggle{width:100%!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:12px!important;padding:0 2px 13px!important;background:transparent!important;border:0!important;color:var(--ui-text)!important;text-align:left!important}.dayhead-main h2{margin:0!important;font-size:26px!important;letter-spacing:-.035em!important;display:flex!important;align-items:center!important;gap:8px!important}.dayhead-right{min-width:92px!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;color:var(--ui-sub)!important}.dayhead-right .date{font-size:12px!important;white-space:nowrap!important}.day-chevron{width:18px!important;height:18px!important}.day:not(.collapsed) .day-chevron{transform:rotate(180deg)!important}
+
+/* global cards */
+.event,.weather-wear,.ticket-card,.info-card,.catalog-details,.flight-summary{background:var(--ui-card)!important;border:1px solid var(--ui-line)!important;border-radius:var(--ui-radius)!important;box-shadow:var(--ui-shadow)!important;color:var(--ui-text)!important}.event.card-art:after,.option.card-art:after,.option.mini-watermark:after,.page-ambient,.ambient-orb,.ambient-line,.day:before{display:none!important}.event.card-art,.option.card-art{background:inherit!important}.event-title,.option h3,.place-name{color:var(--ui-text)!important}.event-sub,.option p,.place-desc,.route-note{color:var(--ui-sub)!important}
+.kind{min-height:28px!important;padding:0 9px!important;border-radius:999px!important;display:inline-flex!important;align-items:center!important;gap:5px!important;color:var(--ui-accent)!important;background:color-mix(in srgb,var(--ui-accent) 8%,var(--ui-card))!important;border:1px solid color-mix(in srgb,var(--ui-accent) 15%,var(--ui-line))!important;font-size:10px!important;font-weight:760!important}.kind svg{width:13px!important;height:13px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+
+/* flights */
+.flight-summary{margin:15px 0 4px!important;padding:14px!important}.flight-summary-rows{display:grid!important;gap:7px!important}.flight-summary-row{display:grid!important;grid-template-columns:52px 54px 66px minmax(44px,1fr) 66px!important;align-items:center!important;gap:7px!important;padding:10px!important;border-radius:15px!important;background:var(--ui-soft)!important;border:1px solid var(--ui-line)!important}.flight-summary-label{display:grid!important;gap:1px!important}.flight-summary-label span,.flight-summary-time span{font-size:9px!important;color:var(--ui-sub)!important}.flight-summary-label strong,.flight-summary-time strong{font-size:12px!important}.flight-summary-time{display:grid!important;gap:1px!important}.flight-summary-time.end{text-align:right!important}.flight-summary-date{min-height:40px!important;border-radius:12px!important;display:grid!important;place-content:center!important;text-align:center!important;background:var(--ui-navy)!important;color:#fff!important;line-height:1.05!important}.flight-summary-date strong{font-size:11px!important}.flight-summary-date span{font-size:8px!important;margin-top:3px!important;opacity:.76!important}
+.mini-flight-track,.flight-motion-line{height:1px!important;background:var(--ui-line)!important;position:relative!important;overflow:visible!important}.moving-plane{position:absolute!important;left:2%!important;top:50%!important;width:22px!important;height:14px!important;color:var(--ui-accent)!important;transform:translate(-50%,-50%)!important;animation:planeMove 4.2s ease-in-out infinite!important}@keyframes planeMove{0%,12%{left:3%;opacity:.55}50%{opacity:1}88%,100%{left:97%;opacity:.62}}
+
+/* weather */
+.weather-wear{overflow:hidden!important;min-height:0!important}.wx-card{position:relative;min-height:255px;overflow:hidden;border-radius:inherit}.wx-ambient{position:absolute;inset:0;pointer-events:none;overflow:hidden}.wx-ambient:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.76),rgba(229,245,247,.82))}html[data-theme="dark"] .wx-ambient:after{background:linear-gradient(135deg,rgba(42,63,72,.92),rgba(48,77,82,.88))}.wx-sun{position:absolute;right:28px;top:24px;width:86px;height:86px;border-radius:50%;background:radial-gradient(circle,#ffd987 0 24%,rgba(255,216,135,.35) 28%,transparent 69%);animation:wxSun 5.5s ease-in-out infinite alternate}.wx-cloud{position:absolute;width:102px;height:31px;border-radius:999px;background:rgba(255,255,255,.42);opacity:.62}.wx-cloud:before,.wx-cloud:after{content:"";position:absolute;border-radius:50%;background:inherit}.wx-cloud:before{width:42px;height:42px;left:18px;top:-20px}.wx-cloud:after{width:55px;height:55px;right:13px;top:-29px}.wx-cloud-a{right:106px;top:94px;animation:wxCloudA 12s ease-in-out infinite alternate}.wx-cloud-b{right:-18px;top:143px;transform:scale(.72);opacity:.38;animation:wxCloudB 15s ease-in-out infinite alternate}.wx-rain{position:absolute;inset:0;opacity:0;background-image:repeating-linear-gradient(110deg,transparent 0 15px,rgba(55,139,185,.17) 16px 17px);background-size:23px 23px;animation:wxRain .85s linear infinite}.wx-ambient.cloudy .wx-sun{opacity:.35}.wx-ambient.cloudy .wx-cloud{opacity:.82}.wx-ambient.rain .wx-sun{opacity:.12}.wx-ambient.rain .wx-cloud{opacity:.9}.wx-ambient.rain .wx-rain{opacity:.52}@keyframes wxSun{from{transform:scale(.94)}to{transform:scale(1.06)}}@keyframes wxCloudA{from{transform:translateX(-8px)}to{transform:translateX(15px)}}@keyframes wxCloudB{from{transform:translateX(12px) scale(.72)}to{transform:translateX(-18px) scale(.72)}}@keyframes wxRain{to{background-position:23px 23px}}
+.wx-body{position:relative;z-index:2;padding:17px!important}.wx-head{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:12px!important}.wx-title{display:flex!important;align-items:center!important;gap:10px!important}.wx-title-icon{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:color-mix(in srgb,var(--ui-accent) 9%,var(--ui-card));color:var(--ui-accent)}.wx-title-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}.wx-title>div{display:grid;gap:1px}.wx-title span{font-size:9px;letter-spacing:.12em;color:var(--ui-sub);font-weight:780}.wx-title strong{font-size:14px;color:var(--ui-text)}.wx-refresh{width:38px;height:38px;border-radius:12px;border:1px solid var(--ui-line);background:var(--ui-soft);color:var(--ui-text);display:grid;place-items:center}.wx-refresh svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}.wx-refresh.loading svg{animation:spin .9s linear infinite}.wx-main{display:flex;align-items:flex-end;gap:13px;margin:11px 0 12px}.wx-temp{font-size:48px;line-height:.92;font-weight:790;letter-spacing:-.06em}.wx-meta{display:grid;gap:2px;padding-bottom:4px}.wx-meta strong{font-size:14px}.wx-meta span{font-size:11px;color:var(--ui-sub)}.wx-days{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;padding:2px 0 4px}.wx-days::-webkit-scrollbar{display:none}.wx-day{flex:0 0 auto;min-width:72px;padding:8px 9px;border-radius:14px;border:1px solid var(--ui-line);background:var(--ui-soft);color:var(--ui-text);text-align:left}.wx-day span{display:block;font-size:10px;opacity:.72}.wx-day strong{display:block;font-size:12px;margin-top:2px}.wx-day.active{background:var(--ui-navy);color:#fff;border-color:var(--ui-navy)}.wx-tip{margin-top:8px;font-size:11px;line-height:1.55;color:var(--ui-sub)}.wx-foot{display:flex;align-items:center;gap:7px;margin-top:8px;font-size:9px;color:var(--ui-sub)}.wx-source{min-height:22px;padding:0 7px;border-radius:999px;display:inline-flex;align-items:center;background:color-mix(in srgb,var(--ui-accent) 8%,var(--ui-card));color:var(--ui-accent);font-weight:760}
+
+/* choices - no equal height */
+.choice-title{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-areas:"label action" "hint hint"!important;gap:4px 8px!important;align-items:center!important;margin:13px 0 8px!important}.choice-title>span:first-child{grid-area:label!important;display:flex!important;align-items:center!important;gap:6px!important;font-size:11px!important;color:var(--ui-sub)!important;font-weight:750!important}.choice-label-icon{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.choice-title .swipe-hint{grid-area:hint!important;margin:0!important;font-size:9px!important;color:var(--ui-sub)!important}
+.shelf{display:flex!important;align-items:flex-start!important;width:100%!important;max-width:100%!important;gap:9px!important;overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x mandatory!important;padding:2px 1px 7px!important;scrollbar-width:none!important}.shelf::-webkit-scrollbar{display:none!important}.shelf>.option{flex:0 0 calc(100% - 36px)!important;width:calc(100% - 36px)!important;max-width:calc(100% - 36px)!important;min-height:0!important;height:auto!important;display:block!important;padding:14px!important;border-radius:18px!important;background:var(--ui-card)!important;border:1px solid var(--ui-line)!important;box-shadow:none!important;scroll-snap-align:start!important}.option .place-list{margin-top:10px!important;padding-top:0!important}.option.choice-picked{outline:0!important;border-color:color-mix(in srgb,var(--ui-accent) 40%,var(--ui-line))!important;background:color-mix(in srgb,var(--ui-accent) 4%,var(--ui-card))!important;box-shadow:inset 3px 0 0 color-mix(in srgb,var(--ui-accent) 74%,transparent)!important}.option-choice-mark{display:none!important}
+
+/* shared random control */
+.random-control,.choice-random-btn,.meal-random{grid-area:action!important;height:36px!important;min-height:36px!important;min-width:82px!important;padding:0 11px!important;border-radius:11px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;background:color-mix(in srgb,var(--ui-accent) 7%,var(--ui-card))!important;color:var(--ui-accent)!important;border:1px solid color-mix(in srgb,var(--ui-accent) 16%,var(--ui-line))!important;box-shadow:none!important;font-size:10px!important;font-weight:760!important;white-space:nowrap!important}.random-control svg,.choice-random-btn svg,.meal-random svg{width:14px!important;height:14px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+
+/* places/maps */
+.place{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:9px!important;padding:9px 10px!important;border-radius:13px!important;background:var(--ui-soft)!important;border:1px solid var(--ui-line)!important;min-height:0!important}.map-actions{display:flex!important;align-items:center!important;gap:6px!important;margin:0!important}.map-action,.food-map,.mini-map{width:auto!important;min-width:0!important;height:38px!important;min-height:38px!important;padding:0 10px!important;border-radius:11px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;font-size:10px!important;font-weight:730!important;line-height:1!important;border:1px solid var(--ui-line)!important;text-decoration:none!important;white-space:nowrap!important}.map-action svg,.food-map svg,.mini-map svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.map-action .map-fill,.food-map .map-fill,.mini-map .map-fill{fill:currentColor;stroke:none}.map-action.apple,.food-map.apple,.mini-map.apple{color:#53666e!important;background:color-mix(in srgb,#53666e 5%,var(--ui-card))!important}.map-action.amap,.food-map.amap,.mini-map.amap{color:var(--ui-blue)!important;background:color-mix(in srgb,#1677ff 6%,var(--ui-card))!important}html[data-theme="dark"] .map-action.apple,html[data-theme="dark"] .food-map.apple,html[data-theme="dark"] .mini-map.apple{color:#dce8ea!important;background:#354f59!important}html[data-theme="dark"] .map-action.amap,html[data-theme="dark"] .food-map.amap,html[data-theme="dark"] .mini-map.amap{color:#87baff!important;background:#2e4a62!important}
+
+/* multi-place disclosure */
+.landmark-group{margin-top:10px!important;border:1px solid var(--ui-line)!important;border-radius:14px!important;background:var(--ui-soft)!important;overflow:hidden!important}.landmark-group>summary{min-height:44px!important;padding:0 10px!important;display:flex!important;align-items:center!important;gap:8px!important;list-style:none!important;color:var(--ui-text)!important;font-size:11px!important;font-weight:720!important;cursor:pointer!important}.landmark-group>summary::-webkit-details-marker{display:none!important}.landmark-summary-icon-svg{width:16px;height:16px;fill:none;stroke:var(--ui-accent);stroke-width:1.7}.landmark-summary-copy{flex:1}.landmark-chevron{font-size:16px;color:var(--ui-sub);transition:transform .2s ease}.landmark-group[open] .landmark-chevron{transform:rotate(180deg)}.landmark-list{display:grid!important;gap:6px!important;padding:0 7px 7px!important}
+
+/* meal disclosure */
+.meal-event{background:var(--ui-card)!important}.meal-decision{background:color-mix(in srgb,var(--ui-accent) 6%,var(--ui-card))!important;border:1px solid color-mix(in srgb,var(--ui-accent) 14%,var(--ui-line))!important;color:var(--ui-text)!important;box-shadow:none!important}.meal-decision:after{display:none!important}.meal-choice-label,.meal-choice-note{color:var(--ui-sub)!important}.food-tag{background:var(--ui-card)!important;border-color:var(--ui-line)!important;color:var(--ui-sub)!important}
+.meal-all{margin-top:12px!important;border-top:1px solid var(--ui-line)!important;padding-top:3px!important}.meal-all summary{min-height:44px!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto 18px!important;align-items:center!important;gap:8px!important;cursor:pointer!important;list-style:none!important;color:var(--ui-sub)!important}.meal-all summary::-webkit-details-marker{display:none!important}.meal-all summary:after{content:none!important}.meal-all-label{font-size:11px;font-weight:750}.meal-all-count{font-size:10px;font-weight:700;color:var(--ui-accent);background:color-mix(in srgb,var(--ui-accent) 7%,var(--ui-card));padding:4px 7px;border-radius:999px}.meal-all-chevron{font-size:16px;transition:transform .2s ease}.meal-all[open] .meal-all-chevron{transform:rotate(180deg)}.meal-list{display:grid!important;gap:8px!important;padding:3px 0!important}.meal-list-item{display:block!important;padding:11px 12px!important;border:1px solid var(--ui-line)!important;border-radius:15px!important;background:var(--ui-soft)!important}.meal-list-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:6px!important;margin-top:9px!important}.meal-list-actions .mini-pick{display:none!important}.meal-list-actions .mini-map{width:100%!important}
+
+/* flight detail micro */
+.flight-detail-card{padding:13px!important;border-radius:17px!important;background:var(--ui-soft)!important;border:1px solid var(--ui-line)!important;color:var(--ui-text)!important}.flight-detail-card.embedded{padding:0!important;background:transparent!important;border:0!important}.flight-detail-top{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important}.flight-detail-id{display:flex!important;align-items:center!important;gap:9px!important}.flight-detail-id small{display:block!important;font-size:9px!important;color:var(--ui-sub)!important}.flight-detail-id strong{display:block!important;font-size:15px!important}.flight-icon{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:color-mix(in srgb,var(--ui-accent) 9%,var(--ui-card));color:var(--ui-accent)}.flight-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7}.flight-status-pill{min-height:24px;padding:0 8px;border-radius:999px;display:inline-flex;align-items:center;background:color-mix(in srgb,var(--ui-accent) 8%,var(--ui-card));color:var(--ui-accent);font-size:9px;font-weight:780;border:1px solid color-mix(in srgb,var(--ui-accent) 13%,var(--ui-line))}
+.flight-route-visual{display:grid!important;grid-template-columns:72px 1fr 72px!important;gap:8px!important;align-items:center!important;margin:13px 0 8px!important}.flight-route-visual>div:first-child,.flight-route-visual>.end{display:grid;gap:1px}.flight-route-visual .end{text-align:right}.flight-route-visual strong{font-size:16px}.flight-route-visual span{font-size:9px;color:var(--ui-sub)}.flight-micro{display:flex!important;align-items:center!important;gap:5px!important;flex-wrap:wrap!important;color:var(--ui-sub)!important;font-size:9px!important;line-height:1.2!important}.flight-micro b{color:var(--ui-text)!important;font-weight:720!important}.flight-refresh-micro{width:24px!important;height:24px!important;border-radius:8px!important;border:0!important;background:transparent!important;color:var(--ui-sub)!important;display:grid!important;place-items:center!important;padding:0!important}.flight-refresh-micro svg{width:13px!important;height:13px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important}.flight-refresh-micro.loading svg{animation:spin .9s linear infinite!important}
+
+@media(prefers-reduced-motion:reduce){.moving-plane,.wx-sun,.wx-cloud-a,.wx-cloud-b,.wx-rain,.wx-refresh.loading svg,.flight-refresh-micro.loading svg{animation:none!important}.moving-plane{left:58%!important}}
+@media(max-width:620px){.wrap{width:calc(100% - 24px)!important;max-width:calc(100% - 24px)!important}.launchbar{gap:7px!important}.launch{padding:0 11px!important}.flight-summary-row{grid-template-columns:46px 42px 54px minmax(30px,1fr) 54px!important;gap:5px!important}.flight-route-visual{grid-template-columns:66px 1fr 66px!important}.shelf>.option{flex-basis:calc(100% - 28px)!important;width:calc(100% - 28px)!important;max-width:calc(100% - 28px)!important}.place{grid-template-columns:1fr!important}.place>.map-actions{grid-column:1!important;width:100%!important;display:grid!important;grid-template-columns:1fr 1fr!important}.place>.map-actions .map-action{width:100%!important}.meal-choice-actions{grid-template-columns:1fr 1fr!important}.meal-choice-actions .food-map{width:100%!important}}
+
+/* v16.1 regression fixes */
+.section-heading{
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  min-width:0!important;
+}
+.section-heading-icon{
+  width:34px!important;
+  height:34px!important;
+  flex:0 0 34px!important;
+  border-radius:11px!important;
+  display:grid!important;
+  place-items:center!important;
+  background:color-mix(in srgb,var(--ui-accent) 9%,var(--ui-card))!important;
+  color:var(--ui-accent)!important;
+  overflow:hidden!important;
+}
+.section-heading-icon svg{
+  width:18px!important;
+  height:18px!important;
+  max-width:18px!important;
+  max-height:18px!important;
+  display:block!important;
+  fill:none!important;
+  stroke:currentColor!important;
+  stroke-width:1.7!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+.section-heading>div{
+  min-width:0!important;
+  display:grid!important;
+  gap:1px!important;
+}
+.section-heading strong{
+  font-size:14px!important;
+  line-height:1.25!important;
+  color:var(--ui-text)!important;
+}
+.section-eyebrow{
+  font-size:9px!important;
+  line-height:1.2!important;
+  letter-spacing:.12em!important;
+  color:var(--ui-sub)!important;
+  font-weight:780!important;
+}
+
+/* Keep content immediately readable; motion may decorate but never hide it. */
+html.motion-ready .event,
+html.motion-ready .dayhead{
+  opacity:1!important;
+  transform:none!important;
+}
+
+
+/* v16.2 transfer / route icon constraints */
+.transfer-row{
+  margin:9px 0 11px!important;
+  padding:10px 11px!important;
+  border-radius:14px!important;
+  background:color-mix(in srgb,var(--ui-accent) 5%,var(--ui-card))!important;
+  border:1px solid var(--ui-line)!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:9px!important;
+}
+.transfer-icon{
+  width:30px!important;
+  height:30px!important;
+  min-width:30px!important;
+  flex:0 0 30px!important;
+  border-radius:10px!important;
+  display:grid!important;
+  place-items:center!important;
+  color:var(--ui-accent)!important;
+  background:var(--ui-card)!important;
+  overflow:hidden!important;
+}
+.transfer-icon svg{
+  width:16px!important;
+  height:16px!important;
+  max-width:16px!important;
+  max-height:16px!important;
+  display:block!important;
+  fill:none!important;
+  stroke:currentColor!important;
+  stroke-width:1.7!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+.transfer-row strong{display:block!important;font-size:11px!important;color:var(--ui-text)!important}
+.transfer-row div>span{display:block!important;font-size:9px!important;color:var(--ui-sub)!important;margin-top:2px!important}
+
+
+/* v16.3 final visual audit fixes */
+.moving-plane{
+  transform:translate(-50%,-50%) scaleX(1)!important;
+}
+.catalog-title-with-icon{
+  display:grid!important;
+  grid-template-columns:34px minmax(0,1fr)!important;
+  column-gap:10px!important;
+  align-items:center!important;
+}
+.catalog-title-icon{
+  grid-row:1/3!important;
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  border-radius:11px!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  background:color-mix(in srgb,var(--ui-accent) 9%,var(--ui-card))!important;
+  color:var(--ui-accent)!important;
+}
+.catalog-title-icon svg{
+  width:18px!important;
+  height:18px!important;
+  max-width:18px!important;
+  max-height:18px!important;
+  fill:none!important;
+  stroke:currentColor!important;
+  stroke-width:1.7!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+.option>.landmark-group{
+  margin-top:10px!important;
+}
+.landmark-group:not([open]) .landmark-list{
+  display:none!important;
+}
+
+/* ===== v17 — unified rhythm and travel cards ===== */
+:root{
+  --space-page:20px;
+  --space-card:14px;
+  --day-pad:18px;
+}
+
+/* Split the launcher into clear left and right groups. */
+.launchbar{overflow:visible!important;justify-content:space-between!important}
+.launch-group{display:flex;align-items:center;gap:8px;min-width:0}
+.launch-group.primary{overflow-x:auto;scrollbar-width:none;padding:1px}.launch-group.primary::-webkit-scrollbar{display:none}
+.launch-group.utility{flex:0 0 auto}
+
+/* One vertical rhythm across all top-level sections and cards. */
+main{display:flex;flex-direction:column;gap:var(--space-page)}
+.hero{padding:28px 0 0!important}
+.hero>*,.wx-body>*,.day-content-inner>*{margin-block-start:0}
+.hero .flight-summary{margin:var(--space-page) 0 0!important}
+.weather-wear{margin-top:0!important;margin-bottom:0!important}
+.daynav-wrap{margin:0!important}
+.days{gap:var(--space-page)!important;padding:0 0 var(--space-page)!important}
+.day+.day{margin-top:0!important;padding-top:0!important;border-top:0!important}
+.day{
+  padding:var(--day-pad)!important;
+  border-radius:26px;
+  background:color-mix(in srgb,var(--ui-card) 72%,transparent);
+  border:1px solid var(--ui-line);
+  box-shadow:var(--ui-shadow);
+}
+.dayhead.day-toggle{padding:0 1px 16px!important;margin:0!important}
+.day-content-inner{display:grid;gap:var(--space-card)}
+.event{margin:0!important}
+.event-body{display:flex;flex-direction:column;gap:12px}
+.event-body>*{margin-top:0!important;margin-bottom:0!important}
+.event-body>.choice-title{margin:0!important}
+.food-catalog{margin-top:0!important;margin-bottom:36px!important}
+
+/* Compact hero: summary only. */
+.hero h1{margin:8px 0 9px!important}
+.hero>p{font-size:14px!important;line-height:1.55!important}
+.hero-meta{margin-top:14px!important}
+
+/* Flight overview mirrors the weather card's calm, layered visual language. */
+.flight-summary{
+  position:relative!important;overflow:hidden!important;padding:0!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(229,245,247,.92))!important;
+}
+.flight-summary:before{
+  content:"";position:absolute;right:26px;top:18px;width:96px;height:96px;border-radius:50%;
+  background:radial-gradient(circle,rgba(86,190,205,.18) 0 25%,rgba(86,190,205,.07) 27%,transparent 68%);
+  pointer-events:none;
+}
+.flight-summary:after{
+  display:none;
+}
+html[data-theme="dark"] .flight-summary{background:linear-gradient(135deg,rgba(42,63,72,.96),rgba(48,77,82,.92))!important}
+html[data-theme="dark"] .flight-summary:before{background:radial-gradient(circle,rgba(98,199,210,.16) 0 25%,rgba(98,199,210,.06) 27%,transparent 68%)}
+.flight-summary>.section-heading{position:relative;z-index:2;padding:17px 17px 12px!important}
+.flight-summary-rows{position:relative;z-index:2;padding:0 17px 17px!important;gap:8px!important}
+.flight-summary-row{
+  min-height:62px!important;padding:11px 12px!important;
+  background:color-mix(in srgb,var(--ui-card) 72%,transparent)!important;
+  border-color:color-mix(in srgb,var(--ui-line) 78%,transparent)!important;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+}
+.flight-summary .section-heading-icon{background:color-mix(in srgb,var(--ui-accent) 10%,var(--ui-card))!important}
+
+/* Weather refresh belongs to the update line, not the header. */
+.wx-head{justify-content:flex-start!important}
+.wx-foot{min-height:28px!important;margin-top:10px!important}
+.wx-refresh{
+  width:26px!important;height:26px!important;min-width:26px!important;
+  border:0!important;border-radius:8px!important;background:transparent!important;
+  color:var(--ui-sub)!important;padding:0!important;
+}
+.wx-refresh svg{width:13px!important;height:13px!important}
+
+/* Stable option-card footprint. Opening one disclosure never stretches siblings. */
+.shelf{align-items:flex-start!important}
+.shelf>.option{
+  height:270px!important;
+  min-height:270px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  transform:none!important;
+  opacity:1!important;
+}
+.shelf>.option.is-focus{transform:none!important;opacity:1!important}
+.shelf>.option:has(.landmark-group[open]){height:auto!important;min-height:270px!important}
+.option>.place-list,.option>.landmark-group{margin-top:auto!important}
+.option>.landmark-group[open]{margin-top:10px!important}
+.option h3{min-height:24px}
+.option p{min-height:58px}
+
+/* Clear information hierarchy for routes and transport guidance. */
+.route-card,.transport-card,.train-live-card{
+  border:1px solid var(--ui-line);
+  border-radius:16px;
+  background:var(--ui-soft);
+  padding:13px;
+}
+.route-card{margin-bottom:10px}
+.route-label,.transport-label,.train-live-label{
+  display:block;font-size:9px;font-weight:780;letter-spacing:.11em;
+  color:var(--ui-sub);margin-bottom:7px;
+}
+.route-path{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:12px;font-weight:720;line-height:1.5}
+.route-path i{font-style:normal;color:var(--ui-accent)}
+.transport-card{display:grid;gap:0}
+.transport-row{display:grid;grid-template-columns:58px minmax(0,1fr);gap:9px;padding:10px 0;border-bottom:1px solid var(--ui-line);font-size:12px;line-height:1.55}
+.transport-row:first-of-type{padding-top:0}.transport-row:last-child{border:0;padding-bottom:0}
+.transport-row b{color:var(--ui-text)}.transport-row span{color:var(--ui-sub)}
+
+/* Train status stays compact and never invents station information. */
+.train-live-card{margin-top:10px}
+.train-live-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.train-live-title{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:790}
+.train-live-title svg{width:18px;height:18px;color:var(--ui-accent)}
+.train-live-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:10px}
+.train-live-field{padding:9px;border-radius:12px;background:var(--ui-card);border:1px solid var(--ui-line)}
+.train-live-field span{display:block;font-size:9px;color:var(--ui-sub)}
+.train-live-field b{display:block;margin-top:2px;font-size:12px;color:var(--ui-text)}
+.train-live-foot{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:9px;font-size:9px;color:var(--ui-sub)}
+.train-source-link{color:var(--ui-accent);font-weight:720;text-decoration:none}
+.train-refresh-micro{width:24px;height:24px;border:0;background:transparent;color:var(--ui-sub);padding:0;display:grid;place-items:center;border-radius:8px}
+.train-refresh-micro svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.train-refresh-micro.loading svg{animation:spin .9s linear infinite}
+
+/* Status chips use semantic colors without suggesting live boarding too early. */
+.flight-status-pill[data-phase="open"]{color:#117a45;background:color-mix(in srgb,#34c759 10%,var(--ui-card));border-color:color-mix(in srgb,#34c759 20%,var(--ui-line))}
+.flight-status-pill[data-phase="done"]{color:var(--ui-sub);background:var(--ui-card);border-color:var(--ui-line)}
+
+@media(max-width:620px){
+  :root{--space-page:18px;--space-card:14px;--day-pad:14px}
+  .launchbar{gap:10px!important}
+  .launch-group{gap:6px}
+  .launch-group.primary{margin-right:auto}
+  .launch-group.utility{margin-left:auto}
+  .launch-group.primary .launch{padding:0 9px!important;font-size:11px!important;gap:6px!important}
+  .launch-group.primary .launch-brand-icon{width:18px!important;height:18px!important}
+  .day{border-radius:22px}
+  .event-top{padding:16px 14px 13px!important}
+  .event-body{padding:0 14px 16px!important}
+  .dayhead-right{min-width:88px!important}
+  .shelf>.option{height:262px!important;min-height:262px!important}
+  .shelf>.option:has(.landmark-group[open]){height:auto!important;min-height:262px!important}
+  .train-live-grid{grid-template-columns:1fr 1fr 1fr}
+}
+@media(prefers-reduced-motion:reduce){.train-refresh-micro.loading svg{animation:none!important}}
+
+/* ===== v17.2 — compact mobile layout and unmistakable day cards ===== */
+.day{
+  padding:0!important;
+  overflow:clip;
+  background:var(--ui-card)!important;
+}
+.dayhead.day-toggle{
+  min-height:66px;
+  padding:15px 18px!important;
+  border-bottom:1px solid var(--ui-line)!important;
+  background:var(--ui-soft)!important;
+}
+.day.collapsed .dayhead.day-toggle{border-bottom-color:transparent!important}
+.day-content-inner{padding:14px!important;gap:var(--space-card)!important}
+.event-top{
+  grid-template-columns:52px minmax(0,1fr) auto!important;
+  gap:10px!important;
+  align-items:start!important;
+  padding:15px 16px 12px!important;
+}
+.event-top .kind{
+  grid-column:3!important;
+  grid-row:1!important;
+  align-self:start!important;
+  max-width:none!important;
+  overflow:visible!important;
+}
+.event-body{padding:0 16px 16px!important;gap:12px!important}
+.place-list{display:grid!important;gap:8px!important}
+.tiantan-event .place:not(:first-child) .map-actions{display:none!important}
+
+@media(max-width:620px){
+  :root{--dock-h:62px;--launch-dock-h:62px;--space-page:18px;--space-card:14px;--day-pad:0px}
+  .launch-wrap{padding:7px 12px!important}
+  .launchbar{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:8px!important;
+    overflow:visible!important;
+  }
+  .launch-group.primary{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:6px!important;
+    width:100%!important;
+    margin:0!important;
+    overflow:visible!important;
+    padding:0!important;
+  }
+  .launch-group.primary .launch{
+    width:100%!important;
+    min-width:0!important;
+    height:42px!important;
+    min-height:42px!important;
+    padding:0 5px!important;
+    gap:5px!important;
+    font-size:12px!important;
+  }
+  .launch-group.primary .launch-brand-icon{width:18px!important;height:18px!important;flex:0 0 18px!important}
+  .launch-group.utility{gap:4px!important;margin:0!important}
+  .launch-group.utility .launch,
+  .launch-group.utility .launch.help-dot{
+    width:36px!important;
+    min-width:36px!important;
+    height:36px!important;
+    min-height:36px!important;
+    border-radius:12px!important;
+  }
+  .launch-group.utility .launch svg{width:18px!important;height:18px!important}
+  .day{border-radius:22px!important}
+  .dayhead.day-toggle{min-height:62px;padding:14px 15px!important}
+  .day-content-inner{padding:12px!important}
+  .event-top{
+    grid-template-columns:48px minmax(0,1fr) auto!important;
+    gap:8px!important;
+    padding:14px 13px 11px!important;
+  }
+  .event-title{font-size:17px!important;line-height:1.25!important}
+  .event-sub{font-size:12px!important;line-height:1.45!important;margin-top:3px!important}
+  .kind{padding:0 7px!important;font-size:9px!important}
+  .event-body{padding:0 13px 14px!important}
+  .tiantan-event .place-list{gap:7px!important}
+}
+
+/* Dark mode uses one solid card system; no competing gradients behind text. */
+html[data-theme="dark"] .day,
+html[data-theme="dark"] .event,
+html[data-theme="dark"] .weather-wear,
+html[data-theme="dark"] .flight-summary,
+html[data-theme="dark"] .food-catalog .catalog-details{
+  background:var(--ui-card)!important;
+  background-image:none!important;
+}
+html[data-theme="dark"] .wx-ambient:after{
+  background:rgba(41,65,74,.96)!important;
+}
+html[data-theme="dark"] .flight-summary:before{opacity:.36!important}
+html[data-theme="dark"] .flight-summary-row,
+html[data-theme="dark"] .flight-detail-card,
+html[data-theme="dark"] .transfer-row,
+html[data-theme="dark"] .place,
+html[data-theme="dark"] .route-card,
+html[data-theme="dark"] .transport-card,
+html[data-theme="dark"] .train-live-card,
+html[data-theme="dark"] .meal-decision,
+html[data-theme="dark"] .meal-list-item,
+html[data-theme="dark"] .shelf>.option{
+  background:var(--ui-soft)!important;
+  background-image:none!important;
+}
+html[data-theme="dark"] .train-live-field,
+html[data-theme="dark"] .map-action,
+html[data-theme="dark"] .food-map,
+html[data-theme="dark"] .mini-map{
+  background:var(--ui-card)!important;
+  background-image:none!important;
+}
+html[data-theme="dark"] .wx-sun{opacity:.24!important}
+html[data-theme="dark"] .wx-cloud{opacity:.22!important}
+html[data-theme="dark"] .wx-tip,
+html[data-theme="dark"] .event-sub,
+html[data-theme="dark"] .place-desc,
+html[data-theme="dark"] .route-note{color:#c4d0d4!important}
+
 </style>
 </head>
 <body>
@@ -750,19 +1215,26 @@ html[data-theme="dark"] .catalog-details{background:rgba(27,34,40,.86)}
 </div>
 <header class="launch-wrap">
 <div class="launchbar">
+<div class="launch-group primary">
 <!-- Alipay / WeChat use direct native schemes; no fallback navigation so this PWA remains open. -->
-<a aria-label="開啟支付寶" class="launch alipay" data-deeplink="alipays://" href="alipays://"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTM3Ny43NCAzMkg3MC4yNkMzMS40MSAzMiAwIDYzLjQxIDAgMTAyLjI2djMwNy40OEMwIDQ0OC41OSAzMS40MSA0ODAgNzAuMjYgNDgwaDMwNy40OGMzOC41MiAwIDY5Ljc2LTMxLjA4IDcwLjI2LTY5LjYtNDUuOTYtMjUuNjItMTEwLjU5LTYwLjM0LTE3MS42LTg4LjQ0LTMyLjA3IDQzLjk3LTg0LjE0IDgxLTE0OC42MiA4MS03MC41OSAwLTkzLjczLTQ1LjMtOTcuMDQtNzYuMzctMy45Ny0zOS4wMSAxNC44OC04MS41IDk5LjUyLTgxLjUgMzUuMzggMCA3OS4zNSAxMC4yNSAxMjcuMTMgMjQuOTYgMTYuNTMtMzAuMDkgMjYuNDUtNjAuMzQgMjYuNDUtNjAuMzRoLTE3OC4ydi0xNi43aDkyLjA4di0zMS4yNEg4OC4yOHYtMTkuMDFoMTA5LjQ0VjkyLjM0aDUwLjkydjUwLjQyaDEwOS40NHYxOS4wMUgyNDguNjN2MzEuMjRoODguNzdzLTE1LjIxIDQ2LjYyLTM4LjM1IDkwLjkyYzQ4LjkzIDE2LjcgMTAwLjAxIDM2LjA0IDE0OC42MiA1Mi43NFYxMDIuMjZDNDQ3LjgzIDYzLjU3IDQxNi40MyAzMiAzNzcuNzQgMzJ6TTQ3LjI4IDMyMi45NWMuOTkgMjAuMTcgMTAuMjUgNTMuNzMgNjkuOTMgNTMuNzMgNTIuMDcgMCA5Mi41OC0zOS42OCAxMTcuODctNzIuOS00NC42My0xOC42OC04NC40OC0zMS40MS0xMDkuNDQtMzEuNDEtNjcuNDUgMC03OS4zNSAzMy4wNi03OC4zNiA1MC41OHoiLz48L3N2Zz4=" style="filter:brightness(0) invert(1)"/>支付寶</a>
-<a aria-label="開啟微信" class="launch wechat" data-deeplink="weixin://" href="weixin://"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTM4NS4yIDE2Ny42YzYuNCAwIDEyLjYuMyAxOC44IDEuMUMzODcuNCA5MC4zIDMwMy4zIDMyIDIwNy43IDMyIDEwMC41IDMyIDEzIDEwNC44IDEzIDE5Ny40YzAgNTMuNCAyOS4zIDk3LjUgNzcuOSAxMzEuNmwtMTkuMyA1OC42IDY4LTM0LjFjMjQuNCA0LjggNDMuOCA5LjcgNjguMiA5LjcgNi4yIDAgMTIuMS0uMyAxOC4zLS44LTQtMTIuOS02LjItMjYuNi02LjItNDAuOC0uMS04NC45IDcyLjktMTU0IDE2NS4zLTE1NHptLTEwNC41LTUyLjljMTQuNSAwIDI0LjIgOS43IDI0LjIgMjQuNCAwIDE0LjUtOS43IDI0LjItMjQuMiAyNC4yLTE0LjggMC0yOS4zLTkuNy0yOS4zLTI0LjIuMS0xNC43IDE0LjYtMjQuNCAyOS4zLTI0LjR6bS0xMzYuNCA0OC42Yy0xNC41IDAtMjkuMy05LjctMjkuMy0yNC4yIDAtMTQuOCAxNC44LTI0LjQgMjkuMy0yNC40IDE0LjggMCAyNC40IDkuNyAyNC40IDI0LjQgMCAxNC42LTkuNiAyNC4yLTI0LjQgMjQuMnpNNTYzIDMxOS40YzAtNzcuOS03Ny45LTE0MS4zLTE2NS40LTE0MS4zLTkyLjcgMC0xNjUuNCA2My40LTE2NS40IDE0MS4zUzMwNSA0NjAuNyAzOTcuNiA0NjAuN2MxOS4zIDAgMzguOS01LjEgNTguNi05LjlsNTMuNCAyOS4zLTE0LjgtNDguNkM1MzQgNDAyLjEgNTYzIDM2My4yIDU2MyAzMTkuNHptLTIxOS4xLTI0LjVjLTkuNyAwLTE5LjMtOS43LTE5LjMtMTkuNiAwLTkuNyA5LjctMTkuMyAxOS4zLTE5LjMgMTQuOCAwIDI0LjQgOS43IDI0LjQgMTkuMyAwIDEwLTkuNyAxOS42LTI0LjQgMTkuNnptMTA3LjEgMGMtOS43IDAtMTkuMy05LjctMTkuMy0xOS42IDAtOS43IDkuNy0xOS4zIDE5LjMtMTkuMyAxNC41IDAgMjQuNCA5LjcgMjQuNCAxOS4zLjEgMTAtOS45IDE5LjYtMjQuNCAxOS42eiIvPjwvc3ZnPg==" style="filter:brightness(0) invert(1)"/>微信</a>
-<a aria-label="開啟 Trip.com" class="launch trip" href="https://www.trip.com/?locale=zh-TW" rel="noopener" target="_blank"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzJGODBFRCIvPgogIDx0ZXh0IHg9IjU2IiB5PSIzMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4NSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0id2hpdGUiIGxldHRlci1zcGFjaW5nPSItMTIiPlRyaXA8L3RleHQ+CiAgPGNpcmNsZSBjeD0iNDUyIiBjeT0iMjk1IiByPSIyMCIgZmlsbD0iI0ZGQjgwMCIvPgo8L3N2Zz4K"/>Trip.com</a>
+<a aria-label="開啟支付寶" class="launch alipay" data-deeplink="alipays://" href="alipays://"><svg aria-hidden="true" class="launch-brand-icon" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M377.74 32H70.26C31.41 32 0 63.41 0 102.26v307.48C0 448.59 31.41 480 70.26 480h307.48c38.52 0 69.76-31.08 70.26-69.6-45.96-25.62-110.59-60.34-171.6-88.44-32.07 43.97-84.14 81-148.62 81-70.59 0-93.73-45.3-97.04-76.37-3.97-39.01 14.88-81.5 99.52-81.5 35.38 0 79.35 10.25 127.13 24.96 16.53-30.09 26.45-60.34 26.45-60.34h-178.2v-16.7h92.08v-31.24H88.28v-19.01h109.44V92.34h50.92v50.42h109.44v19.01H248.63v31.24h88.77s-15.21 46.62-38.35 90.92c48.93 16.7 100.01 36.04 148.62 52.74V102.26C447.83 63.57 416.43 32 377.74 32zM47.28 322.95c.99 20.17 10.25 53.73 69.93 53.73 52.07 0 92.58-39.68 117.87-72.9-44.63-18.68-84.48-31.41-109.44-31.41-67.45 0-79.35 33.06-78.36 50.58z" fill="currentColor"></path></svg><span class="launch-label">支付寶</span></a>
+<a aria-label="開啟微信" class="launch wechat" data-deeplink="weixin://" href="weixin://"><svg aria-hidden="true" class="launch-brand-icon" viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154zm-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4zm-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2zM563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4zm-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6zm107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6z" fill="currentColor"></path></svg><span class="launch-label">微信</span></a>
+<a aria-label="開啟 Trip.com" class="launch trip" href="https://www.trip.com/?locale=zh-TW" rel="noopener" target="_blank"><svg aria-hidden="true" class="launch-brand-icon trip-icon" viewbox="0 0 24 24">
+<circle cx="12" cy="12" fill="currentColor" opacity=".12" r="10"></circle>
+<path d="m4.7 13.2 14.8-5.8-5.1 10.8-3.2-4-4.3 2 .7-4.5-2.9 1.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path>
+</svg><span class="launch-label">Trip.com</span></a>
+</div>
+<div class="launch-group utility">
 <button aria-label="切換深淺色" class="launch utility theme-toggle" id="themeToggle" title="切換深淺色" type="button"><svg class="sun" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg><svg class="moon" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5 8.7 8.7 0 1 0 20.5 14.6Z"></path></svg></button>
 <button aria-label="加入主畫面說明" class="launch utility help-dot" id="helpBtn" title="加入主畫面說明" type="button"><span>?</span></button>
+</div>
 </div>
 </header>
 <main>
 <section class="hero wrap">
-<div class="eyebrow">BEIJING · 01–03 OCT 2026</div>
+<div class="eyebrow">北京・2026 年 10 月 1–4 日</div>
 <h1>北京行程規劃</h1>
-<p>王府井為基地；行程先排好，吃飯交給今天的手氣。</p>
+<p>王府井住宿・北京市區・河北婚禮</p>
 <div class="hero-meta">
 <span class="meta-pill"><span class="status-dot" id="tripDot"></span><span id="tripStatus">行程尚未開始</span></span>
 <span class="meta-pill">住宿 · 北京飯店諾金</span>
@@ -772,84 +1244,128 @@ html[data-theme="dark"] .catalog-details{background:rgba(27,34,40,.86)}
 <circle cx="8" cy="15" r="1"></circle><circle cx="16" cy="15" r="1"></circle>
 </svg>10/3 · G505 15:20</span>
 </div>
-
-<section aria-label="旅程總覽" class="trip-dashboard">
-<div class="dash-layer dash-layer-a"></div>
-<div class="dash-layer dash-layer-b"></div>
-<div class="dash-main">
-<div class="dash-kicker">TRIP OVERVIEW</div>
-<div class="dash-head">
-<div>
-<div class="dash-title">北京 2026</div>
-<div class="dash-sub">10/1–10/3 · 行程與餐廳都放在同一頁</div>
+<section aria-label="來回航班摘要" class="flight-overview flight-summary">
+<div class="section-heading">
+<span class="section-heading-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m3 14 18-7-6 13-3.7-5-4.8 2.3.7-5.1L3 14Z"></path></svg></span>
+<div><span class="section-eyebrow">航班</span><strong>來回航班摘要</strong></div>
 </div>
-<div aria-hidden="true" class="dash-orbit">
-<span></span><span></span><span></span>
+<div class="flight-summary-rows">
+<div class="flight-summary-row">
+<div class="flight-summary-date"><strong>10/1</strong><span>週四</span></div>
+<div class="flight-summary-label"><span>去程</span><strong>BR716</strong></div>
+<div class="flight-summary-time"><strong>09:10</strong><span>TPE T2</span></div>
+<div class="mini-flight-track"><svg aria-hidden="true" class="plane-icon-right moving-plane" viewbox="0 0 28 18">
+<path d="M2 8h18l4-5h2l-2.5 5H26L28 9l-2 1h-2.5l2.5 5h-2l-4-5H2z" fill="currentColor"></path>
+</svg></div>
+<div class="flight-summary-time end"><strong>12:35</strong><span>PEK T3</span></div>
 </div>
-</div>
-<div class="dash-grid">
-<div class="dash-metric"><span>住宿</span><strong>王府井</strong></div>
-<div class="dash-metric"><span>高鐵</span><strong>G505 · 15:20</strong></div>
-<div class="dash-metric food-dash-action" id="foodDashAction" role="button" tabindex="0"><span>吃什麼</span><strong>交給手氣 ↗</strong></div>
+<div class="flight-summary-row">
+<div class="flight-summary-date"><strong>10/4</strong><span>週日</span></div>
+<div class="flight-summary-label"><span>回程</span><strong>BR715</strong></div>
+<div class="flight-summary-time"><strong>19:50</strong><span>PEK T3</span></div>
+<div class="mini-flight-track"><svg aria-hidden="true" class="plane-icon-right moving-plane" viewbox="0 0 28 18">
+<path d="M2 8h18l4-5h2l-2.5 5H26L28 9l-2 1h-2.5l2.5 5h-2l-4-5H2z" fill="currentColor"></path>
+</svg></div>
+<div class="flight-summary-time end"><strong>23:00</strong><span>TPE T2</span></div>
 </div>
 </div>
 </section>
 </section>
-<section aria-label="穿衣建議" class="weather-wear wrap">
-<div class="weather-wear-inner">
-<div class="weather-wear-top">
-<div>
-<div class="eyebrow">WEATHER · WHAT TO WEAR</div>
-<h3>白天舒服，早晚明顯偏涼。</h3>
-<p>採洋蔥式穿法最穩：白天可薄上衣，早晚與天壇晨間加一件薄外套。</p>
+<section aria-label="穿衣建議" class="weather-wear wrap"><div class="wx-card" id="wxCard">
+<div aria-hidden="true" class="wx-ambient sunny" id="wxAmbient">
+<div class="wx-sun"></div>
+<div class="wx-cloud wx-cloud-a"></div>
+<div class="wx-cloud wx-cloud-b"></div>
+<div class="wx-rain"></div>
+</div>
+<div class="wx-body">
+<div class="wx-head">
+<div class="wx-title">
+<span class="wx-title-icon">
+<svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="8" cy="8" r="3"></circle><path d="M8 2v2M8 12v2M2 8h2M12 8h2"></path><path d="M8 18h10a3 3 0 0 0 0-6 5 5 0 0 0-9-1.5A4 4 0 0 0 8 18Z"></path></svg>
+</span>
+<div><span>北京天氣</span><strong id="wxHeadline">10/1 · 北京</strong></div>
 </div>
 </div>
-<div class="temp-row">
-<div class="temp-pill"><strong>10/1 · 24° / 8°</strong>晴朗</div>
-<div class="temp-pill"><strong>10/2 · 23° / 12°</strong>晴時多雲</div>
-<div class="temp-pill"><strong>10/3 · 24° / 10°</strong>多雲時晴</div>
+<div class="wx-main">
+<div class="wx-temp" id="wxTemp">24°</div>
+<div class="wx-meta"><strong id="wxCond">晴有薄霧</strong><span id="wxRange">最高 24° · 最低 8°</span><span id="wxExtra">降雨 5% · 風速約 10 km/h</span></div>
 </div>
-<div class="wear-grid">
-<div class="wear-item"><b>白天</b><span>長袖薄上衣或短袖＋薄襯衫即可，室內可能偏暖。</span></div>
-<div class="wear-item"><b>早晚</b><span>帶輕薄風衣／薄外套；10/1 清晨與夜間低溫可到約 8°C。</span></div>
-<div class="wear-item"><b>走路</b><span>舒適運動鞋優先；天壇、胡同日走量高，另可帶防曬與護唇。</span></div>
+<div class="wx-days" id="wxDays">
+<button class="wx-day active" data-wx-date="2026-10-01"><span>10/1</span><strong>24° / 8°</strong></button>
+<button class="wx-day" data-wx-date="2026-10-02"><span>10/2</span><strong>25° / 10°</strong></button>
+<button class="wx-day" data-wx-date="2026-10-03"><span>10/3</span><strong>21° / 11°</strong></button>
+<button class="wx-day" data-wx-date="2026-10-04"><span>10/4</span><strong>23° / 8°</strong></button>
 </div>
-<div class="weather-updated">天氣建議依 9/28 預報整理；出發前一晚再看一次最新預報。</div>
+<div class="wx-tip" id="wxTip">早晚偏冷，薄上衣外再加輕薄外套／風衣；白天可洋蔥式減衣。</div>
+<div class="wx-foot"><span class="wx-source" id="wxSource">預報</span><span id="wxUpdated">9/29 22:40 更新</span><button aria-label="更新天氣" class="wx-refresh" id="wxRefresh" type="button"><svg viewbox="0 0 24 24"><path d="M20 6v5h-5"></path><path d="M4 18v-5h5"></path><path d="M18.5 9A7 7 0 0 0 6.6 6.6L4 11M20 13l-2.6 4.4A7 7 0 0 1 5.5 15"></path></svg></button></div>
 </div>
-</section>
+</div></section>
 <nav aria-label="日期導覽" class="daynav-wrap">
 <div class="daynav wrap" id="dayNav">
 <a class="daychip" data-nav-date="2026-10-01" href="#day1"><span class="num">第一天</span><span class="today-badge">今天</span></a>
 <a class="daychip" data-nav-date="2026-10-02" href="#day2"><span class="num">第二天</span><span class="today-badge">今天</span></a>
 <a class="daychip" data-nav-date="2026-10-03" href="#day3"><span class="num">第三天</span><span class="today-badge">今天</span></a>
-</div>
+<a class="daychip" data-nav-date="2026-10-04" href="#day4"><span class="num">第四天</span><span class="today-badge">今天</span></a></div>
 </nav>
 <div class="days wrap" id="days">
 <!-- DAY 1 -->
 <section class="day" data-day-date="2026-10-01" id="day1">
 <button aria-controls="day1-content" aria-expanded="false" class="dayhead day-toggle" type="button"><div class="dayhead-main"><h2>第一天<span class="today-label">今天</span></h2></div><div class="dayhead-right"><span class="date">10/1 週四</span><svg aria-hidden="true" class="day-chevron" fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></div></button><div class="day-content" id="day1-content"><div class="day-content-inner">
 <article class="event" data-end="15:30" data-start="12:35">
-<div class="event-top"><div class="time">12:35</div><div><div class="event-title">抵達北京・前往飯店</div><div class="event-sub">已安排機場接送；抵達飯店時間保留彈性。</div></div><span class="kind">移動</span></div>
+<div class="event-top"><div class="time">12:35</div><div><div class="event-title">抵達北京・前往飯店</div><div class="event-sub">已安排機場接送；抵達飯店時間保留彈性。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 15h10M11 8l7 7-7 7"></path><path d="M6 5h8" opacity=".55"></path></svg>移動</span></div>
 <div class="event-body">
+<div class="flight-detail-card" data-flight-card="BR716">
+<div class="flight-detail-top">
+<div class="flight-detail-id">
+<span class="flight-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m3 14 18-7-6 13-3.7-5-4.8 2.3.7-5.1L3 14Z"></path></svg></span>
+<div><small>去程</small><strong>BR716</strong></div>
+</div>
+<span class="flight-status-pill" data-flight-field="status">計畫</span>
+</div>
+<div class="flight-route-visual">
+<div><strong>09:10</strong><span>TPE · T2</span></div>
+<div class="flight-motion-line"><svg aria-hidden="true" class="plane-icon-right moving-plane" viewbox="0 0 28 18">
+<path d="M2 8h18l4-5h2l-2.5 5H26L28 9l-2 1h-2.5l2.5 5h-2l-4-5H2z" fill="currentColor"></path>
+</svg></div>
+<div class="end"><strong>12:35</strong><span>PEK · T3</span></div>
+</div>
+<div class="flight-micro">
+<span>登機門 <b data-flight-field="gate">待公布</b></span>
+<span>·</span>
+<span class="flight-update-time" data-flight-field="updated">9/29 22:36</span>
+<button aria-label="更新 BR716" class="flight-refresh-micro" data-flight-refresh="BR716" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 6v5h-5"></path><path d="M4 18v-5h5"></path><path d="M18.5 9A7 7 0 0 0 6.6 6.6L4 11M20 13l-2.6 4.4A7 7 0 0 1 5.5 15"></path></svg></button>
+</div>
+</div>
+<div class="transfer-row">
+<span class="transfer-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 15h10M11 8l7 7-7 7"></path><path d="M6 5h8" opacity=".55"></path></svg></span>
+<div><strong>接送已安排</strong><span>抵達後直接前往北京飯店諾金</span></div>
+</div>
 <div class="place-list">
-<div class="place" data-place="北京首都國際機場 T3"><div class="place-main"><div class="place-pin"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"></path><circle cx="12" cy="10" r="2"></circle></svg></div><div><div class="place-name">北京首都國際機場 T3</div><div class="place-desc">下機、入境、行李後直接找接送。</div></div></div></div>
-<div class="place" data-place="北京飯店諾金"><div class="place-main"><div class="place-pin"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13"></path><path d="M8 20v-7h8v7M8 9h.01M12 9h.01M16 9h.01"></path></svg></div><div><div class="place-name">北京飯店諾金</div><div class="place-desc">Check-in、放行李、休息後再出門。</div></div></div></div>
+<div class="place" data-place="北京飯店諾金"><div class="place-main"><div class="place-pin"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13"></path><path d="M8 20v-7h8v7M8 9h.01M12 9h.01M16 9h.01"></path></svg></div><div><div class="place-name">北京飯店諾金</div><div class="place-desc">辦理入住、放行李、休息後再出門。</div></div></div></div>
 </div>
 </div>
 </article>
 <article class="event" data-end="17:45" data-start="16:00">
-<div class="event-top"><div class="time">16:00</div><div><div class="event-title">第一個下午</div><div class="event-sub">以飯店周邊為主；依現場人潮左右滑選一套。</div></div><span class="kind">散步</span></div>
+<div class="event-top"><div class="time">16:00</div><div><div class="event-title">下午</div><div class="event-sub">以飯店周邊為主，依現場人潮與體力選擇。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="13" cy="4.5" r="2"></circle><path d="m11.5 8-2 5 4 2.5 2 5M10 12l-4 3M13.5 15.5l-4 5M12 8l4 3 3 .5"></path></svg>散步</span></div>
 <div class="event-body">
-<div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div>
+<div class="choice-title"><span><svg aria-hidden="true" class="choice-label-icon" viewbox="0 0 24 24">
+<path d="M4 7h3c4.5 0 5 10 10 10h3"></path>
+<path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"></path>
+<path d="m17 4 3 3-3 3"></path>
+</svg>同時段選項</span></div>
 <div class="shelf">
-<div class="option primary mini-watermark mini-walk"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">最少移動</span></div><h3>王府井慢逛</h3><p>從飯店向北，逛商場、街景與王府井東堂；人潮可接受就沿步行街慢慢走。</p><div class="place-list"><div class="place" data-place="王府井步行街"><div class="place-main"><div><div class="place-name">王府井步行街</div><div class="place-desc">距飯店近，第一天最好用。</div></div></div></div><div class="place" data-place="王府井天主堂"><div class="place-main"><div><div class="place-name">王府井天主堂</div><div class="place-desc">順路拍照，不需久留。</div></div></div></div></div></div>
+<div class="option primary mini-watermark mini-walk"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">最少移動</span></div><h3>王府井慢逛</h3><p>從飯店向北，逛商場、街景與王府井東堂；人潮可接受就沿步行街慢慢走。</p><details class="landmark-group"><summary><svg aria-hidden="true" class="landmark-summary-icon-svg" viewbox="0 0 24 24">
+<path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"></path>
+<circle cx="12" cy="10" r="2"></circle>
+</svg><span class="landmark-summary-copy">2 個地點</span><span class="landmark-chevron">⌄</span></summary><div class="landmark-list"><div class="place" data-place="王府井步行街"><div class="place-main"><div><div class="place-name">王府井步行街</div><div class="place-desc">距飯店近，第一天最好用。</div></div></div></div><div class="place" data-place="王府井天主堂"><div class="place-main"><div><div class="place-name">王府井天主堂</div><div class="place-desc">順路拍照，不需久留。</div></div></div></div></div></details></div>
 <div class="option mini-watermark mini-walk"><div class="option-head"><span class="option-badge">人多時</span><span class="tiny muted">室內為主</span></div><h3>東方新天地・東單</h3><p>若王府井主街太擠，往東單方向轉入商場與室內動線，舒服很多。</p><div class="place-list"><div class="place" data-place="東方新天地 北京"><div class="place-main"><div><div class="place-name">東方新天地</div><div class="place-desc">餐飲、商場、休息都方便。</div></div></div></div></div></div>
 <div class="option mini-watermark mini-dot"><div class="option-head"><span class="option-badge">最放鬆</span><span class="tiny muted">不勉強</span></div><h3>飯店休息・作家酒吧</h3><p>如果抵達較晚，直接把第一天下午留給飯店；晚上再出去吃飯。</p><div class="place-list"><div class="place" data-place="北京飯店諾金 作家酒吧"><div class="place-main"><div><div class="place-name">作家酒吧</div><div class="place-desc">留在飯店內，完全不用移動。</div></div></div></div></div></div>
 </div>
 </div>
 </article>
 <article class="event meal-event" data-end="20:30" data-meal-slot="d1Dinner" data-start="18:00">
-<div class="event-top"><div class="time">18:00</div><div><div class="event-title">晚餐</div><div class="event-sub">落地後不想選？按一下直接決定；四季民福先作為起始選擇。</div></div><span class="kind">吃飯</span></div>
+<div class="event-top"><div class="time">18:00</div><div><div class="event-title">晚餐</div><div class="event-sub">落地後不想選？按一下直接決定；四季民福先作為起始選擇。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 3v8M4.5 3v5c0 2 1 3 2.5 3s2.5-1 2.5-3V3M7 11v10M15 3v18M15 3c3 1 4.5 3 4.5 6s-1.5 5-4.5 6"></path></svg>吃飯</span></div>
 <div class="event-body"><div class="meal-picker" data-meal-slot="d1Dinner"></div></div>
 </article>
 </div></div></section>
@@ -857,42 +1373,48 @@ html[data-theme="dark"] .catalog-details{background:rgba(27,34,40,.86)}
 <section class="day" data-day-date="2026-10-02" id="day2">
 <button aria-controls="day2-content" aria-expanded="false" class="dayhead day-toggle" type="button"><div class="dayhead-main"><h2>第二天<span class="today-label">今天</span></h2></div><div class="dayhead-right"><span class="date">10/2 週五</span><svg aria-hidden="true" class="day-chevron" fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></div></button><div class="day-content" id="day2-content"><div class="day-content-inner">
 <article class="event meal-event" data-end="07:20" data-meal-slot="d2Breakfast" data-start="06:45">
-<div class="event-top"><div class="time">06:45</div><div><div class="event-title">早餐</div><div class="event-sub">以順路、快速為主；抽到哪個就看最近分店。</div></div><span class="kind">吃飯</span></div>
+<div class="event-top"><div class="time">06:45</div><div><div class="event-title">早餐</div><div class="event-sub">以順路、快速為主；抽到哪個就看最近分店。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 3v8M4.5 3v5c0 2 1 3 2.5 3s2.5-1 2.5-3V3M7 11v10M15 3v18M15 3c3 1 4.5 3 4.5 6s-1.5 5-4.5 6"></path></svg>吃飯</span></div>
 <div class="event-body"><div class="meal-picker" data-meal-slot="d2Breakfast"></div></div>
 </article>
-<article class="event" data-end="10:45" data-start="07:20">
-<div class="event-top"><div class="time">07:20</div><div><div class="event-title">天壇公園</div><div class="event-sub">08:00 前後進核心區；抓 2.5–3 小時。</div></div><span class="kind">必去</span></div>
+<article class="event tiantan-event" data-end="10:45" data-start="07:20">
+<div class="event-top"><div class="time">07:20</div><div><div class="event-title">天壇公園</div><div class="event-sub">08:00 前後進核心區；抓 2.5–3 小時。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"></path></svg>必去</span></div>
 <div class="event-body">
-<p class="event-note">建議路線：東門 → 長廊 → 祈年殿 → 丹陛橋 → 皇穹宇／回音壁 → 圜丘 → 南門。</p>
+<div class="route-card"><span class="route-label">建議路線</span><div class="route-path"><span>東門</span><i>→</i><span>長廊</span><i>→</i><span>祈年殿</span><i>→</i><span>丹陛橋</span><i>→</i><span>皇穹宇／回音壁</span><i>→</i><span>圜丘</span><i>→</i><span>南門</span></div></div>
 <div class="place-list"><div class="place" data-place="天壇公園 東門"><div class="place-main"><div class="place-pin"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"></path><circle cx="12" cy="10" r="2"></circle></svg></div><div><div class="place-name">天壇公園・東門</div><div class="place-desc">進場起點。</div></div></div></div><div class="place" data-place="祈年殿"><div class="place-main"><div><div class="place-name">祈年殿</div><div class="place-desc">天壇最具代表性的核心建築。</div></div></div></div><div class="place" data-place="圜丘 天壇"><div class="place-main"><div><div class="place-name">圜丘</div><div class="place-desc">走完中軸線後由南側離開。</div></div></div></div></div>
-<div class="ticket-card"><h3>票怎麼買最簡單</h3><div class="ticket-row"><b>大門票</b><span>只進公園，不含核心收費院落</span></div><div class="ticket-row"><b>聯票</b><span>大門票＋祈年殿、回音壁、圜丘等核心區域</span></div><div class="ticket-row"><b>這趟</b><span>第一次到天壇，直接選聯票較省事</span></div></div>
-<div class="route-note"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 17h5l3-10 3 10h5"></path><path d="M6 21h12"></path></svg><span>交通：早上若高德顯示道路順暢可打車；要最穩定則從東單搭 5 號線到天壇東門。</span></div>
+<div class="transport-card"><span class="transport-label">交通提示</span><div class="transport-row"><b>地鐵</b><span>東單搭 5 號線至天壇東門，時間較穩定。</span></div><div class="transport-row"><b>滴滴</b><span>早上若高德顯示道路順暢，可直接前往東門。</span></div></div>
 </div>
 </article>
 <article class="event meal-event" data-end="13:00" data-meal-slot="d2Lunch" data-start="11:15">
-<div class="event-top"><div class="time">11:15</div><div><div class="event-title">午餐</div><div class="event-sub">天壇後往前門方向；便宜坊先作為起始選擇。</div></div><span class="kind">吃飯</span></div>
+<div class="event-top"><div class="time">11:15</div><div><div class="event-title">午餐</div><div class="event-sub">天壇後往前門方向；便宜坊先作為起始選擇。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 3v8M4.5 3v5c0 2 1 3 2.5 3s2.5-1 2.5-3V3M7 11v10M15 3v18M15 3c3 1 4.5 3 4.5 6s-1.5 5-4.5 6"></path></svg>吃飯</span></div>
 <div class="event-body"><div class="meal-picker" data-meal-slot="d2Lunch"></div></div>
 </article>
 <article class="event" data-end="15:45" data-start="13:15">
-<div class="event-top"><div class="time">13:15</div><div><div class="event-title">下午留白：文青或直接購物</div><div class="event-sub">同時段有三套；依人潮與體力左右滑。</div></div><span class="kind">彈性</span></div>
+<div class="event-top"><div class="time">13:15</div><div><div class="event-title">下午</div><div class="event-sub">依現場人潮與體力，從下方選一個安排。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 7h3c4.5 0 5 10 10 10h3"></path><path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"></path><path d="m17 4 3 3-3 3"></path></svg>彈性</span></div>
 <div class="event-body">
-<div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div>
+<div class="choice-title"><span><svg aria-hidden="true" class="choice-label-icon" viewbox="0 0 24 24">
+<path d="M4 7h3c4.5 0 5 10 10 10h3"></path>
+<path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"></path>
+<path d="m17 4 3 3-3 3"></path>
+</svg>同時段選項</span></div>
 <div class="shelf">
-<div class="option primary mini-watermark mini-book"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">文青慢逛</span></div><h3>北京坊＋PAGE ONE</h3><p>前門舊城與現代設計混在一起；書店、咖啡、街區都能慢慢看。</p><div class="place-list"><div class="place" data-place="北京坊"><div class="place-main"><div><div class="place-name">北京坊</div></div></div></div><div class="place" data-place="PAGE ONE 北京坊"><div class="place-main"><div><div class="place-name">PAGE ONE 北京坊</div></div></div></div><div class="place" data-place="楊梅竹斜街"><div class="place-main"><div><div class="place-name">楊梅竹斜街</div><div class="place-desc">人潮太擠就只走一小段，不硬逛完整。</div></div></div></div></div></div>
+<div class="option primary mini-watermark mini-book"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">文青慢逛</span></div><h3>北京坊＋PAGE ONE</h3><p>前門舊城與現代設計混在一起；書店、咖啡、街區都能慢慢看。</p><details class="landmark-group"><summary><svg aria-hidden="true" class="landmark-summary-icon-svg" viewbox="0 0 24 24">
+<path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"></path>
+<circle cx="12" cy="10" r="2"></circle>
+</svg><span class="landmark-summary-copy">3 個地點</span><span class="landmark-chevron">⌄</span></summary><div class="landmark-list"><div class="place" data-place="北京坊"><div class="place-main"><div><div class="place-name">北京坊</div></div></div></div><div class="place" data-place="PAGE ONE 北京坊"><div class="place-main"><div><div class="place-name">PAGE ONE 北京坊</div></div></div></div><div class="place" data-place="楊梅竹斜街"><div class="place-main"><div><div class="place-name">楊梅竹斜街</div><div class="place-desc">人潮太擠就只走一小段，不硬逛完整。</div></div></div></div></div></details></div>
 <div class="option mini-watermark mini-duck"><div class="option-head"><span class="option-badge">更放鬆</span></div><h3>找間咖啡坐久一點</h3><p>便宜坊吃完後不要趕景點；前門／北京坊找咖啡坐到 15:30 再離開。</p><div class="place-list"><div class="place" data-place="北京坊"><div class="place-main"><div><div class="place-name">北京坊</div><div class="place-desc">直接以這區為活動半徑。</div></div></div></div></div></div>
 <div class="option mini-watermark mini-shop"><div class="option-head"><span class="option-badge">人太多</span></div><h3>提前去合生匯</h3><p>前門太擠就放棄文青街區，直接搭 7 號線去九龍山，把時間留給 Chiikawa。</p><div class="place-list"><div class="place" data-place="北京朝陽合生匯"><div class="place-main"><div><div class="place-name">北京朝陽合生匯</div></div></div></div></div></div>
 </div>
 </div>
 </article>
 <article class="event" data-end="18:30" data-start="16:00">
-<div class="event-top"><div class="time">16:00</div><div><div class="event-title">Chiikawa 北京快閃</div><div class="event-sub">從珠市口搭 7 號線到九龍山，零轉乘。</div></div><span class="kind">私心</span></div>
+<div class="event-top"><div class="time">16:00</div><div><div class="event-title">Chiikawa 北京快閃</div><div class="event-sub">從珠市口搭 7 號線到九龍山，零轉乘。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.8 5.7a5 5 0 0 0-7.1 0L12 7.4l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.2a5 5 0 0 0 0-7.1Z"></path></svg>私心</span></div>
 <div class="event-body">
 <div class="place-list"><div class="place" data-place="北京朝陽合生匯"><div class="place-main"><div class="place-pin"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 7h16v12H4z"></path><path d="M8 7a4 4 0 0 1 8 0"></path></svg></div><div><div class="place-name">北京朝陽合生匯</div><div class="place-desc">L1 中庭；把排隊時間留足，後面不再塞景點。</div></div></div></div></div>
 <div class="route-note"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><path d="M7 12h10"></path></svg><span>交通：珠市口 → 7 號線 → 九龍山。這段不建議為了少走幾步改打車，國慶地面時間較不穩。</span></div>
 </div>
 </article>
 <article class="event meal-event" data-end="21:00" data-meal-slot="d2Dinner" data-start="18:30">
-<div class="event-top"><div class="time">18:30</div><div><div class="event-title">晚餐</div><div class="event-sub">逛完合生匯再決定；想吃北京味或換口味都可以。</div></div><span class="kind">吃飯</span></div>
+<div class="event-top"><div class="time">18:30</div><div><div class="event-title">晚餐</div><div class="event-sub">逛完合生匯再決定；想吃北京味或換口味都可以。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 3v8M4.5 3v5c0 2 1 3 2.5 3s2.5-1 2.5-3V3M7 11v10M15 3v18M15 3c3 1 4.5 3 4.5 6s-1.5 5-4.5 6"></path></svg>吃飯</span></div>
 <div class="event-body"><div class="meal-picker" data-meal-slot="d2Dinner"></div></div>
 </article>
 </div></div></section>
@@ -900,36 +1422,151 @@ html[data-theme="dark"] .catalog-details{background:rgba(27,34,40,.86)}
 <section class="day" data-day-date="2026-10-03" id="day3">
 <button aria-controls="day3-content" aria-expanded="false" class="dayhead day-toggle" type="button"><div class="dayhead-main"><h2>第三天<span class="today-label">今天</span></h2></div><div class="dayhead-right"><span class="date">10/3 週六</span><svg aria-hidden="true" class="day-chevron" fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></div></button><div class="day-content" id="day3-content"><div class="day-content-inner">
 <article class="event meal-event" data-end="09:15" data-meal-slot="d3Breakfast" data-start="08:30">
-<div class="event-top"><div class="time">08:30</div><div><div class="event-title">早餐／早午餐</div><div class="event-sub">不趕時間；如果前兩天還有沒吃到的，也可以在這餐補。</div></div><span class="kind">吃飯</span></div>
+<div class="event-top"><div class="time">08:30</div><div><div class="event-title">早餐／早午餐</div><div class="event-sub">不趕時間；如果前兩天還有沒吃到的，也可以在這餐補。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 3v8M4.5 3v5c0 2 1 3 2.5 3s2.5-1 2.5-3V3M7 11v10M15 3v18M15 3c3 1 4.5 3 4.5 6s-1.5 5-4.5 6"></path></svg>吃飯</span></div>
 <div class="event-body"><div class="meal-picker" data-meal-slot="d3Breakfast"></div></div>
 </article>
 <article class="event" data-end="11:45" data-start="09:30">
-<div class="event-top"><div class="time">09:30</div><div><div class="event-title">最後一段城市散步</div><div class="event-sub">三套都離飯店不遠，照前兩天狀態選。</div></div><span class="kind">彈性</span></div>
-<div class="event-body"><div class="choice-title"><span>同時段選項</span><span class="swipe-hint">左右滑</span></div><div class="shelf">
-<div class="option primary mini-watermark mini-book"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">城市感</span></div><h3>隆福寺＋三聯書店</h3><p>最後半天用書店、街區、咖啡收尾，不再碰大型景點。</p><div class="place-list"><div class="place" data-place="隆福寺 北京"><div class="place-main"><div><div class="place-name">隆福寺</div></div></div></div><div class="place" data-place="三聯韜奮書店 北京"><div class="place-main"><div><div class="place-name">三聯韜奮書店</div></div></div></div></div></div>
-<div class="option mini-watermark mini-duck"><div class="option-head"><span class="option-badge">補吃四季</span><span class="tiny muted">若 Day 1 錯過</span></div><h3>四季民福・第二次機會</h3><p>把「吃到四季」放在這個時段，不跟列車時間互相干擾。</p><div class="place-list"><div class="place" data-place="四季民福烤鴨店 燈市口店"><div class="place-main"><div><div class="place-name">四季民福・燈市口店</div><div class="place-desc">控制離店時間，12:00 前後回飯店即可。</div></div></div></div></div></div>
+<div class="event-top"><div class="time">09:30</div><div><div class="event-title">最後一段城市散步</div><div class="event-sub">都離飯店不遠，依當天體力與時間選擇。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 7h3c4.5 0 5 10 10 10h3"></path><path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"></path><path d="m17 4 3 3-3 3"></path></svg>彈性</span></div>
+<div class="event-body"><div class="choice-title"><span><svg aria-hidden="true" class="choice-label-icon" viewbox="0 0 24 24">
+<path d="M4 7h3c4.5 0 5 10 10 10h3"></path>
+<path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"></path>
+<path d="m17 4 3 3-3 3"></path>
+</svg>同時段選項</span></div><div class="shelf">
+<div class="option primary mini-watermark mini-book"><div class="option-head"><span class="option-badge">首選</span><span class="tiny muted">城市感</span></div><h3>隆福寺＋三聯書店</h3><p>最後半天用書店、街區、咖啡收尾，不再碰大型景點。</p><details class="landmark-group"><summary><svg aria-hidden="true" class="landmark-summary-icon-svg" viewbox="0 0 24 24">
+<path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"></path>
+<circle cx="12" cy="10" r="2"></circle>
+</svg><span class="landmark-summary-copy">2 個地點</span><span class="landmark-chevron">⌄</span></summary><div class="landmark-list"><div class="place" data-place="隆福寺 北京"><div class="place-main"><div><div class="place-name">隆福寺</div></div></div></div><div class="place" data-place="三聯韜奮書店 北京"><div class="place-main"><div><div class="place-name">三聯韜奮書店</div></div></div></div></div></details></div>
+<div class="option mini-watermark mini-duck"><div class="option-head"><span class="option-badge">補吃四季</span><span class="tiny muted">若第一天錯過</span></div><h3>四季民福・第二次機會</h3><p>把「吃到四季」放在這個時段，不跟列車時間互相干擾。</p><div class="place-list"><div class="place" data-place="四季民福烤鴨店 燈市口店"><div class="place-main"><div><div class="place-name">四季民福・燈市口店</div><div class="place-desc">控制離店時間，12:00 前後回飯店即可。</div></div></div></div></div></div>
 <div class="option mini-watermark mini-book"><div class="option-head"><span class="option-badge">最輕鬆</span></div><h3>王府井再走一次</h3><p>不搭任何交通；咖啡、商場、最後採買後直接回飯店。</p><div class="place-list"><div class="place" data-place="王府井步行街"><div class="place-main"><div><div class="place-name">王府井</div></div></div></div></div></div>
 </div></div>
 </article>
 <article class="event" data-end="15:20" data-start="13:15">
-<div class="event-top"><div class="time">13:15</div><div><div class="event-title">前往北京西站</div><div class="event-sub">目標 14:10–14:20 抵達；出發前看即時交通決定。</div></div><span class="kind">高鐵</span></div>
-<div class="event-body"><div class="choice-title"><span>交通二選一</span><span class="swipe-hint">左右滑</span></div><div class="shelf">
-<div class="option primary mini-watermark mini-transit"><div class="option-head"><span class="option-badge">車程順時</span></div><h3>滴滴</h3><p>高德／滴滴若顯示約 35 分鐘內，直接叫車最省力。</p><div class="place-list"><div class="place" data-place="北京西站"><div class="place-main"><div><div class="place-name">北京西站</div><div class="place-desc">建議 14:10–14:20 抵達。</div></div></div></div></div></div>
-<div class="option mini-watermark mini-transit"><div class="option-head"><span class="option-badge">塞車時</span></div><h3>地鐵</h3><p>王府井搭 8 號線 → 珠市口轉 7 號線 → 北京西站；若路面顯示 45 分鐘以上，改這條。</p><div class="place-list"><div class="place" data-place="王府井地鐵站"><div class="place-main"><div><div class="place-name">王府井站</div></div></div></div><div class="place" data-place="北京西站"><div class="place-main"><div><div class="place-name">北京西站</div></div></div></div></div></div>
-</div><div class="ticket-card" style="margin-top:12px"><h3><span class="g505-title"><svg aria-hidden="true" class="train-icon" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
-<path d="M6 3h12a2 2 0 0 1 2 2v10a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V5a2 2 0 0 1 2-2Z"></path>
-<path d="M7 7h10v5H7zM8 22l2-3M16 22l-2-3"></path>
-<circle cx="8" cy="15" r="1"></circle><circle cx="16" cy="15" r="1"></circle>
-</svg><span>G505</span></span></h3><div class="ticket-row"><b>北京西</b><span>15:20</span></div><div class="ticket-row"><b>高碑店東</b><span>15:50</span></div></div></div>
-</article>
-</div></div></section>
+<div class="event-top"><div class="time">13:15</div><div><div class="event-title">前往北京西站</div><div class="event-sub">目標 14:10–14:20 抵達；出發前看即時交通決定。</div></div><span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="15" rx="4" width="14" x="5" y="3"></rect><path d="M8 7h8v5H8M8 21l2-3M16 21l-2-3"></path><circle cx="8.5" cy="15" r=".8"></circle><circle cx="15.5" cy="15" r=".8"></circle></svg>高鐵</span></div>
+<div class="event-body">
+<div class="transport-card"><span class="transport-label">前往北京西站</span><div class="transport-row"><b>地鐵</b><span>王府井 8 號線 → 珠市口 → 7 號線 → 北京西站。</span></div><div class="transport-row"><b>滴滴</b><span>即時預估車程 ≤ 35 分鐘時可用；否則改搭地鐵。</span></div></div>
+<div class="train-live-card" data-train-card="G505">
+<div class="train-live-head"><div class="train-live-title"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M6 3h12a2 2 0 0 1 2 2v10a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V5a2 2 0 0 1 2-2Z"></path><path d="M7 7h10v5H7zM8 22l2-3M16 22l-2-3"></path><circle cx="8" cy="15" r="1"></circle><circle cx="16" cy="15" r="1"></circle></svg><span>G505</span></div><span class="flight-status-pill" data-train-field="status">尚未開始檢票</span></div>
+<div class="ticket-row"><b>北京西</b><span>15:20</span></div><div class="ticket-row"><b>高碑店東</b><span>15:50</span></div>
+<div class="train-live-grid"><div class="train-live-field"><span>檢票口</span><b data-train-field="gate">待公布</b></div><div class="train-live-field"><span>候車區</span><b data-train-field="waiting">待公布</b></div><div class="train-live-field"><span>站台</span><b data-train-field="platform">待公布</b></div></div>
+<div class="train-live-foot"><span data-train-field="updated">尚未取得當日資料</span><button aria-label="更新 G505 候車資訊" class="train-refresh-micro" data-train-refresh="G505" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 6v5h-5"></path><path d="M4 18v-5h5"></path><path d="M18.5 9A7 7 0 0 0 6.6 6.6L4 11M20 13l-2.6 4.4A7 7 0 0 1 5.5 15"></path></svg></button><span>・</span><a class="train-source-link" href="https://mobile.12306.cn/weixin/wxcore/platform" rel="noopener" target="_blank">12306 官方查詢</a></div>
 </div>
-
+</div>
+</article>
+<article class="event" data-end="18:30" data-start="16:05">
+<div class="event-top">
+<div class="time">16:05</div>
+<div>
+<div class="event-title">高碑店東 → 婚禮目的地</div>
+<div class="event-sub">抵達後前往聖林花園國際酒店；保留原指定婚禮地點。</div>
+</div>
+<span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="9" cy="13" r="5"></circle><circle cx="15" cy="13" r="5"></circle><path d="m6.5 8 2.5-4 2.5 4M12.5 8 15 4l2.5 4"></path></svg>婚禮</span>
+</div>
+<div class="event-body">
+<div class="place-list">
+<div class="place" data-place="聖林花園國際酒店 高碑店 河北">
+<div class="place-main">
+<div class="place-pin">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"></path>
+<circle cx="12" cy="10" r="2"></circle>
+</svg>
+</div>
+<div><div class="place-name">聖林花園國際酒店</div><div class="place-desc">河北高碑店 · 10/4 婚禮目的地</div></div>
+</div>
+</div>
+</div>
+<div class="route-note">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
+          抵達高碑店東後以當日高德即時交通為準。
+        </div>
+</div>
+</article></div></div></section>
+<section class="day" data-day-date="2026-10-04" id="day4">
+<button aria-controls="day4-content" aria-expanded="false" class="dayhead day-toggle" type="button">
+<div class="dayhead-main"><h2>第四天<span class="today-label">今天</span></h2></div>
+<div class="dayhead-right"><span class="date">10/4 週日</span>
+<svg aria-hidden="true" class="day-chevron" fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+</button>
+<div class="day-content" id="day4-content"><div class="day-content-inner">
+<article class="event" data-end="13:30" data-start="08:00">
+<div class="event-top">
+<div class="time">上午</div>
+<div><div class="event-title">婚禮</div><div class="event-sub">聖林花園國際酒店 · 河北高碑店</div></div>
+<span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="9" cy="13" r="5"></circle><circle cx="15" cy="13" r="5"></circle><path d="m6.5 8 2.5-4 2.5 4M12.5 8 15 4l2.5 4"></path></svg>婚禮</span>
+</div>
+<div class="event-body">
+<div class="place-list">
+<div class="place" data-place="聖林花園國際酒店 高碑店 河北">
+<div class="place-main">
+<div class="place-pin">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"></path><circle cx="12" cy="10" r="2"></circle></svg>
+</div>
+<div><div class="place-name">聖林花園國際酒店</div><div class="place-desc">婚禮場地</div></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="event" data-end="17:10" data-start="14:30">
+<div class="event-top">
+<div class="time">14:30</div>
+<div><div class="event-title">前往首都機場</div><div class="event-sub">婚禮地 → PEK T3；先看高德預估時間，目標 17:00 前後抵達。</div></div>
+<span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 15h10M11 8l7 7-7 7"></path><path d="M6 5h8" opacity=".55"></path></svg>移動</span>
+</div>
+<div class="event-body">
+<div class="place-list">
+<div class="place" data-place="北京首都國際機場 T3">
+<div class="place-main">
+<div class="place-pin">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M2 16l20-5-20-5 4 5z"></path><path d="M8 12v7l4-1 2-7"></path></svg>
+</div>
+<div><div class="place-name">北京首都國際機場 T3</div><div class="place-desc">回程 BR715 · 19:50 起飛</div></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="event flight-event" data-end="23:00" data-start="17:10">
+<div class="event-top">
+<div class="time">19:50</div>
+<div><div class="event-title">返程航班</div><div class="event-sub">BR715 · 19:50 自 PEK T3 起飛</div></div>
+<span class="kind"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m3 14 18-7-6 13-3.7-5-4.8 2.3.7-5.1L3 14Z"></path></svg>航班</span>
+</div>
+<div class="event-body">
+<div class="flight-status-card" data-flight="BR715">
+<div class="flight-detail-card embedded" data-flight-card="BR715">
+<div class="flight-detail-top">
+<div class="flight-detail-id">
+<span class="flight-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m3 14 18-7-6 13-3.7-5-4.8 2.3.7-5.1L3 14Z"></path></svg></span>
+<div><small>回程</small><strong>BR715</strong></div>
+</div>
+<span class="flight-status-pill" data-flight-field="status">計畫</span>
+</div>
+<div class="flight-route-visual">
+<div><strong>19:50</strong><span>PEK · T3</span></div>
+<div class="flight-motion-line"><svg aria-hidden="true" class="plane-icon-right moving-plane" viewbox="0 0 28 18">
+<path d="M2 8h18l4-5h2l-2.5 5H26L28 9l-2 1h-2.5l2.5 5h-2l-4-5H2z" fill="currentColor"></path>
+</svg></div>
+<div class="end"><strong>23:00</strong><span>TPE · T2</span></div>
+</div>
+<div class="flight-micro">
+<span>登機門 <b data-flight-field="gate">待公布</b></span>
+<span>·</span>
+<span class="flight-update-time" data-flight-field="updated">9/29 22:36</span>
+<button aria-label="更新 BR715" class="flight-refresh-micro" data-flight-refresh="BR715" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 6v5h-5"></path><path d="M4 18v-5h5"></path><path d="M18.5 9A7 7 0 0 0 6.6 6.6L4 11M20 13l-2.6 4.4A7 7 0 0 1 5.5 15"></path></svg></button>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div></div>
+</section></div>
 <section class="food-catalog wrap" id="foodCatalog">
 <details class="catalog-details">
 <summary>
-<div>
-<span class="catalog-kicker">FOOD COLLECTION</span>
+<div class="catalog-title-with-icon"><span class="catalog-title-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 3v8M4.5 3v5c0 2 1 3 2.5 3s2.5-1 2.5-3V3M7 11v10M15 3v18M15 3c3 1 4.5 3 4.5 6s-1.5 5-4.5 6"></path></svg></span>
+<span class="catalog-kicker">餐廳清單</span>
 <strong>全部想吃清單</strong>
 </div>
 <span class="catalog-count" id="catalogCount">—</span>
@@ -945,13 +1582,13 @@ html[data-theme="dark"] .catalog-details{background:rgba(27,34,40,.86)}
 </details>
 </section>
 </main>
-<footer><div class="wrap">北京 2026 · 路況、排隊與臨時管制以當日官方與高德資訊為準；高德按鈕會優先開啟 App，未安裝時改開網頁版。</div></footer>
-<div class="install-card" id="installCard"><div class="install-icon">✈︎</div><div class="install-copy"><b>加入主畫面</b><span>以 App 形式快速打開行程。</span></div><button class="install-btn" id="installOpen">設定</button><button aria-label="關閉" class="install-close" id="installDismiss">×</button></div>
+<footer>北京・河北婚禮行程</footer>
+<div class="install-card" id="installCard"><div class="install-icon">✈︎</div><div class="install-copy"><b>加入主畫面</b><span>從主畫面快速開啟行程。</span></div><button class="install-btn" id="installOpen">設定</button><button aria-label="關閉" class="install-close" id="installDismiss">×</button></div>
 <div class="sheet-overlay" id="overlay"></div>
 <div aria-labelledby="guideTitle" aria-modal="true" class="sheet" id="guideSheet" role="dialog">
 <div class="grabber"></div>
 <h3 id="guideTitle">加入主畫面</h3>
-<p>建議先把行程加到手機主畫面，之後可直接像 App 一樣開啟。</p>
+<p>建議先把行程加到手機主畫面，之後可直接開啟。</p>
 <div class="install-hero">
 <img alt="北京 2026 App icon" class="install-app-icon" src="data:image/png;base64,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"/>
 <div><div class="install-hero-title">北京 2026</div><div class="install-hero-sub">行程、導航與備案都在這裡</div></div>
@@ -967,12 +1604,12 @@ html[data-theme="dark"] .catalog-details{background:rgba(27,34,40,.86)}
 <h3>加入主畫面</h3>
 <div class="install-hero" style="margin-top:14px">
 <img alt="北京 2026 App icon" class="install-app-icon" src="data:image/png;base64,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"/>
-<div><div class="install-hero-title">北京 2026</div><div class="install-hero-sub">加入後可像 App 一樣直接開啟</div></div>
+<div><div class="install-hero-title">北京 2026</div><div class="install-hero-sub">加入後可從主畫面直接開啟</div></div>
 </div>
 <div class="a2hs-steps" id="installCopy"></div>
 <div class="sheet-actions"><button class="sheet-btn primary" id="installClose" style="grid-column:1/-1">知道了</button></div>
 </div>
-<div class="sheet" id="lineSheet"><div class="grabber"></div><h3>改用手機瀏覽器</h3><p id="lineCopy">LINE 內建瀏覽器可能限制外部 App 與加入主畫面功能。</p><div class="sheet-actions"><button class="sheet-btn" id="copyUrl">複製網址</button><button class="sheet-btn primary" id="lineStay">仍在 LINE 開啟</button></div></div>
+<div class="sheet" id="lineSheet"><div class="grabber"></div><h3>改用手機瀏覽器</h3><p id="lineCopy">LINE 內建瀏覽器可能限制外部應用程式與加入主畫面功能。</p><div class="sheet-actions"><button class="sheet-btn" id="copyUrl">複製網址</button><button class="sheet-btn primary" id="lineStay">仍在 LINE 開啟</button></div></div>
 <script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const fmtBJ=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -1040,29 +1677,24 @@ function addMapActions(){
     const name=place.dataset.place;
     const q=encodeURIComponent(name+' 北京');
     const wrap=document.createElement('div');
-    wrap.innerHTML=`<div class="nav-label">開啟導航</div>
-      <div class="map-actions">
-        <a class="map-action apple" href="https://maps.apple.com/?q=${q}" target="_blank" rel="noopener"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgRnJlZSA2LjcuMiBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIChJY29uczogQ0MgQlkgNC4wLCBGb250czogU0lMIE9GTCAxLjEsIENvZGU6IE1JVCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4gLS0+PHBhdGggZD0iTTMxOC43IDI2OC43Yy0uMi0zNi43IDE2LjQtNjQuNCA1MC04NC44LTE4LjgtMjYuOS00Ny4yLTQxLjctODQuNy00NC42LTM1LjUtMi44LTc0LjMgMjAuNy04OC41IDIwLjctMTUgMC00OS40LTE5LjctNzYuNC0xOS43QzYzLjMgMTQxLjIgNCAxODQuOCA0IDI3My41cTAgMzkuMyAxNC40IDgxLjJjMTIuOCAzNi43IDU5IDEyNi43IDEwNy4yIDEyNS4yIDI1LjItLjYgNDMtMTcuOSA3NS44LTE3LjkgMzEuOCAwIDQ4LjMgMTcuOSA3Ni40IDE3LjkgNDguNi0uNyA5MC40LTgyLjUgMTAyLjYtMTE5LjMtNjUuMi0zMC43LTYxLjctOTAtNjEuNy05MS45em0tNTYuNi0xNjQuMmMyNy4zLTMyLjQgMjQuOC02MS45IDI0LTcyLjUtMjQuMSAxLjQtNTIgMTYuNC02Ny45IDM0LjktMTcuNSAxOS44LTI3LjggNDQuMy0yNS42IDcxLjkgMjYuMSAyIDQ5LjktMTEuNCA2OS41LTM0LjN6Ii8+PC9zdmc+" alt="">Apple 地圖</a>
-        <button class="map-action amap" type="button" data-amap-dest="${name.replace(/"/g,'&quot;')}">
-          <span class="amap-glyph" aria-hidden="true"></span>高德地圖
-        </button>
-      </div>`;
-    place.append(...wrap.childNodes);
+    wrap.className='map-actions';
+    wrap.innerHTML=`
+      <a class="map-action apple" href="https://maps.apple.com/?q=${q}" target="_blank" rel="noopener"><svg class="map-icon" viewBox="0 0 24 24" aria-hidden="true"> <path d="M6.5 3.5 2.8 5.2v15.3l4-1.8 5.2 1.8 5.5-2 3.7 1.6V4.8l-3.9-1.6L12 5.1 6.5 3.5Z"/> <path d="M6.7 3.7v15M12 5.2v15M17.4 3.3v15" opacity=".55"/> </svg><span>Apple 地圖</span></a>
+      <button class="map-action amap" type="button" data-amap-dest="${name.replace(/"/g,'&quot;')}"><svg class="map-icon" viewBox="0 0 24 24" aria-hidden="true"> <path d="M12 21s6.2-5 6.2-11.1A6.2 6.2 0 1 0 5.8 9.9C5.8 16 12 21 12 21Z"/> <circle cx="12" cy="9.8" r="2.2" class="map-fill"/> </svg><span>高德地圖</span></button>`;
+    place.append(wrap);
   });
-  $$('.map-action.amap[data-amap-dest]').forEach(btn=>{
-    btn.addEventListener('click',()=>openGaode(btn.dataset.amapDest));
-  });
+  $$('.map-action.amap[data-amap-dest]').forEach(btn=>btn.addEventListener('click',()=>openGaode(btn.dataset.amapDest)));
 }
 addMapActions();
 
 // Date-aware priority. Before / after the trip, retain chronological layout.
-const today=fmtBJ();const travelDates=['2026-10-01','2026-10-02','2026-10-03'];
-const start=new Date('2026-10-01T00:00:00+08:00'),end=new Date('2026-10-04T00:00:00+08:00'),now=new Date();
+const today=fmtBJ();const travelDates=['2026-10-01','2026-10-02','2026-10-03','2026-10-04'];
+const start=new Date('2026-10-01T00:00:00+08:00'),end=new Date('2026-10-05T00:00:00+08:00'),now=new Date();
 if(now<start){const d=Math.ceil((start-now)/86400000);$('#tripStatus').textContent=`${d} 天後出發`;$('#tripDot').style.background='var(--orange)'}
 else if(now<end){$('#tripStatus').textContent='旅行中';$('#tripDot').style.background='var(--green)'}else{$('#tripStatus').textContent='旅程已完成';$('#tripDot').style.background='var(--sub)'}
 if(travelDates.includes(today)){
   const current=$(`[data-day-date="${today}"]`); if(current){current.classList.add('is-today');$('#days').prepend(current)}
-  const nav=$(`[data-nav-date="${today}"]`);nav?.classList.add('active');
+  const nav=$(`[data-nav-date="${today}"]`);if(nav){nav.classList.add('active','is-today')};
   // Highlight current event by Beijing time.
   const hm=timeBJ(); current?.querySelectorAll('.event[data-start][data-end]').forEach(e=>{if(hm>=e.dataset.start&&hm<e.dataset.end)e.classList.add('current')});
 }
@@ -1076,9 +1708,8 @@ function setDayOpen(day,open){
   btn?.setAttribute('aria-expanded',open?'true':'false');
 }
 const allDays=$$('.day');
-allDays.forEach(d=>setDayOpen(d,false));
-const todayDay=travelDates.includes(today)?$(`[data-day-date="${today}"]`):null;
-setDayOpen(todayDay||$('#day1'),true);
+// Keep every independent day card visible on first load; the header still lets users collapse it.
+allDays.forEach(d=>setDayOpen(d,true));
 
 $$('.day-toggle').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -1115,7 +1746,7 @@ function installStepsHTML(){
     <div class="a2hs-step"><div class="a2hs-num">3</div><div><b>選「安裝」或「加入主畫面」</b><span>完成後即可從桌面直接打開。</span></div></div>`;
 }
 $('#guideInstallSteps').innerHTML=installStepsHTML();
-if(!standalone&&!localStorage.getItem('bjGuideV4'))setTimeout(()=>showSheet(guide),450);
+if(!standalone&&!localStorage.getItem('bjGuideV4'))setTimeout(()=>showSheet(guide),700);
 $('#helpBtn').onclick=()=>{if(!standalone)showSheet(guide)};
 if(standalone)$('#helpBtn')?.classList.add('hidden');
 $('#guideClose').onclick=()=>{localStorage.setItem('bjGuideV4','1');closeSheets()};
@@ -1147,7 +1778,6 @@ $('#installClose').onclick=closeSheets;
 // LINE in-app browser. Android: best-effort intent to system browser. iOS: web pages cannot reliably force Safari; show immediate handoff instructions.
 (function(){const ua=navigator.userAgent||'';if(!/Line\//i.test(ua))return;const isAndroid=/Android/i.test(ua),isiOS=/iPhone|iPad|iPod/i.test(ua),url=location.href;if(isAndroid&&/^https?:/i.test(url)&&!sessionStorage.getItem('bjLineTriedV3')){sessionStorage.setItem('bjLineTriedV3','1');const u=new URL(url);const intent='intent://'+u.host+u.pathname+u.search+u.hash+'#Intent;scheme='+u.protocol.replace(':','')+';action=android.intent.action.VIEW;end';setTimeout(()=>location.href=intent,180)}setTimeout(()=>{if(document.visibilityState==='visible'){if(isiOS)$('#lineCopy').textContent='iPhone 的 LINE 內建瀏覽器無法由網頁可靠地強制跳到 Safari。請點右上角選單 →「以 Safari 開啟」。';showSheet($('#lineSheet'))}},700)})();$('#lineStay').onclick=closeSheets;$('#copyUrl').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);$('#copyUrl').textContent='已複製'}catch{prompt('複製網址',location.href)}};
 
-if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
 </script>
 <script>
 (function(){
@@ -1213,7 +1843,6 @@ if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.
   });
 })();
 </script>
-
 <script>
 /* v10 meal chooser */
 const FOOD_DB={"siji": {"name": "四季民福", "type": "掛爐烤鴨・京味菜", "area": "東城／燈市口", "query": "四季民福烤鴨店 燈市口店 北京", "note": "住宿圈內最好利用；國慶是否排隊以當日現場／平台為準。", "kind": "meal"}, "bianyifang": {"name": "便宜坊", "type": "燜爐烤鴨", "area": "前門／鮮魚口", "query": "便宜坊烤鴨店 鮮魚口店 北京", "note": "天壇後往前門時最順，剛好可以吃不同流派的烤鴨。", "kind": "meal"}, "xiaodiao": {"name": "小吊梨湯", "type": "京味菜・烤鴨・梨湯", "area": "多分店", "query": "小吊梨湯 北京", "note": "如果想吃京味菜但不想把整餐都押在排隊名店上，彈性很好。", "kind": "meal"}, "dahuashu": {"name": "大槐樹烤肉", "type": "炙子烤肉", "area": "東城／美術館一帶", "query": "大槐樹烤肉館 北京", "note": "老北京炙子烤肉路線；想吃牛羊肉、炭火香可以抽它。", "kind": "meal"}, "liuzhizi": {"name": "劉炙子烤肉", "type": "炙子烤肉", "area": "虎坊橋一帶", "query": "劉記炙子烤肉 北京", "note": "更偏老北京炙子烤肉體驗；若當天在前門／虎坊橋一帶較適合。", "kind": "meal"}, "longtimeago": {"name": "很久以前羊肉串", "type": "羊肉串・燒烤", "area": "王府井等多分店", "query": "很久以前羊肉串 王府井 北京", "note": "晚上想吃串、不想研究太多時很適合；王府井有分店較方便。", "kind": "meal"}, "donglaishun": {"name": "東來順", "type": "老北京涮羊肉", "area": "王府井等多分店", "query": "東來順 王府井 北京", "note": "想把北京味換成清湯銅鍋涮羊肉時很好用。", "kind": "meal"}, "manhengji": {"name": "滿恒記", "type": "清真涮羊肉", "area": "西城", "query": "滿恒記 北京", "note": "也是涮羊肉候選；位置不一定最順，抽到後先看高德再決定。", "kind": "meal"}, "nanmen": {"name": "南門涮肉", "type": "銅鍋涮羊肉", "area": "多分店", "query": "南門涮肉 北京", "note": "原行程備案之一；適合想吃傳統涮肉又不想吃烤鴨的晚上。", "kind": "meal"}, "luzhu": {"name": "鹵煮火燒", "type": "北京小吃", "area": "前門／南城較常見", "query": "鹵煮火燒 北京", "note": "這是品項而不是單一店家；按地圖後看附近高評價老店。", "kind": "meal"}, "meizhou": {"name": "湄洲酒家", "type": "中餐・福建風味", "area": "多分店", "query": "湄洲酒家 北京", "note": "想暫時離開京味、換一餐多人中式菜時可以抽。", "kind": "meal"}, "jindingxuan": {"name": "金鼎軒", "type": "中式點心・家常菜", "area": "多分店", "query": "金鼎軒 北京", "note": "早餐、早午餐或一般正餐都相對好用，適合作為不想冒險的選項。", "kind": "meal"}, "zhanzhan": {"name": "詹詹", "type": "收藏候選", "area": "先看高德最近店", "query": "詹詹 北京 餐廳", "note": "保留你收藏的名稱；分店與品類以高德當下搜尋結果為準。", "kind": "meal"}, "slowboat": {"name": "悠航 SLOWBOAT", "type": "漢堡・精釀", "area": "燈市口／三里屯等", "query": "悠航 SLOWBOAT 燈市口 北京", "note": "想換西式口味很適合；燈市口店對住宿動線尤其友好。", "kind": "meal"}, "lichuanchuan": {"name": "李串串", "type": "川味串串香", "area": "北京", "query": "李串串老店 北京", "note": "重口味、多人一起吃很有氣氛；抽到後先看最近分店。", "kind": "meal"}, "huoshaoyun": {"name": "火燒雲", "type": "雲南・傣家菜", "area": "朝陽等", "query": "火燒雲傣家菜 北京", "note": "酸辣、下飯、重香料；如果想完全換口味，這個最有反差。", "kind": "meal"}, "xiaoxiangge": {"name": "瀟湘閣", "type": "湘菜", "area": "多分店", "query": "瀟湘閣 北京", "note": "想吃辣、吃飯配菜的那一餐可以抽；先看最近店。", "kind": "meal"}, "jinguyuan": {"name": "金谷園餃子", "type": "餃子・燒烤", "area": "海淀等", "query": "金谷園餃子 北京", "note": "比較適合單純想吃餃子的一餐；位置未必順路，抽到先看距離。", "kind": "meal"}, "sanqingtan": {"name": "三清潭燒鵝", "type": "粵菜・燒鵝", "area": "三里屯等", "query": "三清潭燒鵝 太古里 北京", "note": "如果願意去三里屯，適合當一餐完全不同的粵菜。", "kind": "meal"}, "haidilao": {"name": "海底撈", "type": "火鍋", "area": "多分店", "query": "海底撈 北京", "note": "最省腦、營業時間彈性高；適合累到不想做功課的晚上。", "kind": "meal"}, "ziguangyuan": {"name": "紫光園", "type": "清真京味・酸奶", "area": "多分店", "query": "紫光園 北京", "note": "早餐、小吃、酸奶都能用；很適合順路吃。", "kind": "snack"}, "qingyu": {"name": "青玉酸奶", "type": "酸奶・甜品", "area": "多分店", "query": "青玉酸奶 北京", "note": "比較適合加餐或早餐後甜點，不用為它特別跨區。", "kind": "snack"}, "longyan": {"name": "隆延茶鋪", "type": "北京茶飲", "area": "東城／朝陽多分店", "query": "隆延茶鋪 北京", "note": "米釀、烏龍、果茶類；看到順路分店再買最合理。", "kind": "snack"}, "chabingzhai": {"name": "茶餅齋乳酪餅", "type": "乳酪餅・點心", "area": "北京", "query": "茶餅齋 乳酪餅 北京", "note": "適合下午嘴饞或早餐加一樣；以高德搜尋最近門店。", "kind": "snack"}, "wuyutai": {"name": "吳裕泰冰淇淋", "type": "茶香冰淇淋", "area": "王府井／前門等", "query": "吳裕泰 冰淇淋 北京", "note": "非常適合當散步時的順手甜點，不需要獨立排時段。", "kind": "snack"}, "localbreakfast": {"name": "附近京味早餐", "type": "豆腐腦・油條・包子", "area": "王府井／東單周邊", "query": "北京早餐 豆腐腦 油條 王府井", "note": "不指定店，直接用高德找當下最近、營業中的高評價早餐。", "kind": "meal"}};
@@ -1268,12 +1897,9 @@ function pickedOrDefault(slot){
   return def&&FOOD_DB[def]?def:null;
 }
 function mapButtons(item,small=false){
-  if(small){
-    return `<a class="mini-map apple" href="${appleFoodUrl(item)}" target="_blank" rel="noopener" aria-label="Apple 地圖"></a>
-      <button class="mini-map amap food-amap" type="button" data-query="${item.query.replace(/"/g,'&quot;')}" aria-label="高德地圖">高</button>`;
-  }
-  return `<a class="food-map apple" href="${appleFoodUrl(item)}" target="_blank" rel="noopener">Apple 地圖</a>
-    <button class="food-map amap food-amap" type="button" data-query="${item.query.replace(/"/g,'&quot;')}">高德地圖</button>`;
+  const cls=small?'mini-map':'food-map';
+  return `<a class="${cls} apple" href="${appleFoodUrl(item)}" target="_blank" rel="noopener"><svg class="map-icon" viewBox="0 0 24 24" aria-hidden="true"> <path d="M6.5 3.5 2.8 5.2v15.3l4-1.8 5.2 1.8 5.5-2 3.7 1.6V4.8l-3.9-1.6L12 5.1 6.5 3.5Z"/> <path d="M6.7 3.7v15M12 5.2v15M17.4 3.3v15" opacity=".55"/> </svg><span>Apple 地圖</span></a>
+    <button class="${cls} amap food-amap" type="button" data-query="${item.query.replace(/"/g,'&quot;')}"><svg class="map-icon" viewBox="0 0 24 24" aria-hidden="true"> <path d="M12 21s6.2-5 6.2-11.1A6.2 6.2 0 1 0 5.8 9.9C5.8 16 12 21 12 21Z"/> <circle cx="12" cy="9.8" r="2.2" class="map-fill"/> </svg><span>高德地圖</span></button>`;
 }
 function renderMealPicker(slot,animate=false){
   const root=document.querySelector(`.meal-picker[data-meal-slot="${slot}"]`);
@@ -1290,8 +1916,8 @@ function renderMealPicker(slot,animate=false){
           <div class="meal-choice-name">${item.name}</div>
           <div class="meal-choice-meta">${foodTags(item)}</div>
         </div>
-        <button class="meal-random" type="button" data-random-slot="${slot}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h3c4.5 0 5 10 10 10h3"/><path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"/><path d="m17 1 3 3-3 3"/></svg>
+        <button class="meal-random random-control" type="button" data-random-slot="${slot}">
+          <svg viewBox="0 0 24 24" aria-hidden="true"> <path d="M4 7h3c4.5 0 5 10 10 10h3"/> <path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"/> <path d="m17 4 3 3-3 3"/> </svg>
           ${mealChoices[slot]?'重選':'幫我選'}
         </button>
       </div>
@@ -1305,8 +1931,8 @@ function renderMealPicker(slot,animate=false){
           <div class="meal-choice-name">不知道吃什麼？</div>
           <div class="meal-choice-meta"><span class="food-tag">${pool.length} 個候選</span><span class="food-tag">盡量不重複</span></div>
         </div>
-        <button class="meal-random" type="button" data-random-slot="${slot}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h3c4.5 0 5 10 10 10h3"/><path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"/><path d="m17 1 3 3-3 3"/></svg>
+        <button class="meal-random random-control" type="button" data-random-slot="${slot}">
+          <svg viewBox="0 0 24 24" aria-hidden="true"> <path d="M4 7h3c4.5 0 5 10 10 10h3"/> <path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"/> <path d="m17 4 3 3-3 3"/> </svg>
           幫我選
         </button>
       </div>
@@ -1330,7 +1956,7 @@ function renderMealPicker(slot,animate=false){
 
   root.innerHTML=decision+`
     <details class="meal-all">
-      <summary><span>展開全部候選</span><span>${pool.length} 家</span></summary>
+      <summary><span class="meal-all-label">展開全部候選</span><span class="meal-all-count">${pool.length} 家</span><span class="meal-all-chevron">⌄</span></summary>
       <div class="meal-list">${rows}</div>
     </details>`;
 
@@ -1382,6 +2008,296 @@ document.getElementById('foodDashAction')?.addEventListener('keydown',e=>{
   if(e.key==='Enter'||e.key===' '){e.preventDefault();e.currentTarget.click();}
 });
 </script>
+<script>
 
+
+/* Random chooser for non-food option cards */
+const CHOICE_STORE='bjOptionChoicesV11';
+let optionChoices={};
+try{optionChoices=JSON.parse(localStorage.getItem(CHOICE_STORE)||'{}')}catch(e){}
+function saveOptionChoices(){try{localStorage.setItem(CHOICE_STORE,JSON.stringify(optionChoices))}catch(e){}}
+function choiceGroupKey(event,index){
+  const day=event.closest('.day')?.id||'day';
+  const start=event.dataset.start||String(index);
+  return `${day}-${start}`;
+}
+document.querySelectorAll('.event').forEach((event,index)=>{
+  const shelf=event.querySelector('.shelf');if(!shelf)return;
+  const options=[...shelf.querySelectorAll('.option')];if(options.length<2)return;
+  const title=event.querySelector('.choice-title');if(!title)return;
+  const key=choiceGroupKey(event,index);
+  options.forEach((o,i)=>{o.dataset.choiceIndex=String(i);});
+  const btn=document.createElement('button');
+  btn.type='button';btn.className='choice-random-btn random-control';btn.innerHTML=`<svg viewBox="0 0 24 24" aria-hidden="true"> <path d="M4 7h3c4.5 0 5 10 10 10h3"/> <path d="m17 14 3 3-3 3M4 17h3c1.7 0 2.8-1.4 3.8-3M14 7c1.1-1.7 2.2-3 3.9-3H20"/> <path d="m17 4 3 3-3 3"/> </svg><span>${optionChoices[key]!==undefined?'重選':'幫我選'}</span>`;btn.setAttribute('aria-label',optionChoices[key]!==undefined?'重選':'幫我選');
+  const hint=title.querySelector('.swipe-hint');title.insertBefore(btn,hint||null);
+  const apply=i=>{
+    options.forEach(x=>x.classList.remove('choice-picked'));
+    const chosen=options[i];if(!chosen)return;
+    chosen.classList.add('choice-picked');
+    chosen.scrollIntoView?.({behavior:'smooth',block:'nearest',inline:'center'});
+  };
+  if(optionChoices[key]!==undefined)apply(Number(optionChoices[key]));
+  btn.onclick=()=>{
+    let choices=options.map((_,i)=>i);
+    const prev=optionChoices[key];
+    if(choices.length>1&&prev!==undefined)choices=choices.filter(i=>i!==Number(prev));
+    const next=choices[randIndex(choices.length)];
+    optionChoices[key]=next;saveOptionChoices();apply(next);const t=btn.querySelector('span');if(t)t.textContent='重選';btn.setAttribute('aria-label','重選');
+    try{navigator.vibrate?.(10)}catch(e){}
+  };
+});
+</script>
+<script>
+/* v17 flight status sync:
+   1) same-origin /api/flight-status if deployment provides it
+   2) last cached data
+   3) embedded schedule
+   No outbound flight-status buttons are shown. */
+const FLIGHT_CACHE_KEY='bjFlightStatusV17';
+const FLIGHT_BASE={
+  BR716:{date:'2026-10-01',departure:'2026-10-01T09:10:00+08:00',arrival:'2026-10-01T12:35:00+08:00',dep:'09:10',arr:'12:35',gate:'待公布',terminal:'T2 → T3'},
+  BR715:{date:'2026-10-04',departure:'2026-10-04T19:50:00+08:00',arrival:'2026-10-04T23:00:00+08:00',dep:'19:50',arr:'23:00',gate:'待公布',terminal:'T3 → T2'}
+};
+let flightCache={};
+try{flightCache=JSON.parse(localStorage.getItem(FLIGHT_CACHE_KEY)||'{}')}catch(e){}
+
+function flightTimeLabel(ts){
+  if(!ts)return '行程資料';
+  try{return new Intl.DateTimeFormat('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(ts))}
+  catch(e){return '行程資料'}
+}
+function timeBasedFlightStatus(flight){
+  const base=FLIGHT_BASE[flight], now=Date.now();
+  const toDeparture=(new Date(base.departure).getTime()-now)/60000;
+  const toArrival=(new Date(base.arrival).getTime()-now)/60000;
+  if(toDeparture>180)return '尚未開始報到';
+  if(toDeparture>120)return '準備報到';
+  if(toDeparture>40)return '可辦理報到';
+  if(toDeparture>0)return '準備登機';
+  if(toArrival>0)return '飛行中';
+  return '已抵達';
+}
+function normalizeFlightStatus(value,flight){
+  const raw=String(value||'').trim().toLowerCase();
+  const base=FLIGHT_BASE[flight];
+  const toDeparture=(new Date(base.departure).getTime()-Date.now())/60000;
+  const toArrival=(new Date(base.arrival).getTime()-Date.now())/60000;
+  if(/cancel|取消/.test(raw))return '已取消';
+  if(/delay|延誤/.test(raw))return '延誤';
+  if(/depart|起飛/.test(raw)&&toDeparture<=60)return '已起飛';
+  if(/arriv|抵達/.test(raw)&&toArrival<=60)return '已抵達';
+  if(/board|登機/.test(raw)&&toDeparture<=120&&toDeparture>-60)return '準備登機';
+  if(/check.?in|open|報到/.test(raw)&&toDeparture<=180&&toDeparture>0)return '可辦理報到';
+  return timeBasedFlightStatus(flight);
+}
+function normalizeGate(value){
+  const gate=String(value||'').trim().toUpperCase();
+  if(!gate||gate==='--'||gate==='N/A'||gate==='待定'||gate==='未定'||gate.length===1)return '待公布';
+  return /^(?=.*\d)[A-Z0-9-]{1,8}$/.test(gate)?gate:'待公布';
+}
+function normalizeFlightPayload(x,flight){
+  if(!x||typeof x!=='object')return null;
+  return {
+    status:normalizeFlightStatus(x.status||x.flightStatus||x.state,flight),
+    gate:normalizeGate(x.gate||x.boardingGate||x.departureGate),
+    updated:x.updated||x.updatedAt||new Date().toISOString()
+  };
+}
+function applyFlightData(flight,data){
+  document.querySelectorAll(`[data-flight-card="${flight}"]`).forEach(card=>{
+    const status=card.querySelector('[data-flight-field="status"]');
+    const gate=card.querySelector('[data-flight-field="gate"]');
+    const updated=card.querySelector('[data-flight-field="updated"]');
+    const statusText=normalizeFlightStatus(data.status,flight);
+    if(status){status.textContent=statusText;status.dataset.phase=/報到|登機/.test(statusText)?'open':(/抵達|取消/.test(statusText)?'done':'');}
+    if(gate)gate.textContent=normalizeGate(data.gate);
+    if(updated)updated.textContent=flightTimeLabel(data.updated);
+  });
+}
+Object.entries(FLIGHT_BASE).forEach(([f,b])=>applyFlightData(f,flightCache[f]||b));
+
+async function fetchFlightFromSameOrigin(flight){
+  const base=FLIGHT_BASE[flight];
+  const url=`/api/flight-status?flight=${encodeURIComponent(flight)}&date=${encodeURIComponent(base.date)}`;
+  const r=await fetch(url,{cache:'no-store',headers:{'Accept':'application/json'}});
+  if(!r.ok)throw new Error('no flight endpoint');
+  return normalizeFlightPayload(await r.json(),flight);
+}
+
+/* Best-effort textual mirror.
+   It is only accepted if the target flight number and scheduled time/date context can be recognized.
+   This may fail in mainland China; cached/embedded data remains intact. */
+async function fetchFlightMirror(flight){
+  const target=FLIGHT_BASE[flight];
+  const page=`https://r.jina.ai/https://www.trip.com/flights/status-${flight.toLowerCase()}/?date=${target.date}`;
+  const ctrl=new AbortController();
+  const timer=setTimeout(()=>ctrl.abort(),3800);
+  try{
+    const r=await fetch(page,{cache:'no-store',signal:ctrl.signal});
+    if(!r.ok)throw new Error('mirror');
+    const t=await r.text();
+    if(!t.includes(flight))throw new Error('wrong flight');
+    const [yy,mm,dd]=target.date.split('-');
+    const monthNames=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const mon=monthNames[Number(mm)-1];
+    const dateHints=[
+      target.date,
+      `${mon} ${Number(dd)}`,
+      `${mon} ${dd}`,
+      `${Number(dd)} ${mon}`,
+      `${mm}/${dd}`
+    ];
+    const correctDate=dateHints.some(x=>t.toLowerCase().includes(String(x).toLowerCase()));
+    const correctTimes=t.includes(target.dep)&&t.includes(target.arr);
+    if(!correctDate||!correctTimes)throw new Error('wrong date');
+    const gate=(t.match(/Boarding Gate\s*\n?\s*([A-Z0-9-]{1,8})/i)||[])[1];
+    const counter=(t.match(/Check-in Counter\s*\n?\s*([A-Z0-9, \-]{1,24})/i)||[])[1];
+    const statusMatch=t.match(/\b(Scheduled|On Time|Delayed|Boarding|Departed|Arrived|Cancelled)\b/i);
+    const raw=statusMatch?.[1]?.toLowerCase();
+    if(!gate&&!counter&&!raw)throw new Error('no usable fields');
+    return {
+      status:normalizeFlightStatus(raw,flight),
+      gate:normalizeGate(gate),
+      updated:new Date().toISOString()
+    };
+  }finally{clearTimeout(timer)}
+}
+
+async function syncFlight(flight,manual=false){
+  const btn=document.querySelector(`[data-flight-refresh="${flight}"]`);
+  btn?.classList.add('loading');
+  let data=null;
+  try{data=await fetchFlightFromSameOrigin(flight)}catch(e){}
+  if(!data){
+    try{data=await fetchFlightMirror(flight)}catch(e){}
+  }
+  if(data){
+    flightCache[flight]=data;
+    try{localStorage.setItem(FLIGHT_CACHE_KEY,JSON.stringify(flightCache))}catch(e){}
+    applyFlightData(flight,data);
+  }else if(flightCache[flight]){
+    applyFlightData(flight,flightCache[flight]);
+  }
+  btn?.classList.remove('loading');
+}
+document.querySelectorAll('[data-flight-refresh]').forEach(btn=>{
+  btn.onclick=()=>syncFlight(btn.dataset.flightRefresh,true);
+});
+setTimeout(()=>{syncFlight('BR716');syncFlight('BR715');},700);
+</script>
+<script>
+/* Optional G505 adapter. The static page never guesses a gate, waiting area or platform. */
+(function(){
+  const TRAIN='G505', DATE='2026-10-03', KEY='bjTrainStatusV17';
+  const pending={status:'尚未開始檢票',gate:'待公布',waiting:'待公布',platform:'待公布',updated:null,date:DATE,train:TRAIN};
+  const clean=value=>{
+    const text=String(value||'').trim();
+    return !text||/^(--|N\/?A|未定|待定|無)$/i.test(text)?'待公布':text.slice(0,18);
+  };
+  const timeStatus=()=>{
+    const minutes=(new Date('2026-10-03T15:20:00+08:00').getTime()-Date.now())/60000;
+    if(minutes>60)return '尚未開始檢票';
+    if(minutes>25)return '準備檢票';
+    if(minutes>-5)return '檢票中';
+    return '已停止檢票';
+  };
+  const formatTime=ts=>{
+    if(!ts)return '尚未取得當日資料';
+    try{return new Intl.DateTimeFormat('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(ts))+' 更新'}catch(e){return '尚未取得當日資料'}
+  };
+  function apply(data){
+    document.querySelectorAll('[data-train-card="G505"]').forEach(card=>{
+      card.querySelector('[data-train-field="status"]').textContent=data.status||timeStatus();
+      card.querySelector('[data-train-field="gate"]').textContent=clean(data.gate);
+      card.querySelector('[data-train-field="waiting"]').textContent=clean(data.waiting);
+      card.querySelector('[data-train-field="platform"]').textContent=clean(data.platform);
+      card.querySelector('[data-train-field="updated"]').textContent=formatTime(data.updated);
+    });
+  }
+  let cached=null;
+  try{cached=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
+  apply(cached?.date===DATE&&cached?.train===TRAIN?{...pending,...cached}:{...pending,status:timeStatus()});
+  async function update(manual=false){
+    const btn=document.querySelector('[data-train-refresh="G505"]');btn?.classList.add('loading');
+    try{
+      const url=`/api/train-status?train=${TRAIN}&date=${DATE}&station=${encodeURIComponent('北京西')}`;
+      const response=await fetch(url,{cache:'no-store',headers:{Accept:'application/json'}});
+      if(!response.ok)throw new Error('no train adapter');
+      const raw=await response.json();
+      const returnedTrain=String(raw.train||raw.trainNumber||raw.number||'').toUpperCase();
+      const returnedDate=String(raw.date||raw.travelDate||'');
+      if(returnedTrain!==TRAIN||(returnedDate&&returnedDate!==DATE))throw new Error('wrong train');
+      const data={train:TRAIN,date:DATE,status:clean(raw.status)==='待公布'?timeStatus():String(raw.status).slice(0,18),gate:clean(raw.gate||raw.checkGate),waiting:clean(raw.waiting||raw.waitingArea||raw.waitingRoom),platform:clean(raw.platform),updated:raw.updated||raw.updatedAt||new Date().toISOString()};
+      localStorage.setItem(KEY,JSON.stringify(data));apply(data);
+    }catch(e){
+      if(manual){const label=document.querySelector('[data-train-field="updated"]');if(label)label.textContent='目前無即時資料・請查看 12306';}
+    }finally{btn?.classList.remove('loading')}
+  }
+  document.querySelector('[data-train-refresh="G505"]')?.addEventListener('click',()=>update(true));
+  setTimeout(()=>update(false),1100);
+})();
+</script>
+<script>
+(function(){
+  const FALLBACK={
+    '2026-10-01':{max:24,min:8,code:1,cond:'晴有薄霧',precip:5,wind:10},
+    '2026-10-02':{max:25,min:10,code:1,cond:'晴有薄霧',precip:10,wind:10},
+    '2026-10-03':{max:21,min:11,code:2,cond:'晴時多雲',precip:10,wind:10},
+    '2026-10-04':{max:23,min:8,code:1,cond:'晴有薄霧',precip:5,wind:10}
+  };
+  const DATES=Object.keys(FALLBACK), KEY='bjWeatherV16';
+  const bjDate=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const label=code=>{
+    if(code===0)return '晴朗'; if([1,2].includes(code))return '晴時多雲'; if(code===3)return '多雲';
+    if([45,48].includes(code))return '霧';
+    if([51,53,55,56,57,61,63,65,66,67,80,81,82].includes(code))return '有雨';
+    if([71,73,75,77,85,86].includes(code))return '有雪';
+    if([95,96,99].includes(code))return '雷雨'; return '天氣變化';
+  };
+  const tip=d=>d.min<=8?`早晚偏冷（約 ${Math.round(d.min)}°C），薄上衣外再加輕薄外套／風衣；白天約 ${Math.round(d.max)}°C 可洋蔥式減衣。`
+    :d.min<=12?`早晚約 ${Math.round(d.min)}°C，建議薄長袖＋輕外套；白天約 ${Math.round(d.max)}°C，走路多時可脫外層。`
+    :`日夜溫差明顯，薄上衣搭可收納外套最穩；白天約 ${Math.round(d.max)}°C。`;
+  const scene=code=>[51,53,55,56,57,61,63,65,66,67,80,81,82,95,96,99].includes(code)?'rain':([2,3,45,48].includes(code)?'cloudy':'sunny');
+
+  let selected=DATES.includes(bjDate())?bjDate():'2026-10-01';
+  let state={source:'fallback',updated:'2026-09-29T22:40:00+08:00',days:{...FALLBACK}};
+  try{const c=JSON.parse(localStorage.getItem(KEY)||'null');if(c?.days)state={...state,...c,source:'cache'}}catch(e){}
+
+  function draw(){
+    const d=state.days[selected]||FALLBACK[selected]; if(!d)return;
+    document.getElementById('wxHeadline').textContent=selected.slice(5).replace('-','/')+' · 北京';
+    document.getElementById('wxTemp').textContent=Math.round(d.max)+'°';
+    document.getElementById('wxCond').textContent=d.cond||label(Number(d.code||1));
+    document.getElementById('wxRange').textContent=`最高 ${Math.round(d.max)}° · 最低 ${Math.round(d.min)}°`;
+    document.getElementById('wxExtra').textContent=`降雨 ${Math.round(d.precip||0)}% · 風速約 ${Math.round(d.wind||0)} km/h`;
+    document.getElementById('wxTip').textContent=tip(d);
+    document.getElementById('wxSource').textContent=state.source==='live'?'即時預報':state.source==='cache'?'最近快取':'預報';
+    try{document.getElementById('wxUpdated').textContent=new Intl.DateTimeFormat('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(state.updated))+' 更新'}catch(e){}
+    document.getElementById('wxAmbient').className='wx-ambient '+scene(Number(d.code||1));
+    document.querySelectorAll('[data-wx-date]').forEach(b=>b.classList.toggle('active',b.dataset.wxDate===selected));
+  }
+  document.querySelectorAll('[data-wx-date]').forEach(btn=>btn.addEventListener('click',()=>{selected=btn.dataset.wxDate;draw()}));
+
+  async function update(){
+    const btn=document.getElementById('wxRefresh'); btn?.classList.add('loading');
+    const ctrl=new AbortController(), timer=setTimeout(()=>ctrl.abort(),4200);
+    try{
+      const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=39.9042&longitude=116.4074&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max&timezone=Asia%2FShanghai&forecast_days=10',{cache:'no-store',signal:ctrl.signal});
+      if(!r.ok)throw new Error('weather');
+      const j=await r.json(), days={...FALLBACK};
+      (j.daily?.time||[]).forEach((date,i)=>{
+        if(DATES.includes(date)){
+          const code=Number(j.daily.weather_code?.[i]??1);
+          days[date]={max:Number(j.daily.temperature_2m_max?.[i]),min:Number(j.daily.temperature_2m_min?.[i]),code,cond:label(code),precip:Number(j.daily.precipitation_probability_max?.[i]??0),wind:Number(j.daily.wind_speed_10m_max?.[i]??0)};
+          const el=document.querySelector(`[data-wx-date="${date}"] strong`); if(el)el.textContent=`${Math.round(days[date].max)}° / ${Math.round(days[date].min)}°`;
+        }
+      });
+      state={source:'live',updated:new Date().toISOString(),days};
+      try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}
+    }catch(e){} finally{clearTimeout(timer);btn?.classList.remove('loading');draw()}
+  }
+  draw(); setTimeout(update,450); document.getElementById('wxRefresh')?.addEventListener('click',update);
+})();
+</script>
 </body>
 </html>
