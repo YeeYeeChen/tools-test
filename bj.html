@@ -1204,6 +1204,292 @@ html[data-theme="dark"] .event-sub,
 html[data-theme="dark"] .place-desc,
 html[data-theme="dark"] .route-note{color:#c4d0d4!important}
 
+/* ===== v17.3 — one hierarchy for days, weather and travel status ===== */
+.hero .flight-summary{display:none!important}
+.weather-wear.wrap{display:none!important}
+.weather-wear.day-weather{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:0!important;
+  border-radius:18px!important;
+  box-shadow:none!important;
+}
+.day-weather .wx-card{min-height:0!important}
+.day-weather .wx-body{padding:15px!important}
+
+/* The weather badge must remain legible in both color schemes. */
+.wx-title-icon{
+  width:38px!important;
+  height:38px!important;
+  border-radius:12px!important;
+  color:#fff!important;
+  background:var(--ui-accent)!important;
+  box-shadow:0 5px 14px color-mix(in srgb,var(--ui-accent) 28%,transparent)!important;
+}
+.wx-title-icon svg{width:21px!important;height:21px!important;stroke-width:2.05!important}
+.wx-refresh,.flight-refresh-micro,.train-refresh-micro{
+  color:var(--ui-accent)!important;
+  border:1px solid color-mix(in srgb,var(--ui-accent) 20%,var(--ui-line))!important;
+  background:color-mix(in srgb,var(--ui-accent) 7%,var(--ui-card))!important;
+}
+.wx-refresh{width:28px!important;height:28px!important;min-width:28px!important}
+.wx-refresh svg,.flight-refresh-micro svg,.train-refresh-micro svg{width:15px!important;height:15px!important}
+.wx-refresh:active,.flight-refresh-micro:active,.train-refresh-micro:active{transform:scale(.88)!important}
+.wx-refresh.refreshing,.wx-refresh.loading,
+.flight-refresh-micro.refreshing,.flight-refresh-micro.loading,
+.train-refresh-micro.refreshing,.train-refresh-micro.loading{
+  color:#fff!important;
+  background:var(--ui-accent)!important;
+  border-color:var(--ui-accent)!important;
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--ui-accent) 13%,transparent)!important;
+}
+.wx-refresh.refreshing svg,.wx-refresh.loading svg,
+.flight-refresh-micro.refreshing svg,.flight-refresh-micro.loading svg,
+.train-refresh-micro.refreshing svg,.train-refresh-micro.loading svg{
+  animation:refreshFeedbackSpin .72s linear infinite!important;
+}
+@keyframes refreshFeedbackSpin{to{transform:rotate(360deg)}}
+
+/* A single, solid installation sheet replaces the former two-step prompt. */
+#guideSheet{display:none!important}
+.sheet{
+  color:var(--ui-text)!important;
+  background:var(--ui-card)!important;
+  background-image:none!important;
+  border:1px solid var(--ui-line)!important;
+}
+.install-hero,.a2hs-step{
+  background:var(--ui-soft)!important;
+  background-image:none!important;
+  border-color:var(--ui-line)!important;
+}
+.a2hs-num{background:var(--ui-accent)!important;color:#fff!important}
+.sheet-btn{color:var(--ui-text)!important;background:var(--ui-soft)!important;border:1px solid var(--ui-line)!important}
+.sheet-btn.primary{color:#fff!important;background:var(--ui-navy)!important;border-color:var(--ui-navy)!important}
+
+/* Dark mode: no gradients behind schedules; time and status retain full contrast. */
+html[data-theme="dark"]{
+  --ui-bg:#16252b;
+  --ui-card:#243a43;
+  --ui-soft:#2c4852;
+  --ui-text:#f6fafb;
+  --ui-sub:#c5d2d6;
+  --ui-line:rgba(226,242,246,.15);
+  --ui-accent:#78d5de;
+  --ui-navy:#426d7b;
+  --ui-shadow:0 9px 24px rgba(0,0,0,.18);
+}
+html[data-theme="dark"] body{background:var(--ui-bg)!important;background-image:none!important}
+html[data-theme="dark"] .day,
+html[data-theme="dark"] .event,
+html[data-theme="dark"] .weather-wear,
+html[data-theme="dark"] .wx-card,
+html[data-theme="dark"] .flight-detail-card,
+html[data-theme="dark"] .flight-status-card,
+html[data-theme="dark"] .meal-decision,
+html[data-theme="dark"] .transport-card,
+html[data-theme="dark"] .train-live-card,
+html[data-theme="dark"] .route-card,
+html[data-theme="dark"] .place,
+html[data-theme="dark"] .shelf>.option{
+  background-image:none!important;
+}
+html[data-theme="dark"] .day,
+html[data-theme="dark"] .event,
+html[data-theme="dark"] .weather-wear,
+html[data-theme="dark"] .wx-card{background-color:var(--ui-card)!important}
+html[data-theme="dark"] .flight-detail-card,
+html[data-theme="dark"] .meal-decision,
+html[data-theme="dark"] .transport-card,
+html[data-theme="dark"] .train-live-card,
+html[data-theme="dark"] .route-card,
+html[data-theme="dark"] .place,
+html[data-theme="dark"] .shelf>.option{background-color:var(--ui-soft)!important}
+html[data-theme="dark"] .wx-ambient:after{background:rgba(36,58,67,.98)!important}
+html[data-theme="dark"] .time,
+html[data-theme="dark"] .flight-summary-time strong,
+html[data-theme="dark"] .flight-route-visual strong,
+html[data-theme="dark"] .ticket-row span,
+html[data-theme="dark"] .flight-micro b{color:#f8fcfd!important}
+html[data-theme="dark"] .event-sub,
+html[data-theme="dark"] .flight-route-visual span,
+html[data-theme="dark"] .flight-micro,
+html[data-theme="dark"] .wx-meta span,
+html[data-theme="dark"] .wx-tip{color:#c8d5d9!important}
+
+@media(prefers-reduced-motion:reduce){
+  .wx-refresh.refreshing,.flight-refresh-micro.refreshing,.train-refresh-micro.refreshing{animation:refreshPulse .7s ease-in-out!important}
+  .wx-refresh.refreshing svg,.flight-refresh-micro.refreshing svg,.train-refresh-micro.refreshing svg{animation:none!important}
+  @keyframes refreshPulse{50%{opacity:.58}}
+}
+
+/* Refresh stays a quiet micro-action: animate the glyph, never the button surface. */
+.wx-refresh,.flight-refresh-micro,.train-refresh-micro{
+  width:24px!important;
+  min-width:24px!important;
+  height:24px!important;
+  min-height:24px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:999px!important;
+  color:var(--ui-accent)!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transition:color .18s ease,transform .18s ease,opacity .18s ease!important;
+}
+.wx-refresh:hover,.flight-refresh-micro:hover,.train-refresh-micro:hover{
+  background:color-mix(in srgb,var(--ui-accent) 8%,transparent)!important;
+}
+.wx-refresh.refreshing,.wx-refresh.loading,
+.flight-refresh-micro.refreshing,.flight-refresh-micro.loading,
+.train-refresh-micro.refreshing,.train-refresh-micro.loading{
+  color:var(--ui-accent)!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  opacity:.78!important;
+}
+.wx-refresh svg,.flight-refresh-micro svg,.train-refresh-micro svg{
+  width:14px!important;
+  height:14px!important;
+}
+
+/* No gradients in navigation or information cards. */
+body,.launch-wrap,.daynav-wrap,.day,.dayhead.day-toggle,.event,
+.flight-detail-card,.flight-status-card,.meal-decision,.transport-card,
+.train-live-card,.route-card,.place,.shelf>.option,.sheet,.install-hero,.a2hs-step{
+  background-image:none!important;
+}
+.daynav-wrap{
+  background:var(--ui-bg)!important;
+  border-bottom:1px solid var(--ui-line)!important;
+}
+.wx-ambient{display:none!important}
+.weather-wear.weather-data-source{display:none!important}
+
+/* One compact, solid weather card per day. */
+.day-weather-card{
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr) auto;
+  align-items:center;
+  gap:10px;
+  padding:13px;
+  border:1px solid var(--ui-line);
+  border-radius:17px;
+  color:var(--ui-text);
+  background:var(--ui-soft)!important;
+  background-image:none!important;
+}
+.day-weather-icon{
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+  color:#fff;background:var(--ui-accent);
+}
+.day-weather-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.day-weather-copy{display:grid;gap:1px;min-width:0}
+.day-weather-copy small{font-size:9px;font-weight:780;letter-spacing:.1em;color:var(--ui-sub)}
+.day-weather-copy strong{font-size:15px;line-height:1.25}
+.day-weather-copy span{font-size:10px;line-height:1.35;color:var(--ui-sub)}
+.day-weather-temp{text-align:right;display:grid;gap:1px;font-variant-numeric:tabular-nums}
+.day-weather-temp strong{font-size:25px;line-height:1;font-weight:800;letter-spacing:-.04em;color:var(--ui-text)}
+.day-weather-temp span{font-size:9px;color:var(--ui-sub)}
+.day-weather-foot{
+  grid-column:2/-1;display:flex;align-items:center;justify-content:flex-end;gap:3px;
+  min-height:24px;margin-top:-2px;font-size:9px;color:var(--ui-sub);
+}
+/* Preserve the original weather-card hierarchy inside every day. */
+.day-weather-card{
+  display:block!important;
+  position:relative;
+  overflow:hidden;
+  padding:16px!important;
+  background:var(--ui-soft)!important;
+}
+.day-weather-head{display:flex;align-items:center;gap:10px}
+.day-weather-title{display:grid;gap:1px}
+.day-weather-title small{font-size:9px;font-weight:780;letter-spacing:.12em;color:var(--ui-sub)}
+.day-weather-title strong{font-size:14px;color:var(--ui-text)}
+.day-weather-main{display:flex;align-items:flex-end;gap:13px;margin:13px 0 11px}
+.day-weather-big-temp{font-size:48px;line-height:.9;font-weight:800;letter-spacing:-.06em;color:var(--ui-text)}
+.day-weather-meta{display:grid;gap:2px;padding-bottom:3px}
+.day-weather-meta strong{font-size:14px;color:var(--ui-text)}
+.day-weather-meta span{font-size:11px;color:var(--ui-sub)}
+.day-weather-advice{margin:0!important;font-size:11px;line-height:1.55;color:var(--ui-sub)}
+.day-weather-foot{
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;
+  gap:6px!important;min-height:25px!important;margin-top:9px!important;
+  font-size:9px!important;color:var(--ui-sub)!important;
+}
+.day-weather-source{
+  min-height:22px;padding:0 7px;border-radius:999px;display:inline-flex;align-items:center;
+  color:var(--ui-accent);background:var(--ui-card);font-weight:760;
+}
+.day.collapsed .day-content-inner{padding:0!important}
+html[data-theme="dark"] .day-weather-card{background:var(--ui-soft)!important}
+html[data-theme="dark"] .day-weather-big-temp,html[data-theme="dark"] .day-weather-meta strong{color:#f8fcfd!important}
+html[data-theme="dark"] .day-weather-meta span,html[data-theme="dark"] .day-weather-advice,html[data-theme="dark"] .day-weather-foot{color:#c8d5d9!important}
+
+/* Stronger weather palette, preserving the original card layout and current size. */
+html:not([data-theme="dark"]) .day-weather-card{
+  background:#e9f3f5!important;
+  border-color:#c6dce1!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72)!important;
+}
+html:not([data-theme="dark"]) .day-weather-card::after{
+  content:"";position:absolute;z-index:0;right:20px;top:18px;width:56px;height:56px;
+  border-radius:50%;background:rgba(244,197,78,.24);pointer-events:none;
+}
+.day-weather-card>*{position:relative;z-index:1}
+html:not([data-theme="dark"]) .day-weather-icon{background:#178ea1!important;box-shadow:0 5px 14px rgba(23,142,161,.18)}
+html:not([data-theme="dark"]) .day-weather-title small{color:#607982!important}
+html:not([data-theme="dark"]) .day-weather-title strong,
+html:not([data-theme="dark"]) .day-weather-big-temp,
+html:not([data-theme="dark"]) .day-weather-meta strong{color:#17313a!important}
+html:not([data-theme="dark"]) .day-weather-meta span,
+html:not([data-theme="dark"]) .day-weather-advice,
+html:not([data-theme="dark"]) .day-weather-foot{color:#536d76!important}
+html:not([data-theme="dark"]) .day-weather-source{color:#126f7e!important;background:#d5e8eb!important}
+html[data-theme="dark"] .day-weather-card::after{
+  content:"";position:absolute;z-index:0;right:20px;top:18px;width:56px;height:56px;
+  border-radius:50%;background:rgba(244,197,78,.10);pointer-events:none;
+}
+.day-weather-card::after{display:none!important}
+.day-weather-card>.day-weather-ambient{
+  position:absolute!important;z-index:0!important;inset:0!important;overflow:hidden;pointer-events:none;
+}
+.day-weather-sun{
+  position:absolute;right:25px;top:20px;width:54px;height:54px;border-radius:50%;
+  background:rgba(247,197,76,.34);box-shadow:0 0 0 15px rgba(247,197,76,.10);
+  animation:dayWeatherSun 5.5s ease-in-out infinite alternate;
+}
+.day-weather-cloud{
+  position:absolute;width:86px;height:24px;border-radius:999px;
+  background:rgba(255,255,255,.72);box-shadow:0 7px 18px rgba(69,110,124,.07);
+  animation:dayWeatherCloud 10s ease-in-out infinite alternate;
+}
+.day-weather-cloud::before,.day-weather-cloud::after{content:"";position:absolute;border-radius:50%;background:inherit}
+.day-weather-cloud::before{width:34px;height:34px;left:14px;top:-16px}
+.day-weather-cloud::after{width:43px;height:43px;right:10px;top:-22px}
+.day-weather-cloud.cloud-one{right:74px;top:72px}
+.day-weather-cloud.cloud-two{right:-22px;top:112px;transform:scale(.7);opacity:.48;animation-duration:13s}
+.day-weather-rain{
+  position:absolute;right:40px;top:118px;width:2px;height:18px;border-radius:999px;
+  background:rgba(50,139,173,.42);transform:rotate(14deg);
+  box-shadow:10px 3px 0 rgba(50,139,173,.38),20px -1px 0 rgba(50,139,173,.34),30px 4px 0 rgba(50,139,173,.38);
+  opacity:0;
+}
+.day-weather-ambient.sunny .day-weather-cloud{opacity:.30}
+.day-weather-ambient.cloudy .day-weather-sun{opacity:.24}
+.day-weather-ambient.cloudy .day-weather-cloud{opacity:.82}
+.day-weather-ambient.rain .day-weather-sun{opacity:.08}
+.day-weather-ambient.rain .day-weather-cloud{opacity:.88}
+.day-weather-ambient.rain .day-weather-rain{opacity:1}
+html[data-theme="dark"] .day-weather-sun{background:rgba(248,201,88,.18);box-shadow:0 0 0 15px rgba(248,201,88,.05)}
+html[data-theme="dark"] .day-weather-cloud{background:rgba(199,222,228,.18);box-shadow:none}
+@keyframes dayWeatherSun{from{transform:scale(.94)}to{transform:scale(1.04)}}
+@keyframes dayWeatherCloud{from{translate:-7px 0}to{translate:9px 0}}
+@media(prefers-reduced-motion:reduce){.day-weather-sun,.day-weather-cloud{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -1613,6 +1899,44 @@ html[data-theme="dark"] .route-note{color:#c4d0d4!important}
 <script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const fmtBJ=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+
+// Give every day its own weather card; the original weather DOM remains a hidden data source.
+const weatherPanel=$('.weather-wear');
+weatherPanel?.classList.add('weather-data-source');
+const weatherSeed={
+  '2026-10-01':{max:24,min:8,cond:'晴時多雲'},
+  '2026-10-02':{max:25,min:10,cond:'晴時多雲'},
+  '2026-10-03':{max:21,min:11,cond:'晴時多雲'},
+  '2026-10-04':{max:23,min:8,cond:'晴時多雲'}
+};
+$$('.day[data-day-date]').forEach(day=>{
+  const date=day.dataset.dayDate,d=weatherSeed[date];
+  const card=document.createElement('section');
+  card.className='day-weather-card';
+  card.dataset.dayWeatherCard=date;
+  card.setAttribute('aria-label',`${date.slice(5).replace('-','/')} 當日天氣`);
+  card.innerHTML=`
+    <div class="day-weather-ambient sunny" data-day-weather-ambient aria-hidden="true"><span class="day-weather-sun"></span><span class="day-weather-cloud cloud-one"></span><span class="day-weather-cloud cloud-two"></span><span class="day-weather-rain"></span></div>
+    <div class="day-weather-head">
+      <span class="day-weather-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"></circle><path d="M8 2v2M8 12v2M2 8h2M12 8h2"></path><path d="M8 18h10a3 3 0 0 0 0-6 5 5 0 0 0-9-1.5A4 4 0 0 0 8 18Z"></path></svg></span>
+      <div class="day-weather-title"><small>北京天氣</small><strong data-day-weather-date-label>${date.slice(5).replace('-','/')}・北京</strong></div>
+    </div>
+    <div class="day-weather-main">
+      <strong class="day-weather-big-temp" data-day-weather-max>${d.max}°</strong>
+      <div class="day-weather-meta"><strong data-day-weather-condition>${d.cond}</strong><span data-day-weather-min>最低 ${d.min}°</span><span data-day-weather-detail>降雨待更新・風速待更新</span></div>
+    </div>
+    <p class="day-weather-advice" data-day-weather-advice>早晚偏涼，建議攜帶輕薄外套。</p>
+    <div class="day-weather-foot"><span class="day-weather-source">預報</span><span data-day-weather-updated>靜態預報</span><button aria-label="更新 ${date.slice(5).replace('-','/')} 天氣" class="wx-refresh day-weather-refresh" data-weather-refresh type="button"><svg viewBox="0 0 24 24"><path d="M20 6v5h-5"></path><path d="M4 18v-5h5"></path><path d="M18.5 9A7 7 0 0 0 6.6 6.6L4 11M20 13l-2.6 4.4A7 7 0 0 1 5.5 15"></path></svg></button></div>`;
+  day.querySelector('.day-content-inner')?.prepend(card);
+});
+
+// A fresh visit starts from the overview instead of restoring an old Day 2 scroll position.
+if(!location.hash){
+  try{history.scrollRestoration='manual'}catch(e){}
+  const resetInitialScroll=()=>window.scrollTo({top:0,left:0,behavior:'auto'});
+  requestAnimationFrame(resetInitialScroll);
+  window.addEventListener('pageshow',resetInitialScroll,{once:true});
+}
 const timeBJ=()=>new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Shanghai',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date());
 
 // Direct app launch.
@@ -1708,13 +2032,18 @@ function setDayOpen(day,open){
   btn?.setAttribute('aria-expanded',open?'true':'false');
 }
 const allDays=$$('.day');
-// Keep every independent day card visible on first load; the header still lets users collapse it.
-allDays.forEach(d=>setDayOpen(d,true));
+// Open the actual current travel day (Day 1 today), never whichever section the browser last restored.
+allDays.forEach(d=>setDayOpen(d,false));
+const defaultDay=travelDates.includes(today)?$(`[data-day-date="${today}"]`):$('#day1');
+setDayOpen(defaultDay||$('#day1'),true);
 
 $$('.day-toggle').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const day=btn.closest('.day');
-    setDayOpen(day,day.classList.contains('collapsed'));
+    const willOpen=day.classList.contains('collapsed');
+    if(willOpen)allDays.forEach(d=>setDayOpen(d,false));
+    setDayOpen(day,willOpen);
+    if(willOpen)$$('.daychip').forEach(n=>n.classList.toggle('active',n.getAttribute('href')==='#'+day.id));
   });
 });
 $$('.daychip').forEach(chip=>{
@@ -1722,17 +2051,18 @@ $$('.daychip').forEach(chip=>{
     const target=$(chip.getAttribute('href'));
     if(!target)return;
     e.preventDefault();
+    allDays.forEach(d=>setDayOpen(d,false));
     setDayOpen(target,true);
+    $$('.daychip').forEach(n=>n.classList.toggle('active',n===chip));
     setTimeout(()=>target.scrollIntoView({behavior:'smooth',block:'start'}),40);
   });
 });
 
 // Day nav active on scroll
-const navs=$$('.daychip');const dayObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!travelDates.includes(today)){navs.forEach(n=>n.classList.toggle('active',n.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-32% 0px -60% 0px'});$$('.day').forEach(d=>dayObs.observe(d));
+const navs=$$('.daychip');const dayObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){navs.forEach(n=>n.classList.toggle('active',n.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-32% 0px -60% 0px'});$$('.day').forEach(d=>dayObs.observe(d));
 
 // Guide sheet / bottom sheet helpers
 const overlay=$('#overlay');const sheets=$$('.sheet');function showSheet(s){sheets.forEach(x=>x.classList.remove('show'));overlay.classList.add('show');s.classList.add('show')}function closeSheets(){sheets.forEach(x=>x.classList.remove('show'));overlay.classList.remove('show')}overlay.onclick=closeSheets;
-const guide=$('#guideSheet');
 const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
 function installStepsHTML(){
   const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
@@ -1745,11 +2075,7 @@ function installStepsHTML(){
     <div class="a2hs-step"><div class="a2hs-num">2</div><div><b>開啟瀏覽器選單</b><span>通常是右上角 ⋮ 或安裝提示。</span></div></div>
     <div class="a2hs-step"><div class="a2hs-num">3</div><div><b>選「安裝」或「加入主畫面」</b><span>完成後即可從桌面直接打開。</span></div></div>`;
 }
-$('#guideInstallSteps').innerHTML=installStepsHTML();
-if(!standalone&&!localStorage.getItem('bjGuideV4'))setTimeout(()=>showSheet(guide),700);
-$('#helpBtn').onclick=()=>{if(!standalone)showSheet(guide)};
 if(standalone)$('#helpBtn')?.classList.add('hidden');
-$('#guideClose').onclick=()=>{localStorage.setItem('bjGuideV4','1');closeSheets()};
 
 // Install prompt
 let deferredPrompt=null;
@@ -1771,9 +2097,10 @@ async function openInstallFlow(){
     <div class="a2hs-step"><div class="a2hs-num">3</div><div><b>確認安裝</b><span>之後直接從桌面開啟行程。</span></div></div>`;
   showSheet($('#installSheet'));
 }
-$('#guideDone').onclick=openInstallFlow;
+$('#helpBtn').onclick=()=>{if(!standalone)openInstallFlow()};
 $('#installOpen') && ($('#installOpen').onclick=openInstallFlow);
 $('#installClose').onclick=closeSheets;
+$('#guideSheet')?.remove();
 
 // LINE in-app browser. Android: best-effort intent to system browser. iOS: web pages cannot reliably force Safari; show immediate handoff instructions.
 (function(){const ua=navigator.userAgent||'';if(!/Line\//i.test(ua))return;const isAndroid=/Android/i.test(ua),isiOS=/iPhone|iPad|iPod/i.test(ua),url=location.href;if(isAndroid&&/^https?:/i.test(url)&&!sessionStorage.getItem('bjLineTriedV3')){sessionStorage.setItem('bjLineTriedV3','1');const u=new URL(url);const intent='intent://'+u.host+u.pathname+u.search+u.hash+'#Intent;scheme='+u.protocol.replace(':','')+';action=android.intent.action.VIEW;end';setTimeout(()=>location.href=intent,180)}setTimeout(()=>{if(document.visibilityState==='visible'){if(isiOS)$('#lineCopy').textContent='iPhone 的 LINE 內建瀏覽器無法由網頁可靠地強制跳到 Safari。請點右上角選單 →「以 Safari 開啟」。';showSheet($('#lineSheet'))}},700)})();$('#lineStay').onclick=closeSheets;$('#copyUrl').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);$('#copyUrl').textContent='已複製'}catch{prompt('複製網址',location.href)}};
@@ -2275,11 +2602,27 @@ setTimeout(()=>{syncFlight('BR716');syncFlight('BR715');},700);
     try{document.getElementById('wxUpdated').textContent=new Intl.DateTimeFormat('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(state.updated))+' 更新'}catch(e){}
     document.getElementById('wxAmbient').className='wx-ambient '+scene(Number(d.code||1));
     document.querySelectorAll('[data-wx-date]').forEach(b=>b.classList.toggle('active',b.dataset.wxDate===selected));
+    let updatedLabel='靜態預報';
+    try{updatedLabel=new Intl.DateTimeFormat('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(state.updated))+' 更新'}catch(e){}
+    DATES.forEach(date=>{
+      const day=state.days[date]||FALLBACK[date];
+      document.querySelectorAll(`[data-day-weather-card="${date}"]`).forEach(card=>{
+        card.querySelector('[data-day-weather-condition]').textContent=day.cond||label(Number(day.code||1));
+        card.querySelector('[data-day-weather-detail]').textContent=`降雨 ${Math.round(day.precip||0)}%・風速 ${Math.round(day.wind||0)} km/h`;
+        card.querySelector('[data-day-weather-max]').textContent=Math.round(day.max)+'°';
+        card.querySelector('[data-day-weather-min]').textContent='最低 '+Math.round(day.min)+'°';
+        card.querySelector('[data-day-weather-advice]').textContent=tip(day);
+        card.querySelector('.day-weather-source').textContent=state.source==='live'?'即時預報':state.source==='cache'?'最近快取':'預報';
+        card.querySelector('[data-day-weather-updated]').textContent=updatedLabel;
+        card.querySelector('[data-day-weather-ambient]').className='day-weather-ambient '+scene(Number(day.code||1));
+      });
+    });
   }
   document.querySelectorAll('[data-wx-date]').forEach(btn=>btn.addEventListener('click',()=>{selected=btn.dataset.wxDate;draw()}));
 
   async function update(){
-    const btn=document.getElementById('wxRefresh'); btn?.classList.add('loading');
+    const buttons=[...document.querySelectorAll('#wxRefresh,[data-weather-refresh]')];
+    buttons.forEach(btn=>btn.classList.add('loading'));
     const ctrl=new AbortController(), timer=setTimeout(()=>ctrl.abort(),4200);
     try{
       const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=39.9042&longitude=116.4074&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max&timezone=Asia%2FShanghai&forecast_days=10',{cache:'no-store',signal:ctrl.signal});
@@ -2294,9 +2637,27 @@ setTimeout(()=>{syncFlight('BR716');syncFlight('BR715');},700);
       });
       state={source:'live',updated:new Date().toISOString(),days};
       try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}
-    }catch(e){} finally{clearTimeout(timer);btn?.classList.remove('loading');draw()}
+    }catch(e){} finally{clearTimeout(timer);buttons.forEach(btn=>btn.classList.remove('loading'));draw()}
   }
-  draw(); setTimeout(update,450); document.getElementById('wxRefresh')?.addEventListener('click',update);
+  draw(); setTimeout(update,450); document.querySelectorAll('#wxRefresh,[data-weather-refresh]').forEach(btn=>btn.addEventListener('click',update));
+})();
+</script>
+<script>
+// Every refresh control gives immediate, visible feedback even when cached data returns quickly.
+(function(){
+  const timers=new WeakMap();
+  document.querySelectorAll('.wx-refresh,.flight-refresh-micro,.train-refresh-micro').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      clearTimeout(timers.get(btn));
+      btn.classList.add('refreshing');
+      btn.setAttribute('aria-busy','true');
+      const timer=setTimeout(()=>{
+        btn.classList.remove('refreshing');
+        btn.removeAttribute('aria-busy');
+      },1200);
+      timers.set(btn,timer);
+    });
+  });
 })();
 </script>
 </body>
